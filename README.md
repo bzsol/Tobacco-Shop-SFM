@@ -1,5 +1,5 @@
 # SFM-Project
-This is our first Java project for the Software Development for Computer Science Engineers course in University of Debrecen (Faculty of Informatics). 
+This is our first Java project for the Software Development for Computer Science Engineers course at the University of Debrecen (Faculty of Informatics). 
 Our team contains very brave and enlightened developers:
 - xjozsi
 - bzsol
