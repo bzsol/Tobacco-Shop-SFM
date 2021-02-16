@@ -7,4 +7,6 @@ Our team contains very brave and enlightened developers:
 - KBE9
 - filepfannikiara
 
-<center><img src="http://web.unideb.hu/zsolt.berecz/eki.jpg"></center>
+<p align="center">
+<img src="http://web.unideb.hu/zsolt.berecz/eki.jpg">
+</p>
