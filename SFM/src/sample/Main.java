@@ -15,6 +15,7 @@ public class Main extends Application {
         // the javax.swing package has some very good dialog boxes with options.
         int ans = JOptionPane.showConfirmDialog(null,"Are you sure, you want to exit?","Exit",JOptionPane.YES_NO_OPTION);
         if(ans == JOptionPane.YES_OPTION) {
+            System.out.println("The program closed successfully");
             window.close();
         }
     }
@@ -24,6 +25,7 @@ public class Main extends Application {
         window = primaryStage;
         window.setTitle("Basic Program");
         window.setOnCloseRequest(e -> {
+            // consume() means we return to the main window
             e.consume();
             CloseProgram();
         });
