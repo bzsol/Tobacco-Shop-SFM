@@ -12,18 +12,27 @@ import java.io.IOException;
  * JavaFX App
  */
 public class App extends Application {
-
     private static Scene scene;
+
+    public static int sorszam;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 651, 480);
+        scene = new Scene(loadFXML("loginpanel"), 640, 480);
         stage.setScene(scene);
+        stage.setResizable(false);
+        stage.setTitle("Irányítópult");
         stage.show();
     }
 
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
+        Stage stage = (Stage) scene.getWindow();
+        if (fxml.equals("loginpanel")) {
+            stage.setTitle("Login");
+        } else if (fxml.equals("registrationpanel")) {
+            stage.setTitle("Registration");
+        }
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
