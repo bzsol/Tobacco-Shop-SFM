@@ -35,7 +35,11 @@ public class UserpanelController {
         HBox h = new HBox();
         h.setMinHeight(50);
         h.setPrefWidth(1350);
-        h.setStyle("-fx-background-color: rgba(96, 96, 96, .7)");
+        if (App.sorszam % 2 == 0) {
+            h.setStyle("-fx-background-color: rgba(86, 86, 86, .8)");
+        } else {
+            h.setStyle("-fx-background-color: rgba(132, 132, 132, .8)");
+        }
         Label l1 = new Label(datas[0]);
         Label l2 = new Label(datas[1]);
         Label l3 = new Label(datas[2]);
@@ -65,7 +69,6 @@ public class UserpanelController {
         btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 String id = ((Button)e.getSource()).getParent().getId();
-                System.out.println(id);
                 int elementId = 0;
                 int numOfRuns = 0;
                 for (var item : userPanelVbox.getChildren()) {
@@ -75,6 +78,15 @@ public class UserpanelController {
                     numOfRuns++;
                 }
                 userPanelVbox.getChildren().remove(elementId);
+                numOfRuns = 0;
+                for (var item : userPanelVbox.getChildren()) {
+                    if (numOfRuns % 2 == 0) {
+                        item.setStyle("-fx-background-color: rgba(86, 86, 86, .8)");
+                    } else {
+                        item.setStyle("-fx-background-color: rgba(132, 132, 132, .8)");
+                    }
+                    numOfRuns++;
+                }
                 App.sorszam--;
             }
         });

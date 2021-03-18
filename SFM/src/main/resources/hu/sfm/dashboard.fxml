@@ -10,7 +10,7 @@
    <children>
       <AnchorPane prefHeight="900.0" prefWidth="240.0" style="-fx-background-color: #2199dd;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1360.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox prefHeight="320.0" prefWidth="254.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <VBox prefHeight="900.0" prefWidth="240.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Button fx:id="dashMenuBtn1" mnemonicParsing="false" onAction="#dashLoadMenu1" onMouseEntered="#onMouseEnteredDashMenu1" onMouseExited="#onMouseExitedDashMenu1" prefHeight="40.0" prefWidth="240.0" style="-fx-background-color: #2199dd; -fx-alignment: BASELINE_LEFT; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: white; -fx-background-radius: 0px;" text="Menu 1" textFill="WHITE">
                      <font>

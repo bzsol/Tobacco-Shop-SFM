@@ -65,6 +65,9 @@ public class DashboardController {
 
     @FXML
     private void dashLoadMenu1(ActionEvent event) throws IOException {
+        if (dashMenuLoaderPane.getChildren().size() > 0) {
+            dashMenuLoaderPane.getChildren().remove(0);
+        }
         Pane loadNewPane = FXMLLoader.load(getClass().getResource("userpanel.fxml"));
         dashMenuLoaderPane.getChildren().add(loadNewPane);
     }
@@ -95,7 +98,9 @@ public class DashboardController {
      */
     @FXML
     private void dashLoadMenu2(ActionEvent event) {
-        dashMenuLoaderPane.getChildren().remove(0);
+        if (dashMenuLoaderPane.getChildren().size() > 0) {
+            dashMenuLoaderPane.getChildren().remove(0);
+        }
     }
 
     @FXML

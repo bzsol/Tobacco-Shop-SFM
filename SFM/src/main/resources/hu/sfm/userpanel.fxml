@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="695.0" prefWidth="1360.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.sfm.UserpanelController">
+<AnchorPane prefHeight="695.0" prefWidth="1360.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.sfm.UserpanelController" stylesheets="@../../style/style.css">
    <children>
       <HBox layoutY="63.0" prefHeight="50.0" prefWidth="1360.0" style="-fx-background-color: #2199dd; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;">
          <children>
@@ -51,7 +51,7 @@
             <Font name="Segoe UI Bold" size="20.0" />
          </font>
       </Label>
-      <ScrollPane layoutY="130.0" prefHeight="565.0" prefWidth="1360.0" style="-fx-region-background: none;" vbarPolicy="ALWAYS">
+      <ScrollPane hbarPolicy="NEVER" layoutY="130.0" prefHeight="565.0" prefWidth="1360.0" style="-fx-region-background: none;">
          <content>
             <VBox fx:id="userPanelVbox" prefHeight="575.0" prefWidth="1345.0" style="-fx-background-color: #121212;" />
          </content>
