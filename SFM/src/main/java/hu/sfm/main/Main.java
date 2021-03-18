@@ -14,7 +14,7 @@ import java.io.IOException;
 
         @Override
         public void start(Stage stage) throws IOException {
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/dashboard.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/loginpanel.fxml"));
             Scene scene = new Scene(root);
             stage.setTitle("Vezérlőpult");
             stage.setScene(scene);
