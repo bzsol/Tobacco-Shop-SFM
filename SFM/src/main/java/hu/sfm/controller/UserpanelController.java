@@ -1,5 +1,6 @@
 package hu.sfm.controller;
 
+import hu.sfm.main.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -33,11 +34,11 @@ public class UserpanelController {
         HBox h = new HBox();
         h.setMinHeight(50);
         h.setPrefWidth(1350);
-        /*if (App.sorszam % 2 == 0) {
+        if (Main.sorszam % 2 == 0) {
             h.setStyle("-fx-background-color: rgba(86, 86, 86, .8)");
         } else {
             h.setStyle("-fx-background-color: rgba(132, 132, 132, .8)");
-        } */
+        }
         Label l1 = new Label(datas[0]);
         Label l2 = new Label(datas[1]);
         Label l3 = new Label(datas[2]);
@@ -63,7 +64,7 @@ public class UserpanelController {
         btn.setTextFill(Paint.valueOf("white"));
         btn.setFont(Font.font("Segoe UI", 14));
         btn.setCursor(Cursor.HAND);
-        //h.setId("" + App.sorszam);
+        h.setId("" + Main.sorszam);
         btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 String id = ((Button)e.getSource()).getParent().getId();
@@ -85,7 +86,7 @@ public class UserpanelController {
                     }
                     numOfRuns++;
                 }
-                //App.sorszam--;
+                Main.sorszam--;
             }
         });
         h.getChildren().add(l1);
@@ -95,7 +96,7 @@ public class UserpanelController {
         h.getChildren().add(l5);
         h.getChildren().add(btn);
         userPanelVbox.getChildren().add(h);
-        //App.sorszam++;
+        Main.sorszam++;
         addNewUser.setText("");
         addNewUser.setPromptText("Adatbevitel...");
     }

@@ -1,5 +1,6 @@
 package hu.sfm.controller;
 
+import hu.sfm.main.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -56,6 +57,6 @@ public class LoginController {
     // Hyperlink a regisztrációs GUI-ra
     @FXML
     private void onActionRegistrationLink(ActionEvent event) throws IOException {
-
+        Main.setRoot("/fxml/registrationpanel");
     }
 }
