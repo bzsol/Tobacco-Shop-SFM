@@ -121,6 +121,7 @@ public class RegistrationController {
                     uDAO.saveUser(u);
                     Main.setRoot("/fxml/loginpanel");
 
+
                 }
                 regUserInput.setText("");
                 regPassInput.setText("");
