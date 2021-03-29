@@ -41,15 +41,15 @@
                 <Font name="Segoe UI Bold" size="20.0" />
             </font>
         </Label>
-        <PasswordField layoutX="300.0" layoutY="152.0" onMouseEntered="#onMouseEnteredPw" onMouseExited="#onMouseExitedPw" prefHeight="25.0" prefWidth="287.0" style="-fx-background-color: white; -fx-border-color: #2190dd; -fx-border-width: 2px; -fx-background-insets: 0;" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="53.0">
+        <PasswordField fx:id="regPassInput" layoutX="300.0" layoutY="152.0" onMouseEntered="#onMouseEnteredPw" onMouseExited="#onMouseExitedPw" prefHeight="25.0" prefWidth="287.0" style="-fx-background-color: white; -fx-border-color: #2190dd; -fx-border-width: 2px; -fx-background-insets: 0;" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="53.0">
             <font>
                 <Font name="Segoe UI" size="12.0" />
             </font></PasswordField>
-        <TextField layoutX="300.0" layoutY="97.0" onMouseEntered="#onMouseEnteredText" onMouseExited="#onMouseExitedText" prefHeight="25.0" prefWidth="287.0" style="-fx-background-color: white; -fx-border-color: #2190dd; -fx-border-width: 2px; -fx-background-insets: 0;" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="53.0">
+        <TextField fx:id="regUserInput" layoutX="300.0" layoutY="97.0" onMouseEntered="#onMouseEnteredText" onMouseExited="#onMouseExitedText" prefHeight="25.0" prefWidth="287.0" style="-fx-background-color: white; -fx-border-color: #2190dd; -fx-border-width: 2px; -fx-background-insets: 0;" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="53.0">
             <font>
                 <Font name="Segoe UI" size="12.0" />
             </font></TextField>
-        <Button fx:id="registrationBtn" layoutX="300.0" layoutY="269.0" mnemonicParsing="false" onMouseEntered="#onMouseEnteredRegistration" onMouseExited="#onMouseExitedRegistration" prefHeight="25.0" prefWidth="287.0" style="-fx-background-color: white;" text="Regisztrálok" textFill="#2190dd" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="53.0">
+        <Button fx:id="registrationBtn" layoutX="300.0" layoutY="269.0" mnemonicParsing="false" onAction="#onRegistration" onMouseEntered="#onMouseEnteredRegistration" onMouseExited="#onMouseExitedRegistration" prefHeight="25.0" prefWidth="287.0" style="-fx-background-color: white;" text="Regisztrálok" textFill="#2190dd" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="53.0">
             <font>
                 <Font name="Segoe UI Bold" size="14.0" />
             </font>
@@ -70,7 +70,7 @@
             <Font name="Segoe UI" size="16.0" />
          </font>
       </Label>
-      <PasswordField fx:id="registrationPwAgainField" layoutX="300.0" layoutY="208.0" onMouseEntered="#onMouseEnteredPwAgain" onMouseExited="#onMouseExitedPwAgain" prefHeight="25.0" prefWidth="287.0" style="-fx-background-color: white; -fx-border-color: #2190dd; -fx-border-width: 2px; -fx-background-insets: 0;">
+      <PasswordField fx:id="regPwAgainField" layoutX="300.0" layoutY="208.0" onMouseEntered="#onMouseEnteredPwAgain" onMouseExited="#onMouseExitedPwAgain" prefHeight="25.0" prefWidth="287.0" style="-fx-background-color: white; -fx-border-color: #2190dd; -fx-border-width: 2px; -fx-background-insets: 0;">
          <font>
             <Font name="Segoe UI" size="12.0" />
          </font>

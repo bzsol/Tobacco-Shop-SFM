@@ -41,15 +41,15 @@
             <Font name="Segoe UI Bold" size="20.0" />
          </font>
       </Label>
-      <PasswordField layoutX="300.0" layoutY="152.0" onMouseEntered="#onMouseEnteredPw" onMouseExited="#onMouseExitedPw" prefHeight="25.0" prefWidth="287.0" style="-fx-background-color: white; -fx-border-color: #2190dd; -fx-border-width: 2px; -fx-background-insets: 0;" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="53.0">
+      <PasswordField fx:id="logInputPassw" layoutX="300.0" layoutY="152.0" onMouseEntered="#onMouseEnteredPw" onMouseExited="#onMouseExitedPw" prefHeight="25.0" prefWidth="287.0" style="-fx-background-color: white; -fx-border-color: #2190dd; -fx-border-width: 2px; -fx-background-insets: 0;" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="53.0">
          <font>
             <Font name="Segoe UI" size="12.0" />
          </font></PasswordField>
-      <TextField layoutX="300.0" layoutY="97.0" onMouseEntered="#onMouseEnteredText" onMouseExited="#onMouseExitedText" prefHeight="25.0" prefWidth="287.0" style="-fx-background-color: white; -fx-border-color: #2190dd; -fx-border-width: 2px; -fx-background-insets: 0;" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="53.0">
+      <TextField fx:id="logInputUname" layoutX="300.0" layoutY="97.0" onMouseEntered="#onMouseEnteredText" onMouseExited="#onMouseExitedText" prefHeight="25.0" prefWidth="287.0" style="-fx-background-color: white; -fx-border-color: #2190dd; -fx-border-width: 2px; -fx-background-insets: 0;" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="53.0">
          <font>
             <Font name="Segoe UI" size="12.0" />
          </font></TextField>
-      <Button fx:id="loginBtn" layoutX="300.0" layoutY="209.0" mnemonicParsing="false" onMouseEntered="#onMouseEnteredLogin" onMouseExited="#onMouseExitedLogin" prefHeight="25.0" prefWidth="287.0" style="-fx-background-color: white;" text="Bejelentkezés" textFill="#2190dd" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="53.0">
+      <Button fx:id="loginBtn" layoutX="300.0" layoutY="209.0" mnemonicParsing="false" onAction="#onLogIn" onMouseEntered="#onMouseEnteredLogin" onMouseExited="#onMouseExitedLogin" prefHeight="25.0" prefWidth="287.0" style="-fx-background-color: white;" text="Bejelentkezés" textFill="#2190dd" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="53.0">
          <font>
             <Font name="Segoe UI Bold" size="14.0" />
          </font>

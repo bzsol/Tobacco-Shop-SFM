@@ -1,11 +1,13 @@
 package hu.sfm.controller;
 
+import hu.sfm.entity.Permission;
+import hu.sfm.entity.User;
 import hu.sfm.main.Main;
+import hu.sfm.utils.JPAUserDAO;
+import hu.sfm.utils.UserDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Paint;
 import javafx.util.Duration;
@@ -24,6 +26,15 @@ public class RegistrationController {
 
     @FXML
     private Label registrationPwAgainLabel;
+
+    @FXML
+    private PasswordField regPassInput;
+
+    @FXML
+    private TextField regUserInput;
+
+    @FXML
+    private PasswordField regPwAgainField;
 
     @FXML
     private Button unameInfoBtn;
@@ -84,5 +95,48 @@ public class RegistrationController {
     @FXML
     private void onActionLoginLink(ActionEvent event) throws IOException {
         Main.setRoot("/fxml/loginpanel");
+    }
+
+    @FXML
+    void onRegistration(ActionEvent event) {
+
+        User u = new User();
+        String userName = regUserInput.getText();
+        String passwd = regPassInput.getText();
+        String check = regPwAgainField.getText();
+        boolean volte = false;
+        if (passwd.equals(check)) {
+            try {
+                UserDAO uDAO = new JPAUserDAO();
+                for (User user : uDAO.getUser()) {
+                    if (user.getUsername().contains(userName)) {
+                        volte = true;
+                        break;
+                    }
+                }
+                if (!volte) {
+                    u.setUsername(userName);
+                    u.setPassword(check);
+                    u.setPerm(Permission.ADMIN);
+                    uDAO.saveUser(u);
+                    Main.setRoot("/fxml/loginpanel");
+
+                }
+                regUserInput.setText("");
+                regPassInput.setText("");
+                regPwAgainField.setText("");
+
+                uDAO.close();
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
+        } else {
+            System.out.println("nem jó a jelszó!");
+        }
+
     }
 }

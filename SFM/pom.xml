@@ -37,12 +37,6 @@
             <version>5.4.29.Final</version>
         </dependency>
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.4.200</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.clojure</groupId>
             <artifactId>java.jdbc</artifactId>
             <version>0.7.12</version>
@@ -58,6 +52,12 @@
             <artifactId>junit-jupiter-params</artifactId>
             <version>5.7.0</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.200</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
     <build>
