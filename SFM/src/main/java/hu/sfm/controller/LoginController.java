@@ -80,21 +80,28 @@ public class LoginController {
         boolean validate = false;
         try {
             UserDAO uDAO = new JPAUserDAO();
-            List<User> users = uDAO.getUser();
-            for (User u : users) {
-                if (u.getUsername().contains(userName) && u.getPassword().contains(passWord)) {
-
-                    validate = true;
-                }
-            }
-            if (validate) {
-                System.out.println("Login Succesfull!");
-                Main.setRoot("/fxml/dashboard");
-            } else {
+            if(userName.equals("")||passWord.equals("")){
                 System.out.println("Wrong!");
                 logInputPassw.setText("");
                 logInputUname.setText("");
+            }else {
 
+                for (User u : uDAO.getUser()) {
+                    if (u.getUsername().contains(userName) && u.getPassword().contains(passWord)) {
+
+                        validate = true;
+                        break;
+                    }
+                }
+                if (validate) {
+                    System.out.println("Login Succesfull!");
+                    Main.setRoot("/fxml/dashboard");
+                } else {
+                    System.out.println("Wrong!");
+                    logInputPassw.setText("");
+                    logInputUname.setText("");
+
+                }
             }
             uDAO.close();
 

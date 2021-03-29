@@ -16,6 +16,7 @@ public class User {
         return id;
     }
 
+    @Column(nullable = false)
     private String Username;
 
 
@@ -27,9 +28,10 @@ public class User {
         Username = username;
     }
 
+    @Column(nullable = false)
     private String Password;
 
-    @Basic
+
     public String getPassword() {
         return Password;
     }
