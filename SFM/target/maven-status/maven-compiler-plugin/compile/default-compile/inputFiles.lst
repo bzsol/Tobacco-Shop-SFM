@@ -1,5 +1,10 @@
-C:\Users\Fanni\Desktop\Mérnökinfó\2.év\Szoftverfejlesztés mérnököknek\Github\SFM-Project\SFM\src\main\java\hu\sfm\controller\DashboardController.java
-C:\Users\Fanni\Desktop\Mérnökinfó\2.év\Szoftverfejlesztés mérnököknek\Github\SFM-Project\SFM\src\main\java\hu\sfm\controller\RegistrationController.java
-C:\Users\Fanni\Desktop\Mérnökinfó\2.év\Szoftverfejlesztés mérnököknek\Github\SFM-Project\SFM\src\main\java\hu\sfm\controller\LoginController.java
-C:\Users\Fanni\Desktop\Mérnökinfó\2.év\Szoftverfejlesztés mérnököknek\Github\SFM-Project\SFM\src\main\java\hu\sfm\main\Main.java
-C:\Users\Fanni\Desktop\Mérnökinfó\2.év\Szoftverfejlesztés mérnököknek\Github\SFM-Project\SFM\src\main\java\hu\sfm\controller\UserpanelController.java
+D:\4felev\szfm\SFM-Project\SFM\src\main\java\hu\sfm\controller\RegistrationController.java
+D:\4felev\szfm\SFM-Project\SFM\src\main\java\hu\sfm\controller\DashboardController.java
+D:\4felev\szfm\SFM-Project\SFM\src\main\java\hu\sfm\entity\User.java
+D:\4felev\szfm\SFM-Project\SFM\src\main\java\hu\sfm\main\Main.java
+D:\4felev\szfm\SFM-Project\SFM\src\main\java\hu\sfm\controller\PurchasepanelController.java
+D:\4felev\szfm\SFM-Project\SFM\src\main\java\hu\sfm\utils\JPAUserDAO.java
+D:\4felev\szfm\SFM-Project\SFM\src\main\java\hu\sfm\controller\UserpanelController.java
+D:\4felev\szfm\SFM-Project\SFM\src\main\java\hu\sfm\entity\Permission.java
+D:\4felev\szfm\SFM-Project\SFM\src\main\java\hu\sfm\controller\LoginController.java
+D:\4felev\szfm\SFM-Project\SFM\src\main\java\hu\sfm\utils\UserDAO.java

@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.h2.tools.Server;
 
 import java.io.IOException;
 
@@ -14,8 +15,9 @@ import java.io.IOException;
         public static int sorszam;
 
         @Override
-        public void start(Stage stage) throws IOException {
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/dashboard.fxml"));
+        public void start(Stage stage) throws Exception {
+            new Server().runTool("-tcp", "-web", "-ifNotExists");
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/registrationpanel.fxml"));
             scene = new Scene(root);
             stage.setTitle("Vezérlőpult");
             stage.setScene(scene);
