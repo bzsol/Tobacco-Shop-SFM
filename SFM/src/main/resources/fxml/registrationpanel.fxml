@@ -17,7 +17,7 @@
             <children>
                 <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="45.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="/images/warehouse.png" />
+                        <Image url="@../images/warehouse.png" />
                     </image>
                 </ImageView>
                 <Label layoutX="27.0" layoutY="222.0" text="Ittleszmajdanévgeci" textFill="WHITE">
@@ -75,5 +75,10 @@
             <Font name="Segoe UI" size="12.0" />
          </font>
       </PasswordField>
+      <Button fx:id="unameInfoBtn" layoutX="567.0" layoutY="74.0" mnemonicParsing="false" onMouseEntered="#onMouseEnteredUnameInfo" prefHeight="20.0" prefWidth="20.0" style="-fx-background-color: transparent; -fx-border-color: #2199dd; -fx-border-width: 2px; -fx-border-radius: 75%; -fx-padding: 0;" text="!" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

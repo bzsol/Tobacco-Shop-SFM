@@ -22,7 +22,7 @@
                         <Font name="Segoe UI Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="dashMenuBtn3" mnemonicParsing="false" onMouseEntered="#onMouseEnteredDashMenu3" onMouseExited="#onMouseExitedDashMenu3" prefHeight="40.0" prefWidth="240.0" style="-fx-background-color: #2199dd; -fx-alignment: BASELINE_LEFT; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: white; -fx-background-radius: 0px;" text="Menu 3" textFill="WHITE">
+                  <Button fx:id="dashMenuBtn3" mnemonicParsing="false" onAction="#dashLoadMenu3" onMouseEntered="#onMouseEnteredDashMenu3" onMouseExited="#onMouseExitedDashMenu3" prefHeight="40.0" prefWidth="240.0" style="-fx-background-color: #2199dd; -fx-alignment: BASELINE_LEFT; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: white; -fx-background-radius: 0px;" text="Menu 3" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Bold" size="16.0" />
                      </font>

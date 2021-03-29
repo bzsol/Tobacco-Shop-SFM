@@ -1,6 +1,9 @@
 hu\sfm\controller\LoginController.class
 hu\sfm\controller\RegistrationController.class
-hu\sfm\controller\DashboardController.class
 hu\sfm\controller\UserpanelController.class
-hu\sfm\controller\UserpanelController$1.class
 hu\sfm\main\Main.class
+hu\sfm\controller\BuymenuController1.class
+hu\sfm\controller\Tabpane.class
+hu\sfm\controller\UserpanelController$1.class
+hu\sfm\controller\PurchasepanelController.class
+hu\sfm\controller\DashboardController.class

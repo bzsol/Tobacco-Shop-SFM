@@ -5,8 +5,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Paint;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -22,6 +24,9 @@ public class RegistrationController {
 
     @FXML
     private Label registrationPwAgainLabel;
+
+    @FXML
+    private Button unameInfoBtn;
 
     /** Designt megvalósító eventek **/
     @FXML
@@ -64,6 +69,14 @@ public class RegistrationController {
     @FXML
     private void onMouseExitedPwAgain(MouseEvent event) {
         registrationPwAgainLabel.setTextFill(Paint.valueOf("#2199dd"));
+    }
+
+    @FXML
+    private void onMouseEnteredUnameInfo(MouseEvent event) {
+        Tooltip tooltip = new Tooltip("- A felhasználónév maximum X karakterből állhat\n- A felhasználónév csak az angol ABC kis- és nagybetűit tartalmazhatja\nilletve számokat diló");
+        tooltip.setShowDelay(Duration.seconds(0.1));
+        tooltip.setStyle("-fx-background-color: white; -fx-font-size: 12px; -fx-text-fill: #2199dd");
+        unameInfoBtn.setTooltip(tooltip);
     }
     /** Designt megvalósító eventek **/
 
