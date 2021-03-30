@@ -1,5 +1,19 @@
 package hu.sfm.controller;
 
-public class PurchasepanelController {
+import hu.sfm.main.Main;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
+import java.io.IOException;
+
+public class PurchasepanelController {
+    @FXML
+    private void openProductCategory1() throws IOException {
+        Main.actualPane.getChildren().remove(0);
+        Pane loadNewPane = FXMLLoader.load(getClass().getResource("/fxml/buymenu1.fxml"));
+        Main.actualPane.getChildren().add(loadNewPane);
+    }
 }

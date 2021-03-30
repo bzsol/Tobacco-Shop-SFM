@@ -1,5 +1,6 @@
 package hu.sfm.controller;
 
+import hu.sfm.main.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -121,6 +122,20 @@ public class DashboardController {
                         "-fx-border-color: white;" +
                         "-fx-alignment: BASELINE_LEFT"
         );
+    }
+
+    @FXML
+    private void dashLoadMenu3(ActionEvent event) throws IOException {
+        if (Main.actualPane == null) {
+            System.out.println("Debug message");
+        }
+        Main.actualPane = dashMenuLoaderPane;
+        if (dashMenuLoaderPane.getChildren().size() > 0) {
+            dashMenuLoaderPane.getChildren().remove(0);
+        }
+        Pane loadNewPane = FXMLLoader.load(getClass().getResource("/fxml/purchasepanel.fxml"));
+        Main.mainBuyMenuPane = loadNewPane;
+        dashMenuLoaderPane.getChildren().add(loadNewPane);
     }
 
     @FXML
