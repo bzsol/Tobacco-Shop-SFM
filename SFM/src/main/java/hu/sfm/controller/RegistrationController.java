@@ -3,6 +3,7 @@ package hu.sfm.controller;
 import hu.sfm.entity.Permission;
 import hu.sfm.entity.User;
 import hu.sfm.main.Main;
+import hu.sfm.utils.Encryption;
 import hu.sfm.utils.JPAUserDAO;
 import hu.sfm.utils.UserDAO;
 import javafx.event.ActionEvent;
@@ -13,6 +14,10 @@ import javafx.scene.paint.Paint;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.Date;
+import java.util.Objects;
+
 
 public class RegistrationController {
     @FXML
@@ -121,6 +126,7 @@ public class RegistrationController {
     void onRegistration(ActionEvent event) {
 
         User u = new User();
+
         String userName = regUserInput.getText();
         String passwd = regPassInput.getText();
         String check = regPwAgainField.getText();
@@ -136,8 +142,9 @@ public class RegistrationController {
                 }
                 if (!volte) {
                     u.setUsername(userName);
-                    u.setPassword(check);
-                    u.setPerm(Permission.ADMIN);
+                    u.setPassword(new Encryption().titkosit(check));
+                    u.setPerm(Permission.DEFAULT);
+                    u.setregDate(LocalDate.now());
                     uDAO.saveUser(u);
                     Main.setRoot("/fxml/loginpanel");
 
@@ -160,4 +167,5 @@ public class RegistrationController {
         }
 
     }
+
 }

@@ -1,6 +1,9 @@
 package hu.sfm.entity;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
 public class Product {
@@ -18,6 +21,7 @@ public class Product {
 
     private String Name;
 
+    @NotNull
     @Basic
     public String getName() {
         return Name;
@@ -59,5 +63,16 @@ public class Product {
 
     public void setProductGroups(ProductGroups productGroups) {
         this.productGroups = productGroups;
+    }
+
+    private Date timeStamp;
+
+    @Basic
+    public Date getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(Date timeStamp) {
+        this.timeStamp = timeStamp;
     }
 }

@@ -1,6 +1,11 @@
 package hu.sfm.entity;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
+
 
 @Entity
 public class User {
@@ -16,10 +21,11 @@ public class User {
         return id;
     }
 
-    @Column(nullable = false)
+
     private String Username;
 
 
+    @Basic(optional = false)
     public String getUsername() {
         return Username;
     }
@@ -28,10 +34,11 @@ public class User {
         Username = username;
     }
 
-    @Column(nullable = false)
+
     private String Password;
 
 
+    @Basic(optional = false)
     public String getPassword() {
         return Password;
     }
@@ -50,5 +57,15 @@ public class User {
 
     public void setPerm(Permission perm) {
         this.perm = perm;
+    }
+    @Column(columnDefinition = "DATE")
+    private LocalDate regDate;
+
+    public LocalDate getregDate() {
+        return regDate;
+    }
+
+    public void setregDate(LocalDate regDate) {
+        this.regDate = regDate;
     }
 }

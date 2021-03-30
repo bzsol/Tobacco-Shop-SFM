@@ -2,6 +2,7 @@ package hu.sfm.controller;
 
 import hu.sfm.entity.User;
 import hu.sfm.main.Main;
+import hu.sfm.utils.Encryption;
 import hu.sfm.utils.JPAUserDAO;
 import hu.sfm.utils.UserDAO;
 import javafx.event.ActionEvent;
@@ -104,7 +105,7 @@ public class LoginController {
             }else {
 
                 for (User u : uDAO.getUser()) {
-                    if (u.getUsername().contains(userName) && u.getPassword().contains(passWord)) {
+                    if (u.getUsername().contains(userName) && new Encryption().visszafejt(u.getPassword()).contains(passWord)) {
 
                         validate = true;
                         break;
@@ -115,10 +116,10 @@ public class LoginController {
                     Main.setRoot("/fxml/dashboard");
                 } else {
                     if (loginErrorMsgVbox.getChildren().size() > 0) {
-                        loginErrorMsgVbox.getChildren().remove(1);
+                        loginErrorMsgVbox.getChildren().remove(0);
                     }
                     Label label = new Label("Sikertelen bejelentkezés!");
-                    label.setStyle("-fx-border-width: 2px; -fx-border-color: red; -fx-border-radius: 50%; -fx-font-family: Segoe UI; -fx-font-size: 14px; -fx-text-fill: white; -fx-alignment: center; -fx-padding: 0; -fx-font-family: Segoe UI;");
+                    label.setStyle("-fx-border-width: 2px; -fx-border-color: red; -fx-border-radius: 50%; -fx-font-family: Segoe UI; -fx-font-size: 14px; -fx-text-fill: #ffffff; -fx-alignment: center; -fx-padding: 0; -fx-font-family: Segoe UI;");
                     label.setMinWidth(287);
                     Tooltip tooltip = new Tooltip("- Hibás felhasználónevet, vagy jelszót adott meg");
                     tooltip.setStyle("-fx-text-fill: red; -fx-background-color: white; -fx-font-size: 12px");
