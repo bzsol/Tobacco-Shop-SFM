@@ -44,7 +44,7 @@
                         <DropShadow />
                      </effect>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="290.0" prefWidth="270.0" style="-fx-background-image: url('./images/alk.png'); -fx-background-repeat: no-repeat; -fx-background-color: #121212; -fx-alignment: BOTTOM_CENTER; -fx-background-position: center;" text="Italok" textFill="WHITE" GridPane.columnIndex="1">
+                  <Button mnemonicParsing="false" onAction="#openProductCategory2" prefHeight="290.0" prefWidth="270.0" style="-fx-background-image: url('./images/alk.png'); -fx-background-repeat: no-repeat; -fx-background-color: #121212; -fx-alignment: BOTTOM_CENTER; -fx-background-position: center;" text="Italok" textFill="WHITE" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
