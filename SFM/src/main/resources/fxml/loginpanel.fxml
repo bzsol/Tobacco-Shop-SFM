@@ -65,14 +65,6 @@
             <Font name="Segoe UI" size="14.0" />
          </font>
       </Hyperlink>
-      <VBox layoutX="306.0" layoutY="285.0" prefHeight="38.0" prefWidth="287.0">
-         <children>
-            <Label prefWidth="273.0" text="*Sikertelen bejelentkezés! Hibás felhasználónevet, vagy jelszót adott meg!" textFill="RED" wrapText="true">
-               <font>
-                  <Font name="Segoe UI" size="12.0" />
-               </font>
-            </Label>
-         </children>
-      </VBox>
+      <VBox fx:id="loginErrorMsgVbox" layoutX="300.0" layoutY="285.0" prefHeight="70.0" prefWidth="287.0" />
    </children>
 </AnchorPane>

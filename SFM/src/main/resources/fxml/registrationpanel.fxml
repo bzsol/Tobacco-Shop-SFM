@@ -9,6 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="640.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.sfm.controller.RegistrationController">
@@ -75,10 +76,24 @@
             <Font name="Segoe UI" size="12.0" />
          </font>
       </PasswordField>
-      <Button fx:id="unameInfoBtn" layoutX="567.0" layoutY="74.0" mnemonicParsing="false" onMouseEntered="#onMouseEnteredUnameInfo" prefHeight="20.0" prefWidth="20.0" style="-fx-background-color: transparent; -fx-border-color: #2199dd; -fx-border-width: 2px; -fx-border-radius: 75%; -fx-padding: 0;" text="!" textFill="WHITE">
+      <Label fx:id="unameInfoLabel" layoutX="567.0" layoutY="74.0" mnemonicParsing="false" onMouseEntered="#onMouseEnteredUnameInfo" prefHeight="20.0" prefWidth="20.0" style="-fx-background-color: transparent; -fx-border-color: #2199dd; -fx-border-width: 2px; -fx-border-radius: 50%; -fx-padding: 0; -fx-alignment: center" text="!" textFill="WHITE">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
-      </Button>
+      </Label>
+      <Label fx:id="pwInfoLabel" layoutX="567.0" layoutY="129.0" mnemonicParsing="false" onMouseEntered="#onMouseEnteredPwInfo" prefHeight="20.0" prefWidth="20.0" style="-fx-background-color: transparent; -fx-border-color: #2199dd; -fx-border-width: 2px; -fx-border-radius: 50%; -fx-padding: 0; -fx-alignment: center" text="!" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Label>
+      <VBox layoutX="300.0" layoutY="336.0" prefHeight="38.0" prefWidth="287.0">
+         <children>
+            <Label prefWidth="273.0" text="*Sikertelen bejelentkezés! Hibás felhasználónevet, vagy jelszót adott meg!" textFill="RED" wrapText="true">
+               <font>
+                  <Font name="Segoe UI" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
     </children>
 </AnchorPane>

@@ -37,7 +37,10 @@ public class RegistrationController {
     private PasswordField regPwAgainField;
 
     @FXML
-    private Button unameInfoBtn;
+    private Label unameInfoLabel;
+
+    @FXML
+    private Label pwInfoLabel;
 
     /** Designt megvalósító eventek **/
     @FXML
@@ -84,10 +87,27 @@ public class RegistrationController {
 
     @FXML
     private void onMouseEnteredUnameInfo(MouseEvent event) {
-        Tooltip tooltip = new Tooltip("- A felhasználónév maximum X karakterből állhat\n- A felhasználónév csak az angol ABC kis- és nagybetűit tartalmazhatja\nilletve számokat diló");
+        Tooltip tooltip = new Tooltip("- A felhasználónév maximum X karakterből állhat\n" +
+                "- A felhasználónév csak az angol ABC kis- és nagybetűit tartalmazhatja\n" +
+                "illetve számokat diló");
         tooltip.setShowDelay(Duration.seconds(0.1));
+        tooltip.setShowDuration(Duration.seconds(30));
         tooltip.setStyle("-fx-background-color: white; -fx-font-size: 12px; -fx-text-fill: #2199dd");
-        unameInfoBtn.setTooltip(tooltip);
+        unameInfoLabel.setTooltip(tooltip);
+    }
+
+    @FXML
+    private void onMouseEnteredPwInfo(MouseEvent event) {
+        Tooltip tooltip = new Tooltip("- A jelszónak legalább 8 karakterből kell állnia\n" +
+                "- A jelszónak tartalmaznia kell legalább egy nagybetűs karaktert\n" +
+                "- A jelszónak tartalmaznia kell legalább egy kisbetűs karaktert\n" +
+                "- A jelszó nem tartalmazhat szóköz karaktereket\n" +
+                "- A jelszó csak az angol ABC kis- és nagybetűit tartalmazhatja, kivéve: " +
+                "- A jelszó legfeljebb X karakterből állhat\n");
+        tooltip.setShowDelay(Duration.seconds(0.1));
+        tooltip.setShowDuration(Duration.seconds(30));
+        tooltip.setStyle("-fx-background-color: white; -fx-font-size: 12px; -fx-text-fill: #2199dd");
+        pwInfoLabel.setTooltip(tooltip);
     }
     /** Designt megvalósító eventek **/
 
