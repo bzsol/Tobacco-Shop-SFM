@@ -6,6 +6,7 @@ import hu.sfm.main.Main;
 import hu.sfm.utils.Encryption;
 import hu.sfm.utils.JPAUserDAO;
 import hu.sfm.utils.UserDAO;
+import hu.sfm.utils.UserPassChecker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -130,8 +131,10 @@ public class RegistrationController {
         String userName = regUserInput.getText();
         String passwd = regPassInput.getText();
         String check = regPwAgainField.getText();
+
         boolean volte = false;
-        if (passwd.equals(check)) {
+        if (passwd.equals(check) && UserPassChecker.UsernameCheck(userName) && UserPassChecker.passCheck(passwd)) {
+
             try {
                 UserDAO uDAO = new JPAUserDAO();
                 for (User user : uDAO.getUser()) {
@@ -142,7 +145,7 @@ public class RegistrationController {
                 }
                 if (!volte) {
                     u.setUsername(userName);
-                    u.setPassword(new Encryption().titkosit(check));
+                    u.setPassword(Encryption.titkosit(passwd));
                     u.setPerm(Permission.DEFAULT);
                     u.setregDate(LocalDate.now());
                     uDAO.saveUser(u);

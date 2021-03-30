@@ -1,7 +1,4 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
+
 
 package hu.sfm.utils;
 
@@ -28,7 +25,7 @@ public class Encryption {
         }
     }
 
-    public String titkosit(String password) {
+    public static String titkosit(String password) {
         StringBuilder hashedPass = new StringBuilder();
         char[] var3 = password.toCharArray();
         int var4 = var3.length;
@@ -49,7 +46,7 @@ public class Encryption {
         return hashedPass.toString();
     }
 
-    public String visszafejt(String hashedPass) {
+    public static String visszafejt(String hashedPass) {
         StringBuilder visszafejtettPass = new StringBuilder();
         int osszeg = 0;
         char[] var4 = hashedPass.toCharArray();

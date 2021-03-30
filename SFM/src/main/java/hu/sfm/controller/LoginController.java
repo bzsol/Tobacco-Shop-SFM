@@ -105,15 +105,16 @@ public class LoginController {
             }else {
 
                 for (User u : uDAO.getUser()) {
-                    if (u.getUsername().contains(userName) && new Encryption().visszafejt(u.getPassword()).contains(passWord)) {
+                    if (u.getUsername().contains(userName) && Encryption.visszafejt(u.getPassword()).contains(passWord)) {
 
                         validate = true;
                         break;
                     }
                 }
                 if (validate) {
-                    System.out.println("Login Succesfull!");
+                    System.out.println("Login Successful!");
                     Main.setRoot("/fxml/dashboard");
+                    Main.setWindowSize(1600,900);
                 } else {
                     if (loginErrorMsgVbox.getChildren().size() > 0) {
                         loginErrorMsgVbox.getChildren().remove(0);
