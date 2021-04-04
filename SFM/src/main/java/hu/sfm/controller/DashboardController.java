@@ -66,6 +66,7 @@ public class DashboardController {
 
     @FXML
     private void dashLoadMenu1(ActionEvent event) throws IOException {
+        //dashMenuLoaderPane.setLayoutX(225);
         if (dashMenuLoaderPane.getChildren().size() > 0) {
             dashMenuLoaderPane.getChildren().remove(0);
         }

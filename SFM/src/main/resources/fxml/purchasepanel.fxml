@@ -19,18 +19,21 @@
             <Font name="Segoe UI Bold" size="20.0" />
          </font>
       </Label>
-      <VBox layoutX="330.0" layoutY="60.0" prefHeight="550.0" prefWidth="700.0" style="-fx-alignment: CENTER; -fx-border-color: #2199dd; -fx-border-radius: 15px; -fx-border-width: 5px;">
+      <VBox layoutX="30.0" layoutY="60.0" prefHeight="550.0" prefWidth="1300.0" style="-fx-alignment: CENTER; -fx-border-color: #2199dd; -fx-border-radius: 15px; -fx-border-width: 5px;">
          <children>
             <GridPane prefHeight="315.0" prefWidth="700.0">
               <columnConstraints>
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" onAction="#openProductCategory1" prefHeight="290.0" prefWidth="270.0" style="-fx-background-image: url('./images/cig.png'); -fx-background-repeat: no-repeat; -fx-background-color: #121212; -fx-alignment: BOTTOM_CENTER; -fx-background-position: center;" text="Dohányáru" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#openProductCategory1" prefHeight="290.0" prefWidth="220.0" style="-fx-background-image: url('./images/cig.png'); -fx-background-repeat: no-repeat; -fx-background-color: #121212; -fx-alignment: BOTTOM_CENTER; -fx-background-position: center;" text="Dohányáru" textFill="WHITE">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
@@ -44,10 +47,43 @@
                         <DropShadow />
                      </effect>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#openProductCategory2" prefHeight="290.0" prefWidth="270.0" style="-fx-background-image: url('./images/alk.png'); -fx-background-repeat: no-repeat; -fx-background-color: #121212; -fx-alignment: BOTTOM_CENTER; -fx-background-position: center;" text="Italok" textFill="WHITE" GridPane.columnIndex="1">
+                  <Button mnemonicParsing="false" onAction="#openProductCategory2" prefHeight="290.0" prefWidth="220.0" style="-fx-background-image: url('./images/alk.png'); -fx-background-repeat: no-repeat; -fx-background-color: #121212; -fx-alignment: BOTTOM_CENTER; -fx-background-position: center;" text="Szeszes italok" textFill="WHITE" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
+                     <font>
+                        <Font name="Segoe UI Bold" size="20.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#openProductCategory2" prefHeight="290.0" prefWidth="220.0" style="-fx-background-image: url('./images/softdrink.png'); -fx-background-repeat: no-repeat; -fx-background-color: #121212; -fx-alignment: BOTTOM_CENTER; -fx-background-position: center;" text="Üdítőitalok" textFill="WHITE" GridPane.columnIndex="2">
+                     <font>
+                        <Font name="Segoe UI Bold" size="20.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#openProductCategory2" prefHeight="290.0" prefWidth="220.0" style="-fx-background-image: url('./images/hookah.png'); -fx-background-repeat: no-repeat; -fx-background-color: #121212; -fx-alignment: BOTTOM_CENTER; -fx-background-position: center;" text="Kiegészítők" textFill="WHITE" GridPane.columnIndex="3">
+                     <font>
+                        <Font name="Segoe UI Bold" size="20.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#openProductCategory2" prefHeight="290.0" prefWidth="220.0" style="-fx-background-image: url('./images/others.png'); -fx-background-repeat: no-repeat; -fx-background-color: #121212; -fx-alignment: BOTTOM_CENTER; -fx-background-position: center;" text="Egyéb" textFill="WHITE" GridPane.columnIndex="4">
                      <font>
                         <Font name="Segoe UI Bold" size="20.0" />
                      </font>

@@ -2,23 +2,20 @@ package hu.sfm.controller;
 
 import hu.sfm.entity.User;
 import hu.sfm.main.Main;
-import hu.sfm.utils.Encryption;
 import hu.sfm.utils.JPAUserDAO;
 import hu.sfm.utils.UserDAO;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
-import javafx.util.Duration;
+import javafx.stage.Stage;
 
-import javax.tools.Tool;
 import java.io.IOException;
-import java.sql.Time;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class LoginController {
     @FXML
@@ -89,44 +86,32 @@ public class LoginController {
             UserDAO uDAO = new JPAUserDAO();
             if(userName.equals("")||passWord.equals("")){
                 if (loginErrorMsgVbox.getChildren().size() > 0) {
-                    loginErrorMsgVbox.getChildren().remove(1);
+                    loginErrorMsgVbox.getChildren().remove(0);
                 }
-                Label label = new Label("Sikertelen bejelentkezés");
-                label.setStyle("-fx-border-width: 2px; -fx-border-color: red; -fx-border-radius: 50%; -fx-font-family: Segoe UI; -fx-font-size: 14px; -fx-text-fill: white; -fx-alignment: center; -fx-padding: 0; -fx-font-family: Segoe UI;");
-                label.setMinWidth(287);
-                Tooltip tooltip = new Tooltip("- A felhasználónév, vagy a jelszó mezőt üresen hagyta");
-                tooltip.setStyle("-fx-text-fill: red; -fx-background-color: white; -fx-font-size: 12px");
-                tooltip.setShowDelay(Duration.seconds(0.1));
-                tooltip.setShowDuration(Duration.seconds(30));
-                label.setTooltip(tooltip);
+                Label label = Main.createErrorLabel("Sikertelen bejelentkezés!", "- A felhasználónév, vagy a jelszó mezőt üresen hagyta");
                 loginErrorMsgVbox.getChildren().add(label);
                 logInputPassw.setText("");
                 logInputUname.setText("");
             }else {
 
                 for (User u : uDAO.getUser()) {
-                    if (u.getUsername().contains(userName) && Encryption.visszafejt(u.getPassword()).contains(passWord)) {
+                    if (u.getUsername().contains(userName) && u.getPassword().contains(passWord)) {
 
                         validate = true;
                         break;
                     }
                 }
                 if (validate) {
-                    System.out.println("Login Successful!");
+                    System.out.println("Login Succesfull!");
+                    Stage stage = (Stage) loginBtn.getScene().getWindow();
+                    stage.setMinHeight(900);
+                    stage.setMinWidth(1600);
                     Main.setRoot("/fxml/dashboard");
-                    Main.setWindowSize(1600,900);
                 } else {
                     if (loginErrorMsgVbox.getChildren().size() > 0) {
                         loginErrorMsgVbox.getChildren().remove(0);
                     }
-                    Label label = new Label("Sikertelen bejelentkezés!");
-                    label.setStyle("-fx-border-width: 2px; -fx-border-color: red; -fx-border-radius: 50%; -fx-font-family: Segoe UI; -fx-font-size: 14px; -fx-text-fill: #ffffff; -fx-alignment: center; -fx-padding: 0; -fx-font-family: Segoe UI;");
-                    label.setMinWidth(287);
-                    Tooltip tooltip = new Tooltip("- Hibás felhasználónevet, vagy jelszót adott meg");
-                    tooltip.setStyle("-fx-text-fill: red; -fx-background-color: white; -fx-font-size: 12px");
-                    tooltip.setShowDelay(Duration.seconds(0.1));
-                    tooltip.setShowDuration(Duration.seconds(30));
-                    label.setTooltip(tooltip);
+                    Label label = Main.createErrorLabel("Sikertelen bejelentkezés!", "- Hibás felhasználónevet, vagy jelszót adott meg");
                     loginErrorMsgVbox.getChildren().add(label);
                     logInputPassw.setText("");
                     logInputUname.setText("");
