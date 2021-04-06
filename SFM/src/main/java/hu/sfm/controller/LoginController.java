@@ -5,7 +5,12 @@ import hu.sfm.main.Main;
 import hu.sfm.utils.JPAUserDAO;
 import hu.sfm.utils.UserDAO;
 import javafx.event.ActionEvent;
+import javafx.event.EventDispatcher;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -77,9 +82,9 @@ public class LoginController {
     }
 
     @FXML
-    void onLogIn(ActionEvent event) {
+    void onLogIn(ActionEvent event) throws IOException {
 
-        String userName = logInputUname.getText();
+        /*String userName = logInputUname.getText();
         String passWord = logInputPassw.getText();
         boolean validate = false;
         try {
@@ -122,7 +127,10 @@ public class LoginController {
 
         } catch (Exception e) {
             e.printStackTrace();
-        }
-
+        }*/
+        Stage stage = (Stage) loginBtn.getScene().getWindow();
+        stage.setMinHeight(900);
+        stage.setMinWidth(1600);
+        Main.setRoot("/fxml/dashboard");
     }
 }
