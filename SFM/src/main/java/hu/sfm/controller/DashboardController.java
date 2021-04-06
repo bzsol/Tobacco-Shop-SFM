@@ -66,12 +66,16 @@ public class DashboardController {
 
     @FXML
     private void dashLoadMenu1(ActionEvent event) throws IOException {
-        //dashMenuLoaderPane.setLayoutX(225);
-        if (dashMenuLoaderPane.getChildren().size() > 0) {
-            dashMenuLoaderPane.getChildren().remove(0);
+        if (Main.actualPane == null) {
+            Main.actualPane = dashMenuLoaderPane;
         }
-        Pane loadNewPane = FXMLLoader.load(getClass().getResource("/fxml/userpanel.fxml"));
-        dashMenuLoaderPane.getChildren().add(loadNewPane);
+        else
+        {
+            Main.actualPane.getChildren().remove(0);
+        }
+
+        Pane loadNewPane = FXMLLoader.load(getClass().getResource("/fxml/account.fxml"));
+        Main.actualPane.getChildren().add(loadNewPane);
     }
 
     @FXML
@@ -100,9 +104,14 @@ public class DashboardController {
      */
     @FXML
     private void dashLoadMenu2(ActionEvent event) {
-        if (dashMenuLoaderPane.getChildren().size() > 0) {
-            dashMenuLoaderPane.getChildren().remove(0);
+        if (Main.actualPane == null) {
+            Main.actualPane = dashMenuLoaderPane;
         }
+        else
+        {
+            Main.actualPane.getChildren().remove(0);
+        }
+
     }
 
     @FXML
@@ -127,15 +136,15 @@ public class DashboardController {
 
     @FXML
     private void dashLoadMenu3(ActionEvent event) throws IOException {
+
         if (Main.actualPane == null) {
-            System.out.println("Debug message");
+            Main.actualPane = dashMenuLoaderPane;
         }
-        Main.actualPane = dashMenuLoaderPane;
-        if (dashMenuLoaderPane.getChildren().size() > 0) {
-            dashMenuLoaderPane.getChildren().remove(0);
+        else{
+            Main.actualPane.getChildren().remove(0);
         }
-        Pane loadNewPane = FXMLLoader.load(getClass().getResource("/fxml/purchasepanel.fxml"));
-        Main.mainBuyMenuPane = loadNewPane;
+
+        Pane loadNewPane = FXMLLoader.load(getClass().getResource("/fxml/userpanel.fxml"));
         dashMenuLoaderPane.getChildren().add(loadNewPane);
     }
 
@@ -160,6 +169,21 @@ public class DashboardController {
     }
 
     @FXML
+    private void dashLoadMenu4(ActionEvent event) throws IOException {
+
+        if (Main.actualPane == null) {
+            Main.actualPane = dashMenuLoaderPane;
+        }
+        else{
+            Main.actualPane.getChildren().remove(0);
+        }
+        Pane loadNewPane = FXMLLoader.load(getClass().getResource("/fxml/purchasepanel.fxml"));
+        Main.mainBuyMenuPane = loadNewPane;
+        dashMenuLoaderPane.getChildren().add(loadNewPane);
+    }
+
+
+    @FXML
     private void onMouseEnteredDashMenu5(MouseEvent event) {
         dashMenuBtn5.setStyle(
                 "-fx-background-color: rgba(0, 0, 255, .3);" +
@@ -180,6 +204,11 @@ public class DashboardController {
     }
 
     @FXML
+    private void dashLoadMenu5(ActionEvent event) {
+
+    }
+
+    @FXML
     private void onMouseEnteredDashMenu6(MouseEvent event) {
         dashMenuBtn6.setStyle(
                 "-fx-background-color: rgba(0, 0, 255, .3);" +
@@ -197,6 +226,11 @@ public class DashboardController {
                         "-fx-border-color: white;" +
                         "-fx-alignment: BASELINE_LEFT"
         );
+    }
+
+    @FXML
+    private void dashLoadMenu6(ActionEvent event) {
+
     }
 
     @FXML

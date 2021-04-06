@@ -27,17 +27,17 @@
                         <Font name="Segoe UI Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="dashMenuBtn4" mnemonicParsing="false" onMouseEntered="#onMouseEnteredDashMenu4" onMouseExited="#onMouseExitedDashMenu4" prefHeight="40.0" prefWidth="240.0" style="-fx-background-color: #2199dd; -fx-alignment: BASELINE_LEFT; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: white; -fx-background-radius: 0px;" text="Árukiadás" textFill="WHITE">
+                  <Button fx:id="dashMenuBtn4" mnemonicParsing="false" onAction="#dashLoadMenu4" onMouseEntered="#onMouseEnteredDashMenu4" onMouseExited="#onMouseExitedDashMenu4" prefHeight="40.0" prefWidth="240.0" style="-fx-background-color: #2199dd; -fx-alignment: BASELINE_LEFT; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: white; -fx-background-radius: 0px;" text="Árukiadás" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="dashMenuBtn5" mnemonicParsing="false" onMouseEntered="#onMouseEnteredDashMenu5" onMouseExited="#onMouseExitedDashMenu5" prefHeight="40.0" prefWidth="240.0" style="-fx-background-color: #2199dd; -fx-alignment: BASELINE_LEFT; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: white; -fx-background-radius: 0px;" text="Raktárkészlet" textFill="WHITE">
+                  <Button fx:id="dashMenuBtn5" mnemonicParsing="false" onAction="#dashLoadMenu5" onMouseEntered="#onMouseEnteredDashMenu5" onMouseExited="#onMouseExitedDashMenu5" prefHeight="40.0" prefWidth="240.0" style="-fx-background-color: #2199dd; -fx-alignment: BASELINE_LEFT; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: white; -fx-background-radius: 0px;" text="Raktárkészlet" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="dashMenuBtn6" mnemonicParsing="false" onMouseEntered="#onMouseEnteredDashMenu6" onMouseExited="#onMouseExitedDashMenu6" prefHeight="40.0" prefWidth="240.0" style="-fx-background-color: #2199dd; -fx-alignment: BASELINE_LEFT; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: white; -fx-background-radius: 0px;" text="Bevételek" textFill="WHITE">
+                  <Button fx:id="dashMenuBtn6" mnemonicParsing="false" onAction="#dashLoadMenu6" onMouseEntered="#onMouseEnteredDashMenu6" onMouseExited="#onMouseExitedDashMenu6" prefHeight="40.0" prefWidth="240.0" style="-fx-background-color: #2199dd; -fx-alignment: BASELINE_LEFT; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: white; -fx-background-radius: 0px;" text="Bevételek" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Bold" size="16.0" />
                      </font>
@@ -56,6 +56,6 @@
             </VBox>
          </children>
       </AnchorPane>
-      <Pane fx:id="dashMenuLoaderPane" layoutX="224.0" layoutY="7.0" prefHeight="695.0" prefWidth="1360.0" />
+      <Pane fx:id="dashMenuLoaderPane" layoutX="240.0" layoutY="7.0" prefHeight="695.0" prefWidth="1360.0" />
    </children>
 </AnchorPane>

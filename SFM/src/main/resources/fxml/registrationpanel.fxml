@@ -86,14 +86,6 @@
             <Font name="System Bold" size="11.0" />
          </font>
       </Label>
-      <VBox layoutX="300.0" layoutY="336.0" prefHeight="38.0" prefWidth="287.0">
-         <children>
-            <Label prefWidth="273.0" text="*Sikertelen bejelentkezés! Hibás felhasználónevet, vagy jelszót adott meg!" textFill="RED" wrapText="true">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </Label>
-         </children>
-      </VBox>
+      <VBox fx:id="registrationErrorMsgVbox" layoutX="300.0" layoutY="336.0" prefHeight="50.0" prefWidth="287.0" />
     </children>
 </AnchorPane>
