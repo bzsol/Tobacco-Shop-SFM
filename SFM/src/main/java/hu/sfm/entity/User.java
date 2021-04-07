@@ -68,4 +68,58 @@ public class User {
     public void setregDate(LocalDate regDate) {
         this.regDate = regDate;
     }
+
+    @Basic
+    private String vezetekNev;
+
+    public String getVezetekNev() {
+        return vezetekNev;
+    }
+
+    public void setVezetekNev(String vezetekNev) {
+        this.vezetekNev = vezetekNev;
+    }
+
+    @Basic
+    private String keresztNev;
+
+    public String getKeresztNev() {
+        return keresztNev;
+    }
+
+    public void setKeresztNev(String keresztNev) {
+        this.keresztNev = keresztNev;
+    }
+
+    @Basic
+    private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    @Column(columnDefinition = "DATE")
+    private LocalDate birthDate;
+    @Basic
+    private int sellary;
+
+    public int getSellary() {
+        return sellary;
+    }
+
+    public void setSellary(int sellary) {
+        this.sellary = sellary;
+    }
 }

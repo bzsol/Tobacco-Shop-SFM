@@ -2,6 +2,7 @@ package hu.sfm.controller;
 
 import hu.sfm.entity.User;
 import hu.sfm.main.Main;
+import hu.sfm.utils.Encryption;
 import hu.sfm.utils.JPAUserDAO;
 import hu.sfm.utils.UserDAO;
 import javafx.event.ActionEvent;
@@ -100,7 +101,7 @@ public class LoginController {
             }else {
 
                 for (User u : uDAO.getUser()) {
-                    if (u.getUsername().contains(userName) && u.getPassword().contains(passWord)) {
+                    if (u.getUsername().contains(userName) && u.getPassword().contains(Encryption.visszafejt(passWord))) {
 
                         validate = true;
                         break;

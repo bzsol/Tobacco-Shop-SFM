@@ -95,8 +95,8 @@ public class RegistrationController {
     private void onMouseEnteredUnameInfo(MouseEvent event) {
         Tooltip tooltip = new Tooltip("- A felhasználónév maximum 15 karakterből állhat\n" +
                 "- A felhasználónév minimum 5 karakterből állhat\n" +
-                "- A felhasználónév csak az angol ABC kis- és nagybetűit tartalmazhatja,\n" +
-                "illetve számokat!+" +
+                "- A felhasználónév csak az angol ABC kis- és nagybetűit tartalmazhatja," +
+                "illetve számokat!\n" +
                 "- A felhasználónév nem tartalamazhat szőközt!");
         tooltip.setShowDelay(Duration.seconds(0.1));
         tooltip.setShowDuration(Duration.seconds(30));
@@ -110,7 +110,6 @@ public class RegistrationController {
                 "- A jelszónak tartalmaznia kell legalább egy nagybetűs karaktert\n" +
                 "- A jelszónak tartalmaznia kell legalább egy kisbetűs karaktert\n" +
                 "- A jelszónak tartalmaznia kell legalább egy számot\n" +
-                "- A jelszónak tartalmaznia kell legalább egy speciális karaktert\n" +
                 "- A jelszó NEM tartalmazhat szóközt!\n" +
                 "- A jelszó legfeljebb 15 karakterből állhat\n");
         tooltip.setShowDelay(Duration.seconds(0.1));
@@ -153,6 +152,7 @@ public class RegistrationController {
                     u.setregDate(LocalDate.now());
                     uDAO.saveUser(u);
                     Main.setRoot("/fxml/loginpanel");
+
 
 
                 }

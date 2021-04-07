@@ -56,7 +56,7 @@
             <VBox fx:id="userPanelVbox" prefHeight="575.0" prefWidth="1345.0" style="-fx-background-color: #121212;" />
          </content>
       </ScrollPane>
-      <Button layoutX="1105.0" layoutY="24.0" mnemonicParsing="false" onAction="#onActionAddNewUser" style="-fx-background-color: transparent; -fx-border-color: #2199dd; -fx-border-width: 2px; -fx-border-radius: 50%;" text="Új felhasználó hozzáadása" textFill="WHITE">
+      <Button layoutX="1105.0" layoutY="24.0" mnemonicParsing="false" onAction="#onActionAddNewUser" style="-fx-background-color: transparent; -fx-border-color: #2199dd; -fx-border-width: 2px; -fx-border-radius: 50%;" text="Lekérdezés" textFill="WHITE">
          <font>
             <Font name="Segoe UI" size="14.0" />
          </font>

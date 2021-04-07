@@ -24,11 +24,12 @@ public class Main extends Application {
         public static Pane actualPane;
         public static Pane mainBuyMenuPane;
         public static boolean hasGroup = false;
+        public static String productId = null;
 
         @Override
         public void start(Stage stage) throws Exception {
             new Server().runTool("-tcp", "-web", "-ifNotExists");
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/dashboard.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/loginpanel.fxml"));
 
             stage.setOnCloseRequest(e->{
                 e.consume();

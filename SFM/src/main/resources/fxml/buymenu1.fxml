@@ -25,7 +25,7 @@
           <RowConstraints maxHeight="285.0" minHeight="0.0" prefHeight="285.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" onAction="#onActionOpenProductSelection" prefHeight="260.0" prefWidth="160.0" style="-fx-background-image: url('./images/cigbox.png'); -fx-background-color: #121212; -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" text="Marlboro">
+            <Button fx:id="Marlboro" mnemonicParsing="false" onAction="#onActionOpenProductSelection" prefHeight="260.0" prefWidth="160.0" style="-fx-background-image: url('./images/cigbox.png'); -fx-background-color: #121212; -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" text="Marlboro">
                <font>
                   <Font name="Mongolian Baiti" size="28.0" />
                </font>
@@ -90,7 +90,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button mnemonicParsing="false" onAction="#onActionOpenProductSelection" prefHeight="260.0" prefWidth="160.0" style="-fx-background-image: url('./images/cigbox.png'); -fx-background-color: #121212; -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" text="HELIKON" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="Helikon" mnemonicParsing="false" onAction="#onActionOpenProductSelection" prefHeight="260.0" prefWidth="160.0" style="-fx-background-image: url('./images/cigbox.png'); -fx-background-color: #121212; -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" text="HELIKON" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="Britannic Bold" size="28.0" />
                </font>

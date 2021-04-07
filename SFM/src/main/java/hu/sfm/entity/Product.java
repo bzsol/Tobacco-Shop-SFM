@@ -53,26 +53,6 @@ public class Product {
         Price = price;
     }
 
-    private ProductGroups productGroups;
 
-    @Basic
-    @Enumerated(EnumType.STRING)
-    public ProductGroups getProductGroups() {
-        return productGroups;
-    }
 
-    public void setProductGroups(ProductGroups productGroups) {
-        this.productGroups = productGroups;
-    }
-
-    private Date timeStamp;
-
-    @Basic
-    public Date getTimeStamp() {
-        return timeStamp;
-    }
-
-    public void setTimeStamp(Date timeStamp) {
-        this.timeStamp = timeStamp;
-    }
 }

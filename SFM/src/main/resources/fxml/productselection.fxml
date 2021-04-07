@@ -10,7 +10,7 @@
 
 <AnchorPane focusTraversable="true" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #121212; -fx-border-color: #2199dd; -fx-border-width: 4px;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.sfm.controller.ProductSelectionController">
    <children>
-      <Label layoutX="50.0" layoutY="14.0" prefWidth="300.0" style="-fx-alignment: baseline_center;" text="Label" textFill="#2199dd">
+      <Label fx:id="label" layoutX="50.0" layoutY="14.0" prefWidth="300.0" style="-fx-alignment: baseline_center;" text="Label" textFill="#2199dd">
          <font>
             <Font name="Segoe UI Bold" size="20.0" />
          </font>
@@ -51,12 +51,12 @@
             <Font name="Segoe UI" size="20.0" />
          </font>
       </TextField>
-      <TextField disable="true" layoutX="235.0" layoutY="145.0" prefHeight="26.0" prefWidth="150.0" style="-fx-padding: 0; -fx-background-color: transparent; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 2px 0px; -fx-alignment: baseline_right; -fx-opacity: 1; -fx-text-fill: white">
+      <TextField fx:id="unitPrice" disable="true" layoutX="235.0" layoutY="145.0" prefHeight="26.0" prefWidth="150.0" style="-fx-padding: 0; -fx-background-color: transparent; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 2px 0px; -fx-alignment: baseline_right; -fx-opacity: 1; -fx-text-fill: white">
          <font>
             <Font name="Segoe UI" size="20.0" />
          </font>
       </TextField>
-      <TextField disable="true" layoutX="235.0" layoutY="205.0" prefHeight="26.0" prefWidth="150.0" style="-fx-padding: 0; -fx-background-color: transparent; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 2px 0px; -fx-alignment: baseline_right; -fx-opacity: 1; -fx-text-fill: white">
+      <TextField fx:id="fullPrice" disable="true" layoutX="235.0" layoutY="205.0" prefHeight="26.0" prefWidth="150.0" style="-fx-padding: 0; -fx-background-color: transparent; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 2px 0px; -fx-alignment: baseline_right; -fx-opacity: 1; -fx-text-fill: white">
          <font>
             <Font name="Segoe UI" size="20.0" />
          </font>
