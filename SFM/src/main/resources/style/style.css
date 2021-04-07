@@ -34,3 +34,17 @@
 .scroll-pane .viewport {
 	-fx-background-color: transparent;
 }
+
+.choice-box {
+    -fx-mark-color: #2199dd;
+}
+
+.choice-box .context-menu {
+    -fx-background-color: #121212;
+}
+
+.choice-box .label {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 0 0 0 10px;
+}

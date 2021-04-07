@@ -84,7 +84,7 @@ public class LoginController {
     @FXML
     void onLogIn(ActionEvent event) throws IOException {
 
-        /*String userName = logInputUname.getText();
+        String userName = logInputUname.getText();
         String passWord = logInputPassw.getText();
         boolean validate = false;
         try {
@@ -127,7 +127,7 @@ public class LoginController {
 
         } catch (Exception e) {
             e.printStackTrace();
-        }*/
+        }
         Stage stage = (Stage) loginBtn.getScene().getWindow();
         stage.setMinHeight(900);
         stage.setMinWidth(1600);

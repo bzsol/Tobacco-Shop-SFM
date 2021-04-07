@@ -25,7 +25,7 @@
           <RowConstraints maxHeight="285.0" minHeight="0.0" prefHeight="285.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-image: url('./images/cigbox.png'); -fx-background-color: #121212; -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" text="Marlboro">
+            <Button mnemonicParsing="false" onAction="#onActionOpenProductSelection" prefHeight="260.0" prefWidth="160.0" style="-fx-background-image: url('./images/cigbox.png'); -fx-background-color: #121212; -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" text="Marlboro">
                <font>
                   <Font name="Mongolian Baiti" size="28.0" />
                </font>
@@ -35,7 +35,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-image: url('./images/cigbox.png'); -fx-background-color: #121212; -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" text="SOPIANAE" GridPane.columnIndex="1">
+            <Button mnemonicParsing="false" onAction="#onActionOpenProductSelection" prefHeight="260.0" prefWidth="160.0" style="-fx-background-image: url('./images/cigbox.png'); -fx-background-color: #121212; -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" text="SOPIANAE" GridPane.columnIndex="1">
                <font>
                   <Font name="Javanese Text" size="23.0" />
                </font>
@@ -46,7 +46,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-image: url('./images/cigbox.png'); -fx-background-color: #121212; -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" text="Davidoff" GridPane.columnIndex="2">
+            <Button mnemonicParsing="false" onAction="#onActionOpenProductSelection" prefHeight="260.0" prefWidth="160.0" style="-fx-background-image: url('./images/cigbox.png'); -fx-background-color: #121212; -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" text="Davidoff" GridPane.columnIndex="2">
                <font>
                   <Font name="Edwardian Script ITC" size="34.0" />
                </font>
@@ -57,7 +57,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-image: url('./images/cigbox.png'); -fx-background-color: #121212; -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" text="DUNHILL" GridPane.columnIndex="3">
+            <Button mnemonicParsing="false" onAction="#onActionOpenProductSelection" prefHeight="260.0" prefWidth="160.0" style="-fx-background-image: url('./images/cigbox.png'); -fx-background-color: #121212; -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" text="DUNHILL" GridPane.columnIndex="3">
                <font>
                   <Font name="Arial Black" size="22.0" />
                </font>
@@ -68,7 +68,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-image: url('./images/cigbox.png'); -fx-background-color: #121212; -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" text="MULTIFILTER" GridPane.columnIndex="4">
+            <Button mnemonicParsing="false" onAction="#onActionOpenProductSelection" prefHeight="260.0" prefWidth="160.0" style="-fx-background-image: url('./images/cigbox.png'); -fx-background-color: #121212; -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" text="MULTIFILTER" GridPane.columnIndex="4">
                <font>
                   <Font name="Segoe UI Bold" size="18.0" />
                </font>
@@ -79,7 +79,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-image: url('./images/cigbox.png'); -fx-background-color: #121212; -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" text="BOND" GridPane.rowIndex="1">
+            <Button mnemonicParsing="false" onAction="#onActionOpenProductSelection" prefHeight="260.0" prefWidth="160.0" style="-fx-background-image: url('./images/cigbox.png'); -fx-background-color: #121212; -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" text="BOND" GridPane.rowIndex="1">
                <font>
                   <Font name="Century Schoolbook" size="36.0" />
                </font>
@@ -90,7 +90,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-image: url('./images/cigbox.png'); -fx-background-color: #121212; -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" text="HELIKON" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button mnemonicParsing="false" onAction="#onActionOpenProductSelection" prefHeight="260.0" prefWidth="160.0" style="-fx-background-image: url('./images/cigbox.png'); -fx-background-color: #121212; -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" text="HELIKON" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="Britannic Bold" size="28.0" />
                </font>
@@ -101,7 +101,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-image: url('./images/cigbox.png'); -fx-background-color: #121212; -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" text="VICEROY" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Button mnemonicParsing="false" onAction="#onActionOpenProductSelection" prefHeight="260.0" prefWidth="160.0" style="-fx-background-image: url('./images/cigbox.png'); -fx-background-color: #121212; -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" text="VICEROY" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font name="Cambria Bold" size="26.0" />
                </font>
@@ -112,7 +112,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-image: url('./images/cigbox.png'); -fx-background-color: #121212; -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" text="PALL MALL" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <Button mnemonicParsing="false" onAction="#onActionOpenProductSelection" prefHeight="260.0" prefWidth="160.0" style="-fx-background-image: url('./images/cigbox.png'); -fx-background-color: #121212; -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" text="PALL MALL" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <font>
                   <Font name="Marlett" size="22.0" />
                </font>

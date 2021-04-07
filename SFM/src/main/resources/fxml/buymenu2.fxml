@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
@@ -26,74 +27,116 @@
           <RowConstraints minHeight="10.0" prefHeight="285.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/absz.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;">
-               <effect>
-                  <DropShadow />
-               </effect></Button>
-            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/sor.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="1">
+            <Button mnemonicParsing="false" onAction="#onActionOpenProductSelection" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/absz.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;">
                <effect>
                   <DropShadow />
                </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button mnemonicParsing="false" onAction="#onActionOpenProductSelection" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/sor.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="1">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/szilva.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="2">
+            <Button mnemonicParsing="false" onAction="#onActionOpenProductSelection" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/szilva.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="2">
                <effect>
                   <DropShadow />
                </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/bikaver.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.rowIndex="1">
+            <Button mnemonicParsing="false" onAction="#onActionOpenProductSelection" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/bikaver.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.rowIndex="1">
                <effect>
                   <DropShadow />
                </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/irsai.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button mnemonicParsing="false" onAction="#onActionOpenProductSelection" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/irsai.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <effect>
                   <DropShadow />
                </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/unicum.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Button mnemonicParsing="false" onAction="#onActionOpenProductSelection" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/unicum.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <effect>
                   <DropShadow />
                </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/vodka.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="3">
+            <Button mnemonicParsing="false" onAction="#onActionOpenProductSelection" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/vodka.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="3">
                <effect>
                   <DropShadow />
                </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/jager.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <Button mnemonicParsing="false" onAction="#onActionOpenProductSelection" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/jager.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <effect>
                   <DropShadow />
                </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/hubi.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="4" GridPane.rowIndex="1">
+            <Button mnemonicParsing="false" onAction="#onActionOpenProductSelection" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/hubi.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="4" GridPane.rowIndex="1">
                <effect>
                   <DropShadow />
                </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/tatra.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="4">
+            <Button mnemonicParsing="false" onAction="#onActionOpenProductSelection" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/tatra.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="4">
                <effect>
                   <DropShadow />
                </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/futyulos.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="5">
+            <Button mnemonicParsing="false" onAction="#onActionOpenProductSelection" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/futyulos.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="5">
                <effect>
                   <DropShadow />
                </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/viszki.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="5" GridPane.rowIndex="1">
+            <Button mnemonicParsing="false" onAction="#onActionOpenProductSelection" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/viszki.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="5" GridPane.rowIndex="1">
                <effect>
                   <DropShadow />
                </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/keseru.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="6">
+            <Button mnemonicParsing="false" onAction="#onActionOpenProductSelection" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/keseru.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="6">
                <effect>
                   <DropShadow />
                </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button mnemonicParsing="false" onAction="#onActionBack" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/goback.png'); -fx-background-repeat: no-repeat; -fx-background-position: center;" GridPane.columnIndex="6" GridPane.rowIndex="1">
                <effect>
                   <DropShadow />
                </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
       </GridPane>
