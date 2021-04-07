@@ -129,9 +129,5 @@ public class LoginController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Stage stage = (Stage) loginBtn.getScene().getWindow();
-        stage.setMinHeight(900);
-        stage.setMinWidth(1600);
-        Main.setRoot("/fxml/dashboard");
     }
 }

@@ -1,10 +1,12 @@
 package hu.sfm.controller;
 
 import hu.sfm.main.Main;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -19,8 +21,10 @@ public class BuymenuController2 {
     }
 
     @FXML
-    private void onActionOpenProductSelection() throws IOException {
+    private void onActionOpenProductSelection(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/productselection.fxml"));
+        Main.productId = ((Button) event.getSource()).getId();
+        System.out.println(Main.productId);
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);

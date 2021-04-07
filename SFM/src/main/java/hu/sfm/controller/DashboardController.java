@@ -24,6 +24,7 @@ public class DashboardController {
 
     @FXML
     private void initialize() {
+        dashMenuLoaderPane.setLayoutX(224);
         if (Main.hasGroup /* Ha nincs még csoportja, akkor ezt jelenítsd meg, különben a másikat*/) {
             dashVbox1.setVisible(true);
         } else {

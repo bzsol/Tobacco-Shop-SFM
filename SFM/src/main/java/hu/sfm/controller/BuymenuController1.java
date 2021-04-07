@@ -11,12 +11,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import javax.swing.*;
-
 import java.io.IOException;
-
-
-
 
 public class BuymenuController1 {
     @FXML
@@ -28,7 +23,6 @@ public class BuymenuController1 {
     @FXML
     private void onActionOpenProductSelection(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/productselection.fxml"));
-        //System.out.println(((Button) event.getSource()).getId());
         Main.productId = ((Button) event.getSource()).getId();
         Parent root = loader.load();
         Stage stage = new Stage();

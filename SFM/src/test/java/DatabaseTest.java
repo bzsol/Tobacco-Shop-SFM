@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DatabaseTest {
-    @Test
+    /*@Test
     void IsProductDatabase(){
         // Create test product
         Product testProduct = new Product();
@@ -73,6 +73,6 @@ public class DatabaseTest {
         assertFalse(updated_users.contains(testUser));
     }
 
-
+*/
 
 }
