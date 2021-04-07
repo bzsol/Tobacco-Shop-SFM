@@ -6,12 +6,7 @@ import hu.sfm.utils.Encryption;
 import hu.sfm.utils.JPAUserDAO;
 import hu.sfm.utils.UserDAO;
 import javafx.event.ActionEvent;
-import javafx.event.EventDispatcher;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -108,11 +103,14 @@ public class LoginController {
                     }
                 }
                 if (validate) {
+
+                    Main.actUser=userName;
                     System.out.println("Login Succesfull!");
                     Stage stage = (Stage) loginBtn.getScene().getWindow();
                     stage.setMinHeight(900);
                     stage.setMinWidth(1600);
                     Main.setRoot("/fxml/dashboard");
+
                 } else {
                     if (loginErrorMsgVbox.getChildren().size() > 0) {
                         loginErrorMsgVbox.getChildren().remove(0);

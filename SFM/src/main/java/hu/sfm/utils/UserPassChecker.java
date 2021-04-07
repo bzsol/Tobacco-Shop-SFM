@@ -1,10 +1,19 @@
 package hu.sfm.utils;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UserPassChecker {
+    private static final String userRegex = "^[A-z0-9]{5,}$";
+    private static final String passRegex = "^(?=.*[A-Z])(?=.*[0-9])[A-z0-9]{7,}$";
+
     public static boolean passCheck(String password){
-        return ((password.chars().filter(Character::isDigit).count() > 0) && (password.chars().filter(Character::isUpperCase).count() > 0) && (password.chars().count()) < 16 && (password.chars().count() > 7) && (password.chars().filter(Character::isWhitespace).count() == 0) && (password.chars().filter(Character::isLowerCase).count() > 0));
+        Pattern pattern = Pattern.compile(passRegex);
+        Matcher matcher = pattern.matcher(password);
+        return matcher.matches();
     }
     public static boolean UsernameCheck(String username){
-        return (username.chars().count() > 5 && username.chars().count() < 16 && (username.chars().filter(Character::isWhitespace).count() == 0) && (username.chars().filter(Character::isLetterOrDigit).count() == username.length()));
+        Pattern pattern = Pattern.compile(userRegex);
+        Matcher matcher = pattern.matcher(username);
+        return matcher.matches();
     }
 }

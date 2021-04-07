@@ -113,13 +113,24 @@ public class User {
     @Column(columnDefinition = "DATE")
     private LocalDate birthDate;
     @Basic
-    private int sellary;
+    private int sallary;
 
-    public int getSellary() {
-        return sellary;
+    public int getSallary() {
+        return sallary;
     }
 
-    public void setSellary(int sellary) {
-        this.sellary = sellary;
+    public LocalDate getAddDate() {
+        return addDate;
     }
+
+    public void setAddDate(LocalDate addDate) {
+        this.addDate = addDate;
+    }
+
+    public void setSallary(int sallary) {
+        this.sallary = sallary;
+    }
+
+    @Column(columnDefinition = "DATE")
+    private LocalDate addDate;
 }

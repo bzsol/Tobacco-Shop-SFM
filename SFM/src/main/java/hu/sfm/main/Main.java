@@ -25,6 +25,7 @@ public class Main extends Application {
         public static Pane mainBuyMenuPane;
         public static boolean hasGroup = false;
         public static String productId = null;
+        public static String actUser = null;
 
         @Override
         public void start(Stage stage) throws Exception {

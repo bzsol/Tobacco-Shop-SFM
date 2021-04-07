@@ -90,31 +90,31 @@
             <Font name="Segoe UI" size="20.0" />
          </font>
       </Label>
-      <TextField layoutX="15.0" layoutY="120.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0;">
+      <TextField fx:id="vezNev" layoutX="15.0" layoutY="120.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0;">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font></TextField>
-      <TextField layoutX="15.0" layoutY="200.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0;">
+      <TextField fx:id="kerNev" layoutX="15.0" layoutY="200.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0;">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <TextField layoutX="15.0" layoutY="280.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0;">
+      <TextField fx:id="userName" layoutX="15.0" layoutY="280.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0;">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <TextField layoutX="1045.0" layoutY="120.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-alignment: BASELINE_RIGHT;">
+      <TextField fx:id="email" layoutX="1045.0" layoutY="120.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-alignment: BASELINE_RIGHT;">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <TextField layoutX="1045.0" layoutY="413.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-alignment: BASELINE_RIGHT;">
+      <TextField fx:id="newPass" layoutX="1045.0" layoutY="413.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-alignment: BASELINE_RIGHT;">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <TextField layoutX="1045.0" layoutY="493.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-alignment: BASELINE_RIGHT;">
+      <TextField fx:id="newPassCheck" layoutX="1045.0" layoutY="493.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-alignment: BASELINE_RIGHT;">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
@@ -140,27 +140,27 @@
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <TextField disable="true" layoutX="15.0" layoutY="493.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-opacity: 1;">
+      <TextField fx:id="addDate" disable="true" layoutX="15.0" layoutY="493.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-opacity: 1;">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <TextField disable="true" layoutX="15.0" layoutY="573.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-opacity: 1;">
+      <TextField fx:id="beosztas" disable="true" layoutX="15.0" layoutY="573.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-opacity: 1;">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <TextField disable="true" layoutX="15.0" layoutY="653.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-opacity: 1;">
+      <TextField fx:id="salary" disable="true" layoutX="15.0" layoutY="653.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-opacity: 1;">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <TextField disable="true" layoutX="1045.0" layoutY="280.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-opacity: 1; -fx-alignment: BASELINE_RIGHT;">
+      <TextField fx:id="regDate" disable="true" layoutX="1045.0" layoutY="280.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-opacity: 1; -fx-alignment: BASELINE_RIGHT;">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <TextField disable="true" layoutX="1045.0" layoutY="200.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-opacity: 1; -fx-alignment: BASELINE_RIGHT;">
+      <TextField fx:id="birthDate" disable="true" layoutX="1045.0" layoutY="200.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-opacity: 1; -fx-alignment: BASELINE_RIGHT;">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
