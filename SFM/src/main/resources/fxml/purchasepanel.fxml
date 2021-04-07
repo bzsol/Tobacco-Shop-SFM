@@ -61,7 +61,7 @@
                         <DropShadow />
                      </effect>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#openProductCategory2" prefHeight="290.0" prefWidth="220.0" style="-fx-background-image: url('./images/softdrink.png'); -fx-background-repeat: no-repeat; -fx-background-color: #121212; -fx-alignment: BOTTOM_CENTER; -fx-background-position: center;" text="Üdítőitalok" textFill="WHITE" GridPane.columnIndex="2">
+                  <Button mnemonicParsing="false" onAction="#openProductCategory3" prefHeight="290.0" prefWidth="220.0" style="-fx-background-image: url('./images/softdrink.png'); -fx-background-repeat: no-repeat; -fx-background-color: #121212; -fx-alignment: BOTTOM_CENTER; -fx-background-position: center;" text="Üdítőitalok" textFill="WHITE" GridPane.columnIndex="2">
                      <font>
                         <Font name="Segoe UI Bold" size="20.0" />
                      </font>
@@ -72,7 +72,7 @@
                         <DropShadow />
                      </effect>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#openProductCategory2" prefHeight="290.0" prefWidth="220.0" style="-fx-background-image: url('./images/hookah.png'); -fx-background-repeat: no-repeat; -fx-background-color: #121212; -fx-alignment: BOTTOM_CENTER; -fx-background-position: center;" text="Kiegészítők" textFill="WHITE" GridPane.columnIndex="3">
+                  <Button mnemonicParsing="false" onAction="#openProductCategory4" prefHeight="290.0" prefWidth="220.0" style="-fx-background-image: url('./images/hookah.png'); -fx-background-repeat: no-repeat; -fx-background-color: #121212; -fx-alignment: BOTTOM_CENTER; -fx-background-position: center;" text="Kiegészítők" textFill="WHITE" GridPane.columnIndex="3">
                      <font>
                         <Font name="Segoe UI Bold" size="20.0" />
                      </font>

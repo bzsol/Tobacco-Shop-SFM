@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.util.Duration;
 
@@ -47,6 +48,9 @@ public class RegistrationController {
 
     @FXML
     private Label pwInfoLabel;
+
+    @FXML
+    private VBox registrationErrorMsgVbox;
 
     /** Designt megvalósító eventek **/
     @FXML
@@ -156,9 +160,14 @@ public class RegistrationController {
 
 
                 }
-                regUserInput.setText("");
-                regPassInput.setText("");
-                regPwAgainField.setText("");
+                else {
+                    regUserInput.setText("");
+                    regPassInput.setText("");
+                    regPwAgainField.setText("");
+                    Label label = Main.createErrorLabel("Sikertelen regisztráció!", "- A megadott felhasználónév már létezik!");
+                    registrationErrorMsgVbox.getChildren().add(label);
+                    System.out.println("ez már lézetik ez a felhasználó név");
+                }
 
                 uDAO.close();
 
@@ -169,7 +178,25 @@ public class RegistrationController {
 
 
         } else {
-            System.out.println("nem jó a jelszó!");
+            if(!passwd.equals(check))
+            {
+                regUserInput.setText("");
+                regPassInput.setText("");
+                regPwAgainField.setText("");
+                Label label = Main.createErrorLabel("Sikertelen regisztráció!", "- A megadott két jelszó nem egyezik meg!");
+                registrationErrorMsgVbox.getChildren().add(label);
+                System.out.println("nem egyezik meg!");
+
+            }
+            else if(!(UserPassChecker.UsernameCheck(userName)) || !(UserPassChecker.passCheck(passwd))){
+                regUserInput.setText("");
+                regPassInput.setText("");
+                regPwAgainField.setText("");
+                Label label = Main.createErrorLabel("Sikertelen regisztráció!", "- A megadott felhasználónév vagy jelszó nem megfelelő!");
+                registrationErrorMsgVbox.getChildren().add(label);
+                System.out.println("nem megfelelő jelszo vagy felhasznalónév");
+            }
+
         }
 
     }

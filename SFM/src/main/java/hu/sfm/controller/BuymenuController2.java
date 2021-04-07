@@ -13,9 +13,11 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
+import java.io.IOException;
+
 public class BuymenuController2 {
     @FXML
-    private void onActionBack() {
+    private void onActionBack() throws IOException {
         Main.actualPane.getChildren().remove(0);
         Main.actualPane.getChildren().add(Main.mainBuyMenuPane);
     }
