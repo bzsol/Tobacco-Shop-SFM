@@ -83,7 +83,7 @@
                         <DropShadow />
                      </effect>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#openProductCategory2" prefHeight="290.0" prefWidth="220.0" style="-fx-background-image: url('./images/others.png'); -fx-background-repeat: no-repeat; -fx-background-color: #121212; -fx-alignment: BOTTOM_CENTER; -fx-background-position: center;" text="Egyéb" textFill="WHITE" GridPane.columnIndex="4">
+                  <Button mnemonicParsing="false" onAction="#openProductCategory5" prefHeight="290.0" prefWidth="220.0" style="-fx-background-image: url('./images/others.png'); -fx-background-repeat: no-repeat; -fx-background-color: #121212; -fx-alignment: BOTTOM_CENTER; -fx-background-position: center;" text="Egyéb" textFill="WHITE" GridPane.columnIndex="4">
                      <font>
                         <Font name="Segoe UI Bold" size="20.0" />
                      </font>

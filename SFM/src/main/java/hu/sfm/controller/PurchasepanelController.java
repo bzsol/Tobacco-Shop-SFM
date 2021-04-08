@@ -37,4 +37,10 @@ public class PurchasepanelController {
         Pane loadNewPane = FXMLLoader.load(getClass().getResource("/fxml/buymenu4.fxml"));
         Main.actualPane.getChildren().add(loadNewPane);
     }
+    @FXML
+    private void openProductCategory5() throws IOException {
+        Main.actualPane.getChildren().remove(0);
+        Pane loadNewPane = FXMLLoader.load(getClass().getResource("/fxml/buymenu5.fxml"));
+        Main.actualPane.getChildren().add(loadNewPane);
+    }
 }

@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="695.0" prefWidth="1360.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.sfm.controller.BuymenuController4">
    <children>
       <GridPane layoutX="20.0" layoutY="75.0" prefHeight="565.0" prefWidth="1340.0">
@@ -42,17 +41,17 @@
                   <DropShadow />
                </effect>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/bikaver.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.rowIndex="1">
+            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/pipa.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.rowIndex="1">
                <effect>
                   <DropShadow />
                </effect>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/irsai.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/ko.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <effect>
                   <DropShadow />
                </effect>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/unicum.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/szen.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <effect>
                   <DropShadow />
                </effect>
@@ -62,12 +61,12 @@
                   <DropShadow />
                </effect>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/jager.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/tartaly.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <effect>
                   <DropShadow />
                </effect>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/hubi.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="4" GridPane.rowIndex="1">
+            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/keramia.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="4" GridPane.rowIndex="1">
                <effect>
                   <DropShadow />
                </effect>
@@ -82,7 +81,7 @@
                   <DropShadow />
                </effect>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/viszki.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="5" GridPane.rowIndex="1">
+            <Button mnemonicParsing="false" prefHeight="260.0" prefWidth="160.0" style="-fx-background-color: #121212; -fx-background-image: url('/images/ocb.png'); -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 4px 0px;" GridPane.columnIndex="5" GridPane.rowIndex="1">
                <effect>
                   <DropShadow />
                </effect>
