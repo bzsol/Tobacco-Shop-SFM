@@ -7,6 +7,7 @@ import hu.sfm.utils.JPAUserDAO;
 import hu.sfm.utils.UserDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -14,8 +15,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class LoginController {
@@ -109,6 +110,9 @@ public class LoginController {
                     Stage stage = (Stage) loginBtn.getScene().getWindow();
                     stage.setMinHeight(900);
                     stage.setMinWidth(1600);
+                    Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+                    stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
+                    stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);
                     Main.setRoot("/fxml/dashboard");
 
                 } else {

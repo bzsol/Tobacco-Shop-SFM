@@ -118,6 +118,20 @@
     -fx-font-size: 16px;
 }
 
+.date-picker-popup .spinner .left-arrow,
+.date-picker-popup .spinner .right-arrow {
+    -fx-background-color: white;
+    -fx-border-color: white;
+    -fx-font-size: 16px;
+}
+
+.date-picker-popup .spinner .left-arrow:hover,
+.date-picker-popup .spinner .right-arrow:hover {
+    -fx-background-color: #121212;
+    -fx-border-color: #121212;
+    -fx-font-size: 24px;
+}
+
 .date-picker-popup .month-year-pane {
     -fx-background-color: #2199dd;
 }
@@ -129,8 +143,4 @@
 .date-picker-popup .month-year-pane .button:hover,
 .date-picker-popup .month-year-pane .button:focused {
     -fx-background-color: #2199dd;
-}
-
-.date-picker-popup .month-year-pane .button .text {
-    -fx-fill: white;
 }

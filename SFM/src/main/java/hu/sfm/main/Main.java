@@ -15,7 +15,12 @@ import java.io.IOException;
 
 public class Main extends Application {
         private static Scene scene;
-        public static int sorszam;
+
+    public static Scene getScene() {
+        return scene;
+    }
+
+    public static int sorszam;
         public static Pane actualPane;
         public static Pane mainBuyMenuPane;
         public static boolean hasGroup = false;
@@ -25,7 +30,7 @@ public class Main extends Application {
         @Override
         public void start(Stage stage) throws Exception {
             new Server().runTool("-tcp", "-web", "-ifNotExists");
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/incomepanel.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/loginpanel.fxml"));
 
             stage.setOnCloseRequest(e->{
                 e.consume();
