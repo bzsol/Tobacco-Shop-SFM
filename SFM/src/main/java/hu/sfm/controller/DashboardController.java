@@ -90,7 +90,6 @@ public class DashboardController {
 
     @FXML
     private void dashLoadMenu3(ActionEvent event) throws IOException {
-
         if (Main.actualPane == null) {
             Main.actualPane = dashMenuLoaderPane;
         }
@@ -121,8 +120,15 @@ public class DashboardController {
     }
 
     @FXML
-    private void dashLoadMenu6(ActionEvent event) {
-
+    private void dashLoadMenu6(ActionEvent event) throws IOException {
+        if (Main.actualPane == null) {
+            Main.actualPane = dashMenuLoaderPane;
+        }
+        else{
+            Main.actualPane.getChildren().remove(0);
+        }
+        Pane loadNewPane = FXMLLoader.load(getClass().getResource("/fxml/incomepanel.fxml"));
+        dashMenuLoaderPane.getChildren().add(loadNewPane);
     }
 
     @FXML

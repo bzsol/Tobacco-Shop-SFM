@@ -10,7 +10,7 @@
 	-fx-border-color: transparent;
 }
  
-.scroll-bar:vertical .increment-button,  .scroll-bar:vertical .decrement-button
+.scroll-bar:vertical .increment-button, .scroll-bar:vertical .decrement-button
 {
 	-fx-background-color: transparent;
 	-fx-padding: 0 10 0 0;
@@ -47,4 +47,90 @@
     -fx-text-fill: white;
     -fx-font-size: 14px;
     -fx-padding: 0 0 0 10px;
+}
+
+.date-picker {
+    -fx-background-insets: 0;
+    -fx-border-color: #2199dd;
+    -fx-border-width: 0px 0px 2px 0px;
+    -fx-background-color: transparent;
+    -fx-focus-color: transparent;
+}
+
+.date-picker .text-field{
+    -fx-background-color: #121212;
+    -fx-border-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-family: Segoe UI;
+    -fx-font-size: 16px;
+    -fx-padding: 0;
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.date-picker .arrow-button:hover .arrow {
+    -fx-background-color: white;
+}
+
+.date-picker .arrow-button .arrow {
+    -fx-background-color: #2199dd;
+    -fx-font-size: 20px;
+}
+
+.date-picker-popup {
+    -fx-background-color: #121212;
+}
+
+.date-picker-popup .date-cell {
+    -fx-background-color: #121212;
+    -fx-border-color: #121212;
+}
+
+.date-picker-popup .date-cell .text {
+    -fx-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-family: Segoe UI;
+}
+
+.date-picker-popup .day-cell:hover {
+    -fx-background-color: #2199dd;
+}
+
+.date-picker-popup .today {
+    -fx-background-color: rgb(90, 10, 65);
+}
+
+.date-picker-popup .selected {
+    -fx-background-color: #2199dd;
+}
+
+.date-picker-popup .previous-month,
+.date-picker-popup .next-month {
+    -fx-background-color: #484848;
+    -fx-border-color: #484848;
+}
+
+.date-picker-popup .spinner-label {
+    -fx-font-family: Segoe UI;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+}
+
+.date-picker-popup .month-year-pane {
+    -fx-background-color: #2199dd;
+}
+
+.date-picker-popup .month-year-pane .button {
+    -fx-background-insets: 0;
+}
+
+.date-picker-popup .month-year-pane .button:hover,
+.date-picker-popup .month-year-pane .button:focused {
+    -fx-background-color: #2199dd;
+}
+
+.date-picker-popup .month-year-pane .button .text {
+    -fx-fill: white;
 }

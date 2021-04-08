@@ -119,7 +119,7 @@
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <Button layoutX="1085.0" layoutY="543.0" mnemonicParsing="false" onAction="#onActionDeleteAccount" prefHeight="25.0" prefWidth="260.0" style="-fx-background-color: transparent; -fx-border-width: 2px; -fx-border-color: #2199dd; -fx-border-radius: 50%; -fx-padding: 0;" text="Felhasználói fiók törlése" textFill="WHITE">
+      <Button layoutX="1045.0" layoutY="543.0" mnemonicParsing="false" onAction="#onActionDeleteAccount" prefHeight="28.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-border-width: 2px; -fx-border-color: #2199dd; -fx-border-radius: 50%; -fx-padding: 0;" text="Felhasználói fiók törlése" textFill="WHITE">
          <font>
             <Font name="Segoe UI" size="20.0" />
          </font>
@@ -127,7 +127,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="1085.0" layoutY="623.0" mnemonicParsing="false" onAction="#onActionSaveAccount" prefHeight="25.0" prefWidth="260.0" style="-fx-background-color: transparent; -fx-border-width: 2px; -fx-border-color: #2199dd; -fx-border-radius: 50%; -fx-padding: 0;" text="Mentés" textFill="WHITE">
+      <Button layoutX="1045.0" layoutY="623.0" mnemonicParsing="false" onAction="#onActionSaveAccount" prefHeight="28.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-border-width: 2px; -fx-border-color: #2199dd; -fx-border-radius: 50%; -fx-padding: 0;" text="Mentés" textFill="WHITE">
          <font>
             <Font name="Segoe UI" size="20.0" />
          </font>

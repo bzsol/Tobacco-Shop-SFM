@@ -1,6 +1,5 @@
 package hu.sfm.main;
 
-import hu.sfm.controller.DashboardController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,11 +11,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.h2.tools.Server;
 
-import javax.tools.Tool;
 import java.io.IOException;
-
-
-
 
 public class Main extends Application {
         private static Scene scene;
@@ -30,7 +25,7 @@ public class Main extends Application {
         @Override
         public void start(Stage stage) throws Exception {
             new Server().runTool("-tcp", "-web", "-ifNotExists");
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/loginpanel.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/incomepanel.fxml"));
 
             stage.setOnCloseRequest(e->{
                 e.consume();
