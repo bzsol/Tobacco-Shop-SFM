@@ -99,7 +99,12 @@ public class ProductSelectionController {
 
     @FXML
     private void onActionProductSelectionSave(ActionEvent event) {
-        Main.income+=Integer.parseInt(removeTextFieldPattern(fullPrice.getText()));
+        Main.income += Integer.parseInt(removeTextFieldPattern(fullPrice.getText()));
+        if (Main.actualCart.containsKey(label.getText())) {
+            Main.actualCart.replace(label.getText(), Main.actualCart.get(label.getText()) + Integer.parseInt(quantityTextField.getText()));
+        } else {
+            Main.actualCart.put(label.getText(), Integer.parseInt(quantityTextField.getText()));
+        }
         Stage stage = (Stage) saveBtn.getScene().getWindow();
         stage.close();
     }

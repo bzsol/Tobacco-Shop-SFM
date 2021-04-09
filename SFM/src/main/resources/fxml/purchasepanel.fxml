@@ -96,7 +96,15 @@
                   </Button>
                </children>
             </GridPane>
-            <Label style="-fx-label-padding: 50px 0 0 0;" text="Válassz menüpontot!" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#onActionOpenCart" prefHeight="50.0" prefWidth="1250.0" style="-fx-background-color: transparent; -fx-background-image: url('./images/shopbtnbg.png'); -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-border-color: #2199dd; -fx-border-width: 2px; -fx-border-radius: 50%;" text=" Kosár" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label prefWidth="297.0" style="-fx-label-padding: 20px 0 0 0;" text="Válassz menüpontot!" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="30.0" />
                </font>

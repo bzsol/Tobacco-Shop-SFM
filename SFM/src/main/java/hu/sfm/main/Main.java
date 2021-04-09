@@ -12,6 +12,8 @@ import javafx.util.Duration;
 import org.h2.tools.Server;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main extends Application {
         private static Scene scene;
@@ -26,7 +28,8 @@ public class Main extends Application {
         public static boolean hasGroup = false;
         public static String productId = null;
         public static String actUser = null;
-        public static int income=0;
+        public static int income = 0;
+        public static Map<String, Integer> actualCart = new HashMap<>();
 
         @Override
         public void start(Stage stage) throws Exception {
