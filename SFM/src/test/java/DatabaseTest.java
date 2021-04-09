@@ -6,28 +6,30 @@ import hu.sfm.utils.JPAProductDAO;
 import hu.sfm.utils.JPAUserDAO;
 import hu.sfm.utils.ProductDAO;
 import hu.sfm.utils.UserDAO;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+
+import java.util.Comparator;
+import java.util.NoSuchElementException;
+import java.util.OptionalLong;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DatabaseTest {
-    /*@Test
-    void IsProductDatabase(){
-        // Create test product
-        Product testProduct = new Product();
-        testProduct.setPrice(420);
-        testProduct.setName("Nagyapa féle gyilkos cucc");
-        testProduct.setQuantity(42);
-        testProduct.setProductGroups(ProductGroups.SZESZESITAL);
+    @Test
+    void IsProductsInDatabase(){
 
-        // Database connection
         ProductDAO productDAO = new JPAProductDAO();
-        productDAO.saveProduct(testProduct);
-
-        // Get the Products
         var products = productDAO.getProducts();
-        assertTrue( products.contains(testProduct));
+        assertEquals(products.size(),61);
+    }
+    @Test
+    void IsProductQuantityIsAlways100(){
+        ProductDAO productDAO = new JPAProductDAO();
+        var products = productDAO.getProducts();
+        var maxquantity = products.stream().max(Comparator.comparing(Product::getQuantity)).orElseThrow(NoSuchElementException::new);
+        assertEquals(maxquantity.getQuantity(),100);
     }
     @Test
     void isRegistered() {
@@ -42,13 +44,7 @@ public class DatabaseTest {
         userDAO.saveUser(testUser);
         // Take back the user from database
         var users = userDAO.getUser();
-        for(var user : users){
-            if (testUser.equals(user)) {
-                contains = true;
-                break;
-            }
-        }
-        assertTrue(contains);
+        assertTrue(users.contains(testUser));
     }
     @Test
     void isDeleted(){
@@ -73,6 +69,5 @@ public class DatabaseTest {
         assertFalse(updated_users.contains(testUser));
     }
 
-*/
 
 }

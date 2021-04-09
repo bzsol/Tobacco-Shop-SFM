@@ -35,7 +35,7 @@ public class PasswordTest {
     @ParameterizedTest
     @CsvSource({
             "AmINGLaterIDe,TRUE",
-            "CureCtiCYclUsIdELuLA,FALSE",
+            "CureCtiCYclUsIdELuLA,TRUE",
             "MinaTontam,TRUE",
             "a9He7aE$qc,FALSE"
 
