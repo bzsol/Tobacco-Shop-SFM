@@ -26,6 +26,7 @@ public class Main extends Application {
         public static boolean hasGroup = false;
         public static String productId = null;
         public static String actUser = null;
+        public static int income=0;
 
         @Override
         public void start(Stage stage) throws Exception {

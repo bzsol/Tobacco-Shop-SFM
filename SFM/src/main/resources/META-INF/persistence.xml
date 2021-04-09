@@ -8,6 +8,7 @@
         <description>Hibernate EntityManager Demo</description>
         <class>hu.sfm.entity.User</class>
         <class>hu.sfm.entity.Product</class>
+        <class>hu.sfm.entity.Bevetel</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>

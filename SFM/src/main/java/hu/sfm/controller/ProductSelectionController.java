@@ -99,6 +99,7 @@ public class ProductSelectionController {
 
     @FXML
     private void onActionProductSelectionSave(ActionEvent event) {
+        Main.income+=Integer.parseInt(removeTextFieldPattern(fullPrice.getText()));
         Stage stage = (Stage) saveBtn.getScene().getWindow();
         stage.close();
     }
