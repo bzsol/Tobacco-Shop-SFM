@@ -65,6 +65,7 @@ public class CartController {
         int sorszam = 0;
         String itemprice = "0";
         ProductDAO productDAO = new JPAProductDAO();
+        int vegosszeg=0;
 
         for (Map.Entry<String, Integer> product : Main.actualCart.entrySet()) {
 
@@ -72,8 +73,10 @@ public class CartController {
                 if(p.getName().equals(product.getKey()))
                 {
                     itemprice = String.valueOf(p.getPrice());
+
                 }
             }
+            vegosszeg+=Integer.parseInt(itemprice)*product.getValue();
 
             HBox productLine = new HBox();
             productLine.setId(product.getKey());
@@ -106,11 +109,13 @@ public class CartController {
             cartVbox.getChildren().add(productLine);
             sorszam++;
         }
+        totalPrice.setText(CurrencyManager.createPattern(String.valueOf(vegosszeg)));
     }
 
     private void emptyCartSetup() {
         Label zeroItemLabel = new Label("Jelenleg egyetlen termék sincs a kosárban");
         zeroItemLabel.setStyle("-fx-font-family: Segoe UI; -fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold; -fx-label-padding: 125px 0px 0px 202.5px");
         cartVbox.getChildren().add(zeroItemLabel);
+        totalPrice.setText(CurrencyManager.createPattern("0"));
     }
 }
