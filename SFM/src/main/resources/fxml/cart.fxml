@@ -24,29 +24,29 @@
       </ScrollPane>
       <HBox layoutX="4.0" layoutY="65.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="792.0" style="-fx-background-color: #2199dd; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;">
          <children>
-            <Label style="-fx-label-padding: 15px 0px 0px 20px;" text="Mennyiség" textFill="WHITE">
+            <Label style="-fx-label-padding: 15px 0 0 0; -fx-alignment: baseline_center; -fx-min-width: 100px;" text="Mennyiség" textFill="WHITE">
                <font>
                   <Font name="Segoe UI" size="16.0" />
                </font>
             </Label>
-            <Label style="-fx-label-padding: 15px 0px 0px 20px;" text="Termék neve" textFill="WHITE">
+            <Label style="-fx-label-padding: 15px 0 0 0; -fx-alignment: baseline_center; -fx-min-width: 150px;" text="Termék neve" textFill="WHITE">
                <font>
                   <Font name="Segoe UI" size="16.0" />
                </font>
             </Label>
-            <Label style="-fx-label-padding: 15px 0px 0px 170px;" text="Összeg" textFill="WHITE">
+            <Label style="-fx-label-padding: 15px 0 0 0; -fx-alignment: baseline_center; -fx-min-width: 325;" text="Összeg" textFill="WHITE">
                <font>
                   <Font name="Segoe UI" size="16.0" />
                </font>
             </Label>
-            <Label style="-fx-label-padding: 15px 0px 0px 240px;" text="Művelet" textFill="WHITE">
+            <Label style="-fx-label-padding: 15px 0 0 0; -fx-alignment: baseline_center; -fx-min-width: 250;" text="Művelet" textFill="WHITE">
                <font>
                   <Font name="Segoe UI" size="16.0" />
                </font>
             </Label>
          </children>
       </HBox>
-      <Button fx:id="completeBtn" layoutX="467.0" layoutY="560.0" mnemonicParsing="false" onAction="#onActionPurchaseComplete" style="-fx-background-color: transparent; -fx-border-color: rgb(40, 220, 40); -fx-border-radius: 50%; -fx-border-width: 2px;" text="Vásárlás befejezése" textFill="WHITE">
+      <Button fx:id="completeBtn" layoutX="467.0" layoutY="560.0" mnemonicParsing="false" onAction="#onActionPurchaseComplete" prefHeight="32.0" prefWidth="155.0" style="-fx-background-color: transparent; -fx-border-color: rgb(40, 220, 40); -fx-border-radius: 50%; -fx-border-width: 2px;" text="Vásárlás befejezése" textFill="WHITE">
          <font>
             <Font name="Segoe UI" size="14.0" />
          </font>
@@ -54,7 +54,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="declineBtn" layoutX="624.0" layoutY="560.0" mnemonicParsing="false" onAction="#onActionPurchaseDecline" style="-fx-background-color: transparent; -fx-border-color: rgb(220, 40, 40); -fx-border-radius: 50%; -fx-border-width: 2px;" text="Vásárlás megszakítása" textFill="WHITE">
+      <Button fx:id="continueBtn" layoutX="630.0" layoutY="560.0" mnemonicParsing="false" onAction="#onActionPurchaseContinue" prefHeight="32.0" prefWidth="155.0" style="-fx-background-color: transparent; -fx-border-color: #2199dd; -fx-border-radius: 50%; -fx-border-width: 2px;" text="Vásárlás folytatása" textFill="WHITE">
          <font>
             <Font name="Segoe UI" size="14.0" />
          </font>
@@ -72,5 +72,13 @@
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
+      <Button layoutX="15.0" layoutY="560.0" mnemonicParsing="false" onAction="#onActionPurchaseDecline" style="-fx-background-color: transparent; -fx-border-color: rgb(220, 40, 40); -fx-border-radius: 50%; -fx-border-width: 2px;" text="Kosár törlése" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>

@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import hu.sfm.utils.CurrencyManager;
 
 public class ProductSelectionController {
     @FXML
@@ -36,7 +37,7 @@ public class ProductSelectionController {
     private void onActionIncrementQuantity (ActionEvent event) {
         if (Integer.parseInt(quantityTextField.getText()) < 100) {
             quantityTextField.setText(String.valueOf(Integer.parseInt(quantityTextField.getText()) + 1));
-            setTextFieldPattern();
+            CurrencyManager.setTextFieldPattern(fullPrice, unitPrice, quantityTextField);
         }
 
     }
@@ -45,7 +46,7 @@ public class ProductSelectionController {
     private void onActionDecrementQuantity (ActionEvent event) {
         if (Integer.parseInt(quantityTextField.getText()) > 0) {
             quantityTextField.setText(String.valueOf(Integer.parseInt(quantityTextField.getText()) - 1));
-            setTextFieldPattern();
+            CurrencyManager.setTextFieldPattern(fullPrice, unitPrice, quantityTextField);
         }
     }
 
@@ -65,41 +66,12 @@ public class ProductSelectionController {
         } else if (quantityTextField.getText().equals("")) {
             quantityTextField.setText("0");
         }
-        setTextFieldPattern();
-    }
-
-    private String removeTextFieldPattern(String text) {
-        StringBuilder removePattern = new StringBuilder();
-        for (char element : text.toCharArray()) {
-            if (element != 'F' && element != 't' && element != ' ') {
-                removePattern.append(element);
-            }
-        }
-        return removePattern.toString();
-    }
-
-    private String createPattern(String text) {
-        StringBuilder textPattern = new StringBuilder();
-        int runTimeCount = 1;
-        for (int i = text.length() - 1; i >= 0; i--) {
-            textPattern.append(text.charAt(i));
-            if (runTimeCount % 3 == 0) {
-                textPattern.append(" ");
-            }
-            runTimeCount++;
-        }
-        textPattern.reverse();
-        textPattern.append(" Ft");
-        return textPattern.toString();
-    }
-
-    private void setTextFieldPattern () {
-        fullPrice.setText(createPattern(String.valueOf(Integer.parseInt(removeTextFieldPattern(unitPrice.getText())) * Integer.parseInt(quantityTextField.getText()))));
+        CurrencyManager.setTextFieldPattern(fullPrice, unitPrice, quantityTextField);
     }
 
     @FXML
     private void onActionProductSelectionSave(ActionEvent event) {
-        Main.income += Integer.parseInt(removeTextFieldPattern(fullPrice.getText()));
+        Main.income += Integer.parseInt(CurrencyManager.removeTextFieldPattern(fullPrice.getText()));
         if (Main.actualCart.containsKey(label.getText())) {
             Main.actualCart.replace(label.getText(), Main.actualCart.get(label.getText()) + Integer.parseInt(quantityTextField.getText()));
         } else {
@@ -121,11 +93,11 @@ public class ProductSelectionController {
 
         for(Product p : productDAO.getProducts()){
             if(p.getName().equals(Main.productId)){
-                unitPrice.setText(createPattern(String.valueOf(p.getPrice())));
+                unitPrice.setText(CurrencyManager.createPattern(String.valueOf(p.getPrice())));
                 label.setText(p.getName());
             }
         }
-        setTextFieldPattern();
+        CurrencyManager.setTextFieldPattern(fullPrice, unitPrice, quantityTextField);
 
     }
 }

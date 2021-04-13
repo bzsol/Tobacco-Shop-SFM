@@ -14,18 +14,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import hu.sfm.utils.CurrencyManager;
 
-import javax.persistence.TypedQuery;
 import java.util.Map;
-
-import static hu.sfm.utils.ProductDAO.entityManager;
 
 public class CartController {
     @FXML
     private Button completeBtn;
 
     @FXML
-    private Button declineBtn;
+    private Button continueBtn;
 
     @FXML
     private TextField totalPrice;
@@ -38,9 +36,7 @@ public class CartController {
         totalPrice.setText("0 Ft");
 
         if (Main.actualCart.entrySet().size() == 0) {
-            Label zeroItemLabel = new Label("Jelenleg egyetlen termék sincs a kosárban");
-            zeroItemLabel.setStyle("-fx-font-family: Segoe UI; -fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold; -fx-label-padding: 125px 0px 0px 202.5px");
-            cartVbox.getChildren().add(zeroItemLabel);
+            emptyCartSetup();
         } else {
             setupCart();
         }
@@ -53,9 +49,16 @@ public class CartController {
     }
 
     @FXML
-    private void onActionPurchaseDecline(ActionEvent event) {
-        Stage stage = (Stage) declineBtn.getScene().getWindow();
+    private void onActionPurchaseContinue(ActionEvent event) {
+        Stage stage = (Stage) continueBtn.getScene().getWindow();
         stage.close();
+    }
+
+    @FXML
+    private void onActionPurchaseDecline(ActionEvent event) {
+        Main.actualCart.clear();
+        cartVbox.getChildren().clear();
+        emptyCartSetup();
     }
 
     private void setupCart() {
@@ -82,11 +85,11 @@ public class CartController {
                 productLine.setStyle("-fx-background-color: rgba(132, 132, 132, .8)");
             }
             Label l1 = new Label(product.getValue() + "x");
-            l1.setStyle("-fx-min-width: 90px; -fx-font-family: Segoe UI; -fx-text-fill: white; -fx-font-size: 16px; -fx-alignment: BASELINE_CENTER; -fx-label-padding: 15px 0px");
+            l1.setStyle("-fx-min-width: 100px; -fx-font-family: Segoe UI; -fx-text-fill: white; -fx-font-size: 16px; -fx-alignment: BASELINE_CENTER; -fx-label-padding: 14px");
             Label l2 = new Label(product.getKey());
-            l2.setStyle("-fx-min-width: 160px; -fx-font-family: Segoe UI; -fx-text-fill: white; -fx-font-size: 16px; -fx-alignment: BASELINE_CENTER; -fx-label-padding: 15px 0px");
-            Label l3 = new Label((Integer.parseInt(itemprice)*product.getValue())+" Ft");
-            l3.setStyle("-fx-min-width: 220px; -fx-font-family: Segoe UI; -fx-text-fill: white; -fx-font-size: 16px; -fx-alignment: BASELINE_CENTER; -fx-label-padding: 15px 0px 0px 140px");
+            l2.setStyle("-fx-min-width: 155px; -fx-font-family: Segoe UI; -fx-text-fill: white; -fx-font-size: 16px; -fx-alignment: BASELINE_CENTER; -fx-label-padding: 14px");
+            Label l3 = new Label(CurrencyManager.createPattern(String.valueOf(Integer.parseInt(itemprice) * product.getValue())));
+            l3.setStyle("-fx-min-width: 310px; -fx-font-family: Segoe UI; -fx-text-fill: white; -fx-font-size: 16px; -fx-alignment: BASELINE_CENTER; -fx-label-padding: 14px");
             Button removeBtn = new Button("Eltávolítás");
             removeBtn.setStyle("-fx-background-color: transparent; -fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 50%; -fx-text-fill: white; -fx-font-family: Segoe UI; -fx-font-size: 14px; -fx-cursor: HAND");
             removeBtn.setId(product.getKey());
@@ -99,9 +102,15 @@ public class CartController {
                 }
             });
             productLine.getChildren().addAll(l1, l2, l3, removeBtn);
-            productLine.setMargin(removeBtn, new Insets(10, 0, 0, 190));
+            productLine.setMargin(removeBtn, new Insets(10, 0, 0, 95));
             cartVbox.getChildren().add(productLine);
             sorszam++;
         }
+    }
+
+    private void emptyCartSetup() {
+        Label zeroItemLabel = new Label("Jelenleg egyetlen termék sincs a kosárban");
+        zeroItemLabel.setStyle("-fx-font-family: Segoe UI; -fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold; -fx-label-padding: 125px 0px 0px 202.5px");
+        cartVbox.getChildren().add(zeroItemLabel);
     }
 }
