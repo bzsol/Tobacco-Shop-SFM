@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="695.0" prefWidth="1360.0" style="-fx-background-color: #121212;" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.sfm.controller.StorageController">
+   <children>
+      <Label layoutX="15.0" layoutY="12.0" text="Raktárkészlet" textFill="#2199dd">
+         <font>
+            <Font name="Segoe UI Bold" size="20.0" />
+         </font>
+      </Label>
+      <HBox layoutY="63.0" prefHeight="50.0" prefWidth="1360.0" style="-fx-background-color: #2199dd; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;">
+         <children>
+            <Label style="-fx-padding: 15px 0px 0px 0px; -fx-alignment: baseline_center; -fx-min-width: 100px;" text="Mennyiség" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="16.0" />
+               </font>
+            </Label>
+            <Label style="-fx-padding: 15px 0px 0px 0px; -fx-alignment: baseline_center; -fx-min-width: 150px;" text="Termék neve" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="16.0" />
+               </font>
+            </Label>
+            <Label style="-fx-padding: 15px 0px 0px 0px; -fx-alignment: baseline_center; -fx-min-width: 600px;" text="Állapot" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="16.0" />
+               </font>
+            </Label>
+            <Label style="-fx-padding: 15px 0px 0px 0px; -fx-alignment: baseline_center; -fx-min-width: 300;" text="Művelet" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <ScrollPane hbarPolicy="NEVER" layoutY="130.0" prefHeight="565.0" prefWidth="1360.0" style="-fx-region-background: none;">
+         <content>
+            <VBox fx:id="userPanelVbox" prefHeight="575.0" prefWidth="1345.0" style="-fx-background-color: #121212;" stylesheets="@../style/style.css" />
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

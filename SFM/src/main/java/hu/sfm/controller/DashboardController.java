@@ -93,7 +93,7 @@ public class DashboardController {
         if (Main.actualPane == null) {
             Main.actualPane = dashMenuLoaderPane;
         }
-        else{
+        else {
             Main.actualPane.getChildren().remove(0);
         }
 
@@ -115,8 +115,15 @@ public class DashboardController {
     }
 
     @FXML
-    private void dashLoadMenu5(ActionEvent event) {
-
+    private void dashLoadMenu5(ActionEvent event) throws IOException {
+        if (Main.actualPane == null) {
+            Main.actualPane = dashMenuLoaderPane;
+        }
+        else{
+            Main.actualPane.getChildren().remove(0);
+        }
+        Pane loadNewPane = FXMLLoader.load(getClass().getResource("/fxml/storage.fxml"));
+        dashMenuLoaderPane.getChildren().add(loadNewPane);
     }
 
     @FXML
