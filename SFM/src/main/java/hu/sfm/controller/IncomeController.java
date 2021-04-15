@@ -1,19 +1,16 @@
 package hu.sfm.controller;
 
 import hu.sfm.entity.Bevetel;
-import hu.sfm.entity.User;
 import hu.sfm.main.Main;
 import hu.sfm.utils.BevetelDAO;
+import hu.sfm.utils.CurrencyManager;
 import hu.sfm.utils.JPABevetelDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import javafx.util.StringConverter;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
 
 public class IncomeController {
 
@@ -52,10 +49,10 @@ public class IncomeController {
     @FXML
     private void initialize(){
         BevetelDAO bevetelDAO = new JPABevetelDAO();
-        bruttoDaily.setText(String.valueOf(Main.income));
-        nettoDaily.setText(String.valueOf(Math.round(Main.income*0.73)));
-        bruttoAll.setText(String.valueOf(bevetelDAO.getBevetelek().stream().mapToInt(Bevetel::getOsszeg).sum()));
-        nettoAll.setText(String.valueOf(Math.round((bevetelDAO.getBevetelek().stream().mapToInt(Bevetel::getOsszeg).sum())*0.73)));
+        bruttoDaily.setText(CurrencyManager.createPattern(String.valueOf(Main.income)));
+        nettoDaily.setText(CurrencyManager.createPattern(String.valueOf(Math.round(Main.income*0.73))));
+        bruttoAll.setText(CurrencyManager.createPattern(String.valueOf(bevetelDAO.getBevetelek().stream().mapToInt(Bevetel::getOsszeg).sum())));
+        nettoAll.setText(CurrencyManager.createPattern(String.valueOf(Math.round((bevetelDAO.getBevetelek().stream().mapToInt(Bevetel::getOsszeg).sum())*0.73))));
         bruttoRange.setText("0");
         nettoRange.setText("0");
         ;
@@ -73,8 +70,8 @@ public class IncomeController {
                 bevetelDAO.updateBevetel(bev);
             }
         }
-        bruttoDaily.setText("0");
-        nettoDaily.setText("0");
+        bruttoDaily.setText("0 Ft");
+        nettoDaily.setText("0 Ft");
         Main.income=0;
 
     }

@@ -71,7 +71,6 @@ public class ProductSelectionController {
 
     @FXML
     private void onActionProductSelectionSave(ActionEvent event) {
-        Main.income += Integer.parseInt(CurrencyManager.removeTextFieldPattern(fullPrice.getText()));
         if (Main.actualCart.containsKey(label.getText())) {
             Main.actualCart.replace(label.getText(), Main.actualCart.get(label.getText()) + Integer.parseInt(quantityTextField.getText()));
         } else {

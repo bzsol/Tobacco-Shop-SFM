@@ -10,22 +10,26 @@ public class CurrencyManager {
                 removePattern.append(element);
             }
         }
-        return removePattern.toString();
+        return removePattern.toString(); // 1 000 125 Ft - > 1000125
     }
-
+    
     public static String createPattern(String text) {
         StringBuilder textPattern = new StringBuilder();
-        int runTimeCount = 1;
-        for (int i = text.length() - 1; i >= 0; i--) {
-            textPattern.append(text.charAt(i));
-            if (runTimeCount % 3 == 0) {
-                textPattern.append(" ");
+        if (text.length() > 3) {
+            int runTimeCount = 1;
+            for (int i = text.length() - 1; i >= 0; i--) {
+                textPattern.append(text.charAt(i));
+                if (runTimeCount % 3 == 0) {
+                    textPattern.append(" ");
+                }
+                runTimeCount++;
             }
-            runTimeCount++;
+            textPattern.reverse();
+        } else {
+            textPattern.append(text);
         }
-        textPattern.reverse();
         textPattern.append(" Ft");
-        return textPattern.toString();
+        return textPattern.toString(); // 1000125 - > 1 000 125 Ft
     }
 
     public static void setTextFieldPattern(TextField fullPrice, TextField unitPrice, TextField quantityTextField) {
