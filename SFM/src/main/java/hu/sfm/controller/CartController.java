@@ -44,6 +44,8 @@ public class CartController {
 
     @FXML
     private void onActionPurchaseComplete(ActionEvent event) {
+        Main.income=Integer.parseInt(CurrencyManager.removeTextFieldPattern(totalPrice.getText()));
+        onActionPurchaseDecline(event);
         Stage stage = (Stage) completeBtn.getScene().getWindow();
         stage.close();
     }

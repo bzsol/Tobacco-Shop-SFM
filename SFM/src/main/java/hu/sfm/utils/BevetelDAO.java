@@ -18,5 +18,6 @@ public interface BevetelDAO extends AutoCloseable{
 
     public void updateBevetel(Bevetel b);
 
+
     public List<Bevetel> getBevetelek();
 }

@@ -58,6 +58,8 @@ public class IncomeController {
         nettoAll.setText(String.valueOf(Math.round((bevetelDAO.getBevetelek().stream().mapToInt(Bevetel::getOsszeg).sum())*0.73)));
         bruttoRange.setText("0");
         nettoRange.setText("0");
+        ;
+
     }
 
     @FXML

@@ -28,6 +28,7 @@ public class JPABevetelDAO implements BevetelDAO{
 
     }
 
+
     @Override
     public List<Bevetel> getBevetelek() {
         TypedQuery<Bevetel> query = entityManager.createQuery("SELECT p FROM Bevetel p", Bevetel.class);
