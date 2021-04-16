@@ -29,7 +29,7 @@ public class CurrencyManager {
             textPattern.append(text);
         }
         textPattern.append(" Ft");
-        return textPattern.toString(); // 1000125 - > 1 000 125 Ft
+        return textPattern.toString().trim(); // 1000125 - > 1 000 125 Ft
     }
 
     public static void setTextFieldPattern(TextField fullPrice, TextField unitPrice, TextField quantityTextField) {
