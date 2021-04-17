@@ -66,7 +66,7 @@ public class IncomeController {
             if (bev.getKasszaZaras()==null){
                 bev.setKasszaZaras(LocalDate.now());
                 bev.setOsszeg(Main.income);
-                bev.setElado(Main.actUser);
+                bev.setElado(Main.actUser.getUsername());
                 bevetelDAO.updateBevetel(bev);
             }
         }

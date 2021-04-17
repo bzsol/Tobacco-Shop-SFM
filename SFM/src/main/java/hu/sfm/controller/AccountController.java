@@ -53,7 +53,7 @@ public class AccountController {
         for (User u : userDAO.getUser()){
             accountChoiceBox.getItems().add(u.getUsername());
         }
-        loader(Main.actUser);
+        loader(Main.actUser.getUsername());
 
 
         accountChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> loader(newValue));
@@ -70,7 +70,7 @@ public class AccountController {
                 accountChoiceBox.getItems().remove(u.getUsername());
             }
         }
-        loader(Main.actUser);
+        loader(Main.actUser.getUsername());
 
 
 

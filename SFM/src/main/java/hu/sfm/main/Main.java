@@ -1,5 +1,6 @@
 package hu.sfm.main;
 
+import hu.sfm.entity.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -27,7 +28,7 @@ public class Main extends Application {
         public static Pane mainBuyMenuPane;
         public static boolean hasGroup = false;
         public static String productId = null;
-        public static String actUser = null;
+        public static User actUser = null;
         public static int income = 0;
         public static Map<String, Integer> actualCart = new HashMap<>();
 

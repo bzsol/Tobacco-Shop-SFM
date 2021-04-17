@@ -100,12 +100,13 @@ public class LoginController {
                     if (u.getUsername().contains(userName) && u.getPassword().contains(Encryption.visszafejt(passWord))) {
 
                         validate = true;
+                        Main.actUser=u;
                         break;
                     }
                 }
                 if (validate) {
 
-                    Main.actUser=userName;
+
                     System.out.println("Login Succesfull!");
                     Stage stage = (Stage) loginBtn.getScene().getWindow();
                     stage.setMinHeight(900);
