@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.Date;
 
 public class IncomeController {
 
@@ -41,11 +42,6 @@ public class IncomeController {
     @FXML
     private TextField bruttoAll;
 
-    @FXML
-    private TextField bruttoAvg;
-
-    @FXML
-    private TextField nettoAvg;
 
 
     @FXML
@@ -100,24 +96,23 @@ public class IncomeController {
 
     @FXML
     void leker(ActionEvent event){
-        try {
-            var fromTime = fromDatePicker.getValue();
-            var toTime = toDatePicker.getValue();
+        BevetelDAO bDAO = new JPABevetelDAO();
+        long from = Date.from(fromDatePicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime();
+        long to = Date.from(toDatePicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime();
+        int bevetel =0;
 
-            Instant instantFrom = Instant.from(fromTime.atStartOfDay(ZoneId.systemDefault()));
-            Instant instantTo = Instant.from(toTime.atStartOfDay(ZoneId.systemDefault()));
-            long day = calculateDay(instantTo.getEpochSecond() - instantFrom.getEpochSecond());
-            if(day < 0 || instantTo.getEpochSecond() - instantFrom.getEpochSecond() <= 0){
-                day = 0;
+        for (Bevetel b : bDAO.getBevetelek()){
+            if(((from<=Date.from(b.getKasszaZaras().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime())) &&
+                    ((to>=Date.from(b.getKasszaNyitas().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime()))){
+                bevetel+=b.getOsszeg();
             }
-            System.out.println(day);
+
         }
-        catch (NullPointerException e){
-            System.out.println("Wrong Date or No Date");
-        }
+        bruttoRange.setText(CurrencyManager.createPattern(String.valueOf(bevetel)));
+        nettoRange.setText(CurrencyManager.createPattern(String.valueOf(Math.round(bevetel*0.73))));
+
+
     }
-    private static long calculateDay(long seconds) {
-        return seconds / 86400;
-    }
+
 
 }
