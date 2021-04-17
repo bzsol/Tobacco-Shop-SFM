@@ -10,7 +10,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZoneId;
 
 public class IncomeController {
 
@@ -97,9 +99,25 @@ public class IncomeController {
     }
 
     @FXML
-    void leker(ActionEvent event) {
+    void leker(ActionEvent event){
+        try {
+            var fromTime = fromDatePicker.getValue();
+            var toTime = toDatePicker.getValue();
 
-
+            Instant instantFrom = Instant.from(fromTime.atStartOfDay(ZoneId.systemDefault()));
+            Instant instantTo = Instant.from(toTime.atStartOfDay(ZoneId.systemDefault()));
+            long day = calculateDay(instantTo.getEpochSecond() - instantFrom.getEpochSecond());
+            if(day < 0 || instantTo.getEpochSecond() - instantFrom.getEpochSecond() <= 0){
+                day = 0;
+            }
+            System.out.println(day);
+        }
+        catch (NullPointerException e){
+            System.out.println("Wrong Date or No Date");
+        }
+    }
+    private static long calculateDay(long seconds) {
+        return seconds / 86400;
     }
 
 }
