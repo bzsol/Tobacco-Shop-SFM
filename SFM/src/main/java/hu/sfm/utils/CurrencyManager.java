@@ -15,19 +15,15 @@ public class CurrencyManager {
     
     public static String createPattern(String text) {
         StringBuilder textPattern = new StringBuilder();
-        if (text.length() > 3) {
-            int runTimeCount = 1;
-            for (int i = text.length() - 1; i >= 0; i--) {
-                textPattern.append(text.charAt(i));
-                if (runTimeCount % 3 == 0) {
-                    textPattern.append(" ");
-                }
-                runTimeCount++;
+        int runTimeCount = 1;
+        for (int i = text.length() - 1; i >= 0; i--) {
+            textPattern.append(text.charAt(i));
+            if (runTimeCount % 3 == 0) {
+                textPattern.append(" ");
             }
-            textPattern.reverse();
-        } else {
-            textPattern.append(text);
+            runTimeCount++;
         }
+        textPattern.reverse();
         textPattern.append(" Ft");
         return textPattern.toString().trim(); // 1000125 - > 1 000 125 Ft
     }
