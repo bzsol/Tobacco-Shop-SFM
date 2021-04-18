@@ -35,10 +35,10 @@ public class AccountController {
     private TextField newPassCheck;
 
     @FXML
-    private TextField addDate;
+    private ChoiceBox<Permission> permissionChoiceBox;
 
     @FXML
-    private TextField beosztas;
+    private TextField addDate;
 
     @FXML
     private TextField salary;
@@ -55,13 +55,23 @@ public class AccountController {
         for (User u : userDAO.getUser()){
             accountChoiceBox.getItems().add(u.getUsername());
         }
+
+        permissionChoiceBox.getItems().addAll(Permission.values());
+
         loader(Main.actUser.getUsername());
 
-        if(!Main.actUser.getPerm().equals(Permission.ADMIN))
+        if (!Main.actUser.getPerm().equals(Permission.ADMIN))
         {
             accountChoiceBox.setVisible(false);
+            permissionChoiceBox.setDisable(true);
+            salary.setDisable(true);
         }
         accountChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> loader(newValue));
+    }
+
+    @FXML
+    private void onActionChangePass(ActionEvent event) {
+
     }
 
     @FXML
@@ -139,13 +149,13 @@ public class AccountController {
                 addDate.setText(u.getAddDate() == null ?"<Empty>": String.valueOf(u.getAddDate()));
                 switch (u.getPerm()){
                     case ADMIN:
-                        beosztas.setText("Tulajdonos");
+                        permissionChoiceBox.setValue(Permission.ADMIN);
                         break;
                     case ALKALMAZOTT:
-                        beosztas.setText("Alkalmazott");
+                        permissionChoiceBox.setValue(Permission.ALKALMAZOTT);
                         break;
                     case DEFAULT:
-                        beosztas.setText("<Empty>");
+                        permissionChoiceBox.setValue(Permission.DEFAULT);
                 }
             }
         }

@@ -110,7 +110,7 @@ public class LoginController {
                     System.out.println("Login Succesfull!");
                     Stage stage = (Stage) loginBtn.getScene().getWindow();
                     stage.setMinHeight(900);
-                    stage.setMinWidth(1600);
+                    stage.setMinWidth(1616);
                     Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
                     stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
                     stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);

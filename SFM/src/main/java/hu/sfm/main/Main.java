@@ -17,20 +17,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Main extends Application {
-        private static Scene scene;
+    private static Scene scene;
 
     public static Scene getScene() {
         return scene;
     }
 
     public static int sorszam;
-        public static Pane actualPane;
-        public static Pane mainBuyMenuPane;
-        public static boolean hasGroup = false;
-        public static String productId = null;
-        public static User actUser = null;
-        public static int income = 0;
-        public static Map<String, Integer> actualCart = new HashMap<>();
+    public static Pane actualPane;
+    public static Pane mainBuyMenuPane;
+    public static String productId = null;
+    public static User actUser = null;
+    public static int income = 0;
+    public static Map<String, Integer> actualCart = new HashMap<>();
 
         @Override
         public void start(Stage stage) throws Exception {

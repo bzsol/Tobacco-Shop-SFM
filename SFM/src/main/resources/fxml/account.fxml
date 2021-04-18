@@ -70,7 +70,7 @@
             <Font name="Segoe UI" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="15.0" layoutY="543.0" text="Beosztás" textFill="#2199dd">
+      <Label layoutX="15.0" layoutY="543.0" text="Jogosultság" textFill="#2199dd">
          <font>
             <Font name="Segoe UI" size="20.0" />
          </font>
@@ -119,7 +119,7 @@
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <Button layoutX="1045.0" layoutY="543.0" mnemonicParsing="false" onAction="#onActionDeleteAccount" prefHeight="28.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-border-width: 2px; -fx-border-color: #2199dd; -fx-border-radius: 50%; -fx-padding: 0;" text="Felhasználói fiók törlése" textFill="WHITE">
+      <Button layoutX="1045.0" layoutY="598.0" mnemonicParsing="false" onAction="#onActionDeleteAccount" prefHeight="28.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-border-width: 2px; -fx-border-color: rgb(220, 40, 40); -fx-border-radius: 50%; -fx-padding: 0;" text="Felhasználói fiók törlése" textFill="WHITE">
          <font>
             <Font name="Segoe UI" size="20.0" />
          </font>
@@ -127,7 +127,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="1045.0" layoutY="623.0" mnemonicParsing="false" onAction="#onActionSaveAccount" prefHeight="28.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-border-width: 2px; -fx-border-color: #2199dd; -fx-border-radius: 50%; -fx-padding: 0;" text="Mentés" textFill="WHITE">
+      <Button layoutX="1045.0" layoutY="653.0" mnemonicParsing="false" onAction="#onActionSaveAccount" prefHeight="28.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-border-width: 2px; -fx-border-color: rgb(40, 220, 40); -fx-border-radius: 50%; -fx-padding: 0;" text="Mentés" textFill="WHITE">
          <font>
             <Font name="Segoe UI" size="20.0" />
          </font>
@@ -145,12 +145,7 @@
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="beosztas" disable="true" layoutX="15.0" layoutY="573.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-opacity: 1;">
-         <font>
-            <Font name="Segoe UI" size="16.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="salary" disable="true" layoutX="15.0" layoutY="653.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-opacity: 1;">
+      <TextField fx:id="salary" layoutX="15.0" layoutY="653.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-opacity: 1;">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
@@ -160,7 +155,7 @@
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="birthDate" disable="true" layoutX="1045.0" layoutY="200.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-opacity: 1; -fx-alignment: BASELINE_RIGHT;">
+      <TextField fx:id="birthDate" layoutX="1045.0" layoutY="200.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-opacity: 1; -fx-alignment: BASELINE_RIGHT;">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
@@ -170,5 +165,18 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ChoiceBox>
+      <ChoiceBox fx:id="permissionChoiceBox" layoutX="15.0" layoutY="573.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-border-color: #2199dd; -fx-border-width: 2px; -fx-opacity: 1;" stylesheets="@../style/style.css">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ChoiceBox>
+      <Button layoutX="1045.0" layoutY="543.0" mnemonicParsing="false" onAction="#onActionChangePass" prefHeight="28.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-border-width: 2px; -fx-border-color: #2199dd; -fx-border-radius: 50%; -fx-padding: 0;" text="Jelszó megváltoztatása" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>
