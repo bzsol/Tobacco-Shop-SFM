@@ -3,6 +3,7 @@ package hu.sfm.controller;
 import hu.sfm.entity.Permission;
 import hu.sfm.entity.User;
 import hu.sfm.main.Main;
+import hu.sfm.utils.CurrencyManager;
 import hu.sfm.utils.JPAUserDAO;
 import hu.sfm.utils.UserDAO;
 import javafx.event.ActionEvent;
@@ -113,16 +114,12 @@ public class AccountController {
                 u.setUsername(userName.getText());
                 u.setBirthDate(LocalDate.parse(birthDate.getText()));
                 u.setAddDate(LocalDate.parse(addDate.getText()));
+                u.setSallary(Integer.parseInt(CurrencyManager.removeTextFieldPattern(salary.getText())));
+                u.setPerm(permissionChoiceBox.getValue());
+                userDAO.updateUser(u);
 
             }
-            if(Main.actUser.getPerm().equals(Permission.ADMIN))
-            {
-                u.setSallary(Integer.parseInt(salary.getText()));
-            }
-            else
-            {
-                salary.setDisable(true);
-            }
+
 
         }
 
@@ -143,10 +140,10 @@ public class AccountController {
                 kerNev.setText(u.getKeresztNev() == null ?"<Empty>": u.getKeresztNev());
                 email.setText(u.getEmail() == null ?"<Empty>": u.getEmail());
                 userName.setText(u.getUsername());
-                birthDate.setText(u.getBirthDate() == null ?"<Empty>": String.valueOf(u.getBirthDate()));
-                salary.setText(u.getSallary() == 0 ? "<Empty>":String.valueOf(u.getSallary()));
+                birthDate.setText(u.getBirthDate() == null ?"yyyy-mm-dd": String.valueOf(u.getBirthDate()));
+                salary.setText(u.getSallary() == 0 ? "0 Ft":CurrencyManager.createPattern(String.valueOf(u.getSallary())));
                 regDate.setText(String.valueOf(u.getregDate()));
-                addDate.setText(u.getAddDate() == null ?"<Empty>": String.valueOf(u.getAddDate()));
+                addDate.setText(u.getAddDate() == null ?String.valueOf(LocalDate.now()): String.valueOf(u.getAddDate()));
                 switch (u.getPerm()){
                     case ADMIN:
                         permissionChoiceBox.setValue(Permission.ADMIN);

@@ -133,4 +133,5 @@ public class User {
 
     @Column(columnDefinition = "DATE")
     private LocalDate addDate;
+
 }
