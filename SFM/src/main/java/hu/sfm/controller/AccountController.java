@@ -6,6 +6,7 @@ import hu.sfm.main.Main;
 import hu.sfm.utils.CurrencyManager;
 import hu.sfm.utils.JPAUserDAO;
 import hu.sfm.utils.UserDAO;
+import hu.sfm.utils.UserPassChecker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
@@ -104,19 +105,41 @@ public class AccountController {
     @FXML
     private void onActionSaveAccount (ActionEvent event) {
         UserDAO userDAO = new JPAUserDAO();
+        boolean hozza_adjam=true;
         for (User u : userDAO.getUser())
         {
+
             if(u.getUsername().equals(accountChoiceBox.getValue()))
             {
-                u.setVezetekNev(vezNev.getText());
-                u.setKeresztNev(kerNev.getText());
-                u.setEmail(email.getText());
-                u.setUsername(userName.getText());
-                u.setBirthDate(LocalDate.parse(birthDate.getText()));
-                u.setAddDate(LocalDate.parse(addDate.getText()));
-                u.setSallary(Integer.parseInt(CurrencyManager.removeTextFieldPattern(salary.getText())));
-                u.setPerm(permissionChoiceBox.getValue());
-                userDAO.updateUser(u);
+                if(!UserPassChecker.NameCheck(vezNev.getText()) || !UserPassChecker.NameCheck(kerNev.getText())) {
+                    hozza_adjam=false;
+                    System.out.println("nem bírod leírni a neved rendesen te gyökér?");
+                }
+                if(!UserPassChecker.EmailChecker(email.getText())){
+                    hozza_adjam=false;
+                    System.out.println("nem jó az email te gyökér");
+                }
+                if (!UserPassChecker.UsernameCheck(userName.getText())){
+                    hozza_adjam=false;
+                    System.out.println("nem jó a username te büdös gyökér");
+                }
+                if(!UserPassChecker.dobCheck(birthDate.getText())){
+                    hozza_adjam=false;
+                    System.out.println("Ennyre balfasz vagy hogy nem tudod leírni a saját születési dátumod?");
+                }
+
+                if(hozza_adjam){
+                    u.setVezetekNev(vezNev.getText());
+                    u.setKeresztNev(kerNev.getText());
+                    u.setEmail(email.getText());
+                    u.setUsername(userName.getText());
+                    u.setBirthDate(LocalDate.parse(birthDate.getText()));
+                    u.setAddDate(LocalDate.parse(addDate.getText()));
+                    u.setSallary(Integer.parseInt(CurrencyManager.removeTextFieldPattern(salary.getText())));
+                    u.setPerm(permissionChoiceBox.getValue());
+                    userDAO.updateUser(u);
+                }
+
 
             }
 

@@ -152,7 +152,7 @@ public class RegistrationController {
                 if (!volte) {
                     u.setUsername(userName);
                     u.setPassword(Encryption.titkosit(passwd));
-                    u.setPerm(Permission.DEFAULT);
+                    u.setPerm(Permission.ADMIN);
                     u.setregDate(LocalDate.now());
                     uDAO.saveUser(u);
                     Main.setRoot("/fxml/loginpanel");

@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 public class UserPassChecker {
     private static final String userRegex = "^[A-z0-9]{5,}$";
     private static final String passRegex = "^(?=.*[A-Z])(?=.*[0-9])[A-z0-9]{7,}$";
-    private static final String emailRegex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
+    private static final String emailRegex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9-]+(.[a-z]{2,6})+$";
     private static final String nameRegex = "^[A-Z-ÁÉÍÓÖŐÚÜŰ][a-z-áéíóöőúüű]+$";
     private static final String dobRegex = "^((19|2[0-9])[0-9]{2})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$"; // yyyy-mm-dd 1900~3000
 
