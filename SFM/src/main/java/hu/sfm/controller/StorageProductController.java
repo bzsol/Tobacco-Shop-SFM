@@ -1,5 +1,6 @@
 package hu.sfm.controller;
 
+import hu.sfm.entity.Permission;
 import hu.sfm.entity.Product;
 import hu.sfm.main.Main;
 import hu.sfm.utils.CurrencyManager;
@@ -40,6 +41,10 @@ public class StorageProductController {
     @FXML
     private void initialize() throws Exception {
 
+        if(!Main.actUser.getPerm().equals(Permission.ADMIN))
+        {
+            newPriceTextField.setDisable(true);
+        }
         ProductDAO productDAO = new JPAProductDAO();
 
         for (Product p : productDAO.getProducts()){
@@ -64,7 +69,7 @@ public class StorageProductController {
             if(p.getName().equals(label.getText())){
 
                 p.setName(label.getText());
-                p.setPrice(p.getPrice()-Integer.parseInt(CurrencyManager.removeTextFieldPattern(newPriceTextField.getText())));
+                p.setPrice(Integer.parseInt(CurrencyManager.removeTextFieldPattern(newPriceTextField.getText())));
                 p.setQuantity(p.getQuantity()+Integer.parseInt(quantityTextField.getText()));
                 pDAO.updateProduct(p);
             }

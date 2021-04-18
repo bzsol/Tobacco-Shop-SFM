@@ -10,6 +10,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 
+import java.time.LocalDate;
+
 public class AccountController {
     @FXML
     private ChoiceBox<String> accountChoiceBox;
@@ -55,23 +57,34 @@ public class AccountController {
         }
         loader(Main.actUser.getUsername());
 
-
+        if(!Main.actUser.getPerm().equals(Permission.ADMIN))
+        {
+            accountChoiceBox.setVisible(false);
+        }
         accountChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> loader(newValue));
     }
 
     @FXML
     private void onActionDeleteAccount (ActionEvent event) {
 
-        UserDAO userDAO = new JPAUserDAO();
-
-        for (User u : userDAO.getUser()){
-            if (u.getUsername().equals(userName.getText()) && !u.getPerm().equals(Permission.ADMIN)){
-                userDAO.deleteUser(u);
-                accountChoiceBox.getItems().remove(u.getUsername());
-            }
+        if(!Main.actUser.getPerm().equals(Permission.ADMIN))
+        {
+            System.out.println("nem vagy admin");
         }
-        loader(Main.actUser.getUsername());
+        else
+        {
+            UserDAO userDAO = new JPAUserDAO();
 
+            for (User u : userDAO.getUser())
+            {
+                if (u.getUsername().equals(userName.getText()) && !u.getPerm().equals(Permission.ADMIN))
+                {
+                    userDAO.deleteUser(u);
+                    accountChoiceBox.getItems().remove(u.getUsername());
+                }
+            }
+            loader(Main.actUser.getUsername());
+        }
 
 
 
@@ -79,6 +92,30 @@ public class AccountController {
 
     @FXML
     private void onActionSaveAccount (ActionEvent event) {
+        UserDAO userDAO = new JPAUserDAO();
+        for (User u : userDAO.getUser())
+        {
+            if(u.getUsername().equals(accountChoiceBox.getValue()))
+            {
+                u.setVezetekNev(vezNev.getText());
+                u.setKeresztNev(kerNev.getText());
+                u.setEmail(email.getText());
+                u.setUsername(userName.getText());
+                u.setBirthDate(LocalDate.parse(birthDate.getText()));
+                u.setAddDate(LocalDate.parse(addDate.getText()));
+
+            }
+            if(Main.actUser.getPerm().equals(Permission.ADMIN))
+            {
+                u.setSallary(Integer.parseInt(salary.getText()));
+            }
+            else
+            {
+                salary.setDisable(true);
+            }
+
+        }
+
 
     }
 
@@ -91,7 +128,7 @@ public class AccountController {
         accountChoiceBox.setValue(actuallyUser);
         for (User u : userDAO.getUser() ){
             if(u.getUsername().equals(actuallyUser)){
-
+                addDate.setText(String.valueOf(LocalDate.now()));
                 vezNev.setText(u.getVezetekNev() == null?"<Empty>": u.getVezetekNev());
                 kerNev.setText(u.getKeresztNev() == null ?"<Empty>": u.getKeresztNev());
                 email.setText(u.getEmail() == null ?"<Empty>": u.getEmail());
