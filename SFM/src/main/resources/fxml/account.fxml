@@ -99,7 +99,7 @@
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="userName" layoutX="15.0" layoutY="280.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0;">
+      <TextField fx:id="userName" disable="true" layoutX="15.0" layoutY="280.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-padding: 0; -fx-text-fill: white; -fx-opacity: 1;">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
@@ -165,7 +165,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ChoiceBox>
-      <ChoiceBox fx:id="permissionChoiceBox" layoutX="15.0" layoutY="573.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-border-color: #2199dd; -fx-border-width: 2px; -fx-opacity: 1;" stylesheets="@../style/style.css">
+      <ChoiceBox fx:id="permissionChoiceBox" layoutX="15.0" layoutY="573.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-border-color: #2199dd; -fx-border-width: 2px; -fx-opacity: 1; -fx-text-fill: white;" stylesheets="@../style/style.css">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

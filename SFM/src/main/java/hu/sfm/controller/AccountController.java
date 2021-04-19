@@ -106,6 +106,8 @@ public class AccountController {
     private void onActionSaveAccount (ActionEvent event) {
         UserDAO userDAO = new JPAUserDAO();
         boolean hozza_adjam=true;
+
+
         for (User u : userDAO.getUser())
         {
 
@@ -119,10 +121,7 @@ public class AccountController {
                     hozza_adjam=false;
                     System.out.println("nem jó az email te gyökér");
                 }
-                if (!UserPassChecker.UsernameCheck(userName.getText())){
-                    hozza_adjam=false;
-                    System.out.println("nem jó a username te büdös gyökér");
-                }
+
                 if(!UserPassChecker.dobCheck(birthDate.getText())){
                     hozza_adjam=false;
                     System.out.println("Ennyre balfasz vagy hogy nem tudod leírni a saját születési dátumod?");
