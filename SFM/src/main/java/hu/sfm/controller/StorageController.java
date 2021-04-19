@@ -1,6 +1,7 @@
 package hu.sfm.controller;
 
 import hu.sfm.entity.Product;
+import hu.sfm.entity.StorageSortType;
 import hu.sfm.main.Main;
 import hu.sfm.utils.CurrencyManager;
 import hu.sfm.utils.JPAProductDAO;
@@ -21,20 +22,69 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.util.*;
 
 public class StorageController {
     @FXML
     private VBox StorageVbox;
 
     @FXML
+    private Label quantityLabel;
+
+    @FXML
+    private Label nameLabel;
+
+    private StorageSortType type;
+
+    @FXML
     private void initialize(){
+        type = StorageSortType.UNSORTED;
+        setupStorage();
+    }
+
+    @FXML
+    private void onMouseClickedQuantity() {
+        if (type == StorageSortType.NAME_ASC || type == StorageSortType.NAME_DESC) {
+            nameLabel.setText("Termék neve");
+        }
+        if (type == StorageSortType.QUANTITY_ASC) {
+            type = StorageSortType.QUANTITY_DESC;
+            quantityLabel.setText("Mennyiség ▼");
+        } else {
+            type = StorageSortType.QUANTITY_ASC;
+            quantityLabel.setText("Mennyiség ▲");
+        }
+        setupStorage();
+    }
+
+    @FXML
+    private void onMouseClickedName() {
+        if (type == StorageSortType.QUANTITY_ASC || type == StorageSortType.QUANTITY_DESC) {
+            quantityLabel.setText("Mennyiség");
+        }
+        if (type == StorageSortType.NAME_ASC) {
+            type = StorageSortType.NAME_DESC;
+            nameLabel.setText("Termék neve ▼");
+        } else {
+            type = StorageSortType.NAME_ASC;
+            nameLabel.setText("Termék neve ▲");
+        }
         setupStorage();
     }
 
     private void setupStorage(){
+        StorageVbox.getChildren().clear();
+
         ProductDAO productDAO = new JPAProductDAO();
+        List<Product> productList;
+        if (type != StorageSortType.UNSORTED) {
+            productList = sortStorage(productDAO.getProducts());
+        } else {
+            productList = productDAO.getProducts();
+        }
+
         int sorszam = 0;
-        for (Product p : productDAO.getProducts()) {
+        for (Product p : productList) {
             HBox productline = new HBox();
             productline.setPrefWidth(1345);
             productline.setMinHeight(50);
@@ -45,9 +95,9 @@ public class StorageController {
             }
 
             Label l1 = new Label(String.valueOf(p.getQuantity()));
-            l1.setStyle("-fx-min-width: 100px; -fx-font-family: Segoe UI; -fx-text-fill: white; -fx-font-size: 16px; -fx-alignment: BASELINE_CENTER; -fx-label-padding: 14px");
+            l1.setStyle("-fx-min-width: 130px; -fx-font-family: Segoe UI; -fx-text-fill: white; -fx-font-size: 16px; -fx-alignment: BASELINE_CENTER; -fx-label-padding: 14px");
             Label l2 = new Label(String.valueOf(p.getName()));
-            l2.setStyle("-fx-min-width: 1100px; -fx-font-family: Segoe UI; -fx-text-fill: white; -fx-font-size: 16px; -fx-alignment: BASELINE_CENTER; -fx-label-padding: 14px");
+            l2.setStyle("-fx-min-width: 1070px; -fx-font-family: Segoe UI; -fx-text-fill: white; -fx-font-size: 16px; -fx-alignment: BASELINE_CENTER; -fx-label-padding: 14px");
             Button modifyBtn = new Button("Szerkesztés");
             modifyBtn.setStyle("-fx-background-color: transparent; -fx-border-color: #2199dd; -fx-border-width: 2px; -fx-border-radius: 50%; -fx-text-fill: white; -fx-font-family: Segoe UI; -fx-font-size: 14px; -fx-cursor: HAND");
             modifyBtn.setId(p.getName());
@@ -81,6 +131,25 @@ public class StorageController {
             productline.getChildren().addAll(l1, l2, modifyBtn);
             StorageVbox.getChildren().add(productline);
             sorszam++;
+        }
+    }
+
+    private List<Product> sortStorage(List<Product> productList) {
+        switch (type) {
+            case QUANTITY_ASC:
+                productList.sort(Comparator.comparing(Product::getQuantity));
+                return productList;
+            case QUANTITY_DESC:
+                productList.sort(Comparator.comparing(Product::getQuantity).reversed());
+                return productList;
+            case NAME_ASC:
+                productList.sort(Comparator.comparing(Product::getName));
+                return productList;
+            case NAME_DESC:
+                productList.sort(Comparator.comparing(Product::getName).reversed());
+                return productList;
+            default:
+                return productList;
         }
     }
 }

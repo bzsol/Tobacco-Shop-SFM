@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,15 +17,21 @@
       </Label>
       <HBox layoutY="63.0" prefHeight="50.0" prefWidth="1360.0" style="-fx-background-color: #2199dd; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px; -fx-max-width: 1360px;">
          <children>
-            <Label style="-fx-padding: 15px 0px 0px 0px; -fx-alignment: baseline_center; -fx-min-width: 100px;" text="Mennyiség" textFill="WHITE">
+            <Label fx:id="quantityLabel" onMouseClicked="#onMouseClickedQuantity" style="-fx-padding: 15px 0px 0px 0px; -fx-alignment: baseline_center; -fx-min-width: 130px;" text="Mennyiség" textFill="WHITE">
                <font>
                   <Font name="Segoe UI" size="16.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Label>
-            <Label style="-fx-padding: 15px 0px 0px 0px; -fx-alignment: baseline_center; -fx-min-width: 1100px;" text="Termék neve" textFill="WHITE">
+            <Label fx:id="nameLabel" onMouseClicked="#onMouseClickedName" style="-fx-padding: 15px 0px 0px 0px; -fx-alignment: baseline_center; -fx-min-width: 1070px;" text="Termék neve" textFill="WHITE">
                <font>
                   <Font name="Segoe UI" size="16.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Label>
             <Label style="-fx-padding: 15px 0px 0px 0px; -fx-alignment: baseline_center; -fx-min-width: 150px;" text="Művelet" textFill="WHITE">
                <font>
