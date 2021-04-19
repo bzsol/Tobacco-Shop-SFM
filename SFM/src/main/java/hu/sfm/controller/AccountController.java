@@ -113,26 +113,36 @@ public class AccountController {
 
             if(u.getUsername().equals(accountChoiceBox.getValue()))
             {
-                if(!UserPassChecker.NameCheck(vezNev.getText()) || !UserPassChecker.NameCheck(kerNev.getText())) {
+                if(!UserPassChecker.NameCheck(vezNev.getText())){
                     hozza_adjam=false;
-                    System.out.println("nem bírod leírni a neved rendesen te gyökér?");
+                    vezNev.setStyle("-fx-border-color:  rgb(220, 40, 40); -fx-border-width:  0px 0px 2px 0px;-fx-background-color:  transparent;-fx-text-fill: white;-fx-padding: 0");
+                    //System.out.println("nem bírod leírni a neved rendesen te gyökér?");
+                }
+                if(!UserPassChecker.NameCheck((kerNev.getText()))){
+                    hozza_adjam=false;
+                    kerNev.setStyle("-fx-border-color:  rgb(220, 40, 40); -fx-border-width:  0px 0px 2px 0px;-fx-background-color:  transparent;-fx-text-fill: white;-fx-padding: 0");
                 }
                 if(!UserPassChecker.EmailChecker(email.getText())){
                     hozza_adjam=false;
-                    System.out.println("nem jó az email te gyökér");
+                    email.setStyle("-fx-alignment:  BASELINE_RIGHT;-fx-border-color:  rgb(220, 40, 40); -fx-border-width:  0px 0px 2px 0px;-fx-background-color:  transparent;-fx-text-fill: white;-fx-padding: 0");
+                    //System.out.println("nem jó az email te gyökér");
                 }
 
                 if(!UserPassChecker.dobCheck(birthDate.getText())){
                     hozza_adjam=false;
-                    System.out.println("Ennyre balfasz vagy hogy nem tudod leírni a saját születési dátumod?");
+                    birthDate.setStyle("-fx-opacity:1;-fx-alignment:  BASELINE_RIGHT;-fx-border-color:  rgb(220, 40, 40); -fx-border-width:  0px 0px 2px 0px;-fx-background-color:  transparent;-fx-text-fill: white;-fx-padding: 0");
+                    //System.out.println("Ennyre balfasz vagy hogy nem tudod leírni a saját születési dátumod?");
                 }
 
                 if(hozza_adjam){
                     u.setVezetekNev(vezNev.getText());
+                    vezNev.setStyle("-fx-border-color: #2199dd; -fx-border-width:  0px 0px 2px 0px;-fx-background-color:  transparent;-fx-text-fill: white;-fx-padding: 0");
                     u.setKeresztNev(kerNev.getText());
+                    kerNev.setStyle("-fx-border-color: #2199dd; -fx-border-width:  0px 0px 2px 0px;-fx-background-color:  transparent;-fx-text-fill: white;-fx-padding: 0");
                     u.setEmail(email.getText());
-                    u.setUsername(userName.getText());
+                    email.setStyle("-fx-alignment:  BASELINE_RIGHT;-fx-border-color: #2199dd; -fx-border-width:  0px 0px 2px 0px;-fx-background-color:  transparent;-fx-text-fill: white;-fx-padding: 0");
                     u.setBirthDate(LocalDate.parse(birthDate.getText()));
+                    birthDate.setStyle("-fx-opacity:1;-fx-alignment:  BASELINE_RIGHT;-fx-border-color: #2199dd; -fx-border-width:  0px 0px 2px 0px;-fx-background-color:  transparent;-fx-text-fill: white;-fx-padding: 0");
                     u.setAddDate(LocalDate.parse(addDate.getText()));
                     u.setSallary(Integer.parseInt(CurrencyManager.removeTextFieldPattern(salary.getText())));
                     u.setPerm(permissionChoiceBox.getValue());
