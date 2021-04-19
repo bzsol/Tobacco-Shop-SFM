@@ -7,7 +7,10 @@ import hu.sfm.utils.Encryption;
 import hu.sfm.utils.JPAUserDAO;
 import hu.sfm.utils.UserDAO;
 import hu.sfm.utils.UserPassChecker;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
@@ -17,8 +20,8 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.Objects;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class RegistrationController {
@@ -52,7 +55,9 @@ public class RegistrationController {
     @FXML
     private VBox registrationErrorMsgVbox;
 
-    /** Designt megvalósító eventek **/
+    /**
+     * Designt megvalósító eventek
+     **/
     @FXML
     private void onMouseEnteredRegistration(MouseEvent event) {
         registrationBtn.setStyle("-fx-background-color: #2199dd");
@@ -121,7 +126,10 @@ public class RegistrationController {
         tooltip.setStyle("-fx-background-color: white; -fx-font-size: 12px; -fx-text-fill: #2199dd");
         pwInfoLabel.setTooltip(tooltip);
     }
-    /** Designt megvalósító eventek **/
+
+    /**
+     * Designt megvalósító eventek
+     **/
 
     // Hyperlink a bejelentkező GUI-ra
     @FXML
@@ -131,15 +139,25 @@ public class RegistrationController {
 
     @FXML
     void onRegistration(ActionEvent event) {
+        for (var timer : Timers) {
+            timer.stop();
+        }
 
         User u = new User();
 
         String userName = regUserInput.getText();
         String passwd = regPassInput.getText();
         String check = regPwAgainField.getText();
-
         boolean volte = false;
-        if (passwd.equals(check) && UserPassChecker.UsernameCheck(userName) && UserPassChecker.passCheck(passwd)) {
+
+        if (userName.isEmpty() || passwd.isEmpty() || check.isEmpty()) {
+            if (registrationErrorMsgVbox.getChildren().size() > 0) {
+                registrationErrorMsgVbox.getChildren().remove(0);
+            }
+            Label label = Main.createErrorLabel("Sikertelen regisztráció!", "- Nem maradhat üresen mező!");
+            registrationErrorMsgVbox.getChildren().add(label);
+            TimeUntilDisappear();
+        } else if (passwd.equals(check) && UserPassChecker.UsernameCheck(userName) && UserPassChecker.passCheck(passwd)) {
 
             try {
                 UserDAO uDAO = new JPAUserDAO();
@@ -156,17 +174,16 @@ public class RegistrationController {
                     u.setregDate(LocalDate.now());
                     uDAO.saveUser(u);
                     Main.setRoot("/fxml/loginpanel");
-
-
-
-                }
-                else {
+                } else {
                     regUserInput.setText("");
                     regPassInput.setText("");
                     regPwAgainField.setText("");
+                    if (registrationErrorMsgVbox.getChildren().size() > 0) {
+                        registrationErrorMsgVbox.getChildren().remove(0);
+                    }
                     Label label = Main.createErrorLabel("Sikertelen regisztráció!", "- A megadott felhasználónév már létezik!");
                     registrationErrorMsgVbox.getChildren().add(label);
-                    System.out.println("ez már lézetik ez a felhasználó név");
+                    TimeUntilDisappear();
                 }
 
                 uDAO.close();
@@ -178,27 +195,48 @@ public class RegistrationController {
 
 
         } else {
-            if(!passwd.equals(check))
-            {
+            if (!passwd.equals(check)) {
                 regUserInput.setText("");
                 regPassInput.setText("");
                 regPwAgainField.setText("");
-                Label label = Main.createErrorLabel("Sikertelen regisztráció!", "- A megadott két jelszó nem egyezik meg!");
+                if (registrationErrorMsgVbox.getChildren().size() > 0) {
+                    registrationErrorMsgVbox.getChildren().remove(0);
+                }
+                Label label = Main.createErrorLabel("Sikertelen regisztráció!", "- A megadott jelszavak nem egyeznek!");
                 registrationErrorMsgVbox.getChildren().add(label);
-                System.out.println("nem egyezik meg!");
-
-            }
-            else if(!(UserPassChecker.UsernameCheck(userName)) || !(UserPassChecker.passCheck(passwd))){
+                TimeUntilDisappear();
+            } else if (!(UserPassChecker.UsernameCheck(userName)) || !(UserPassChecker.passCheck(passwd))) {
                 regUserInput.setText("");
                 regPassInput.setText("");
                 regPwAgainField.setText("");
+                if (registrationErrorMsgVbox.getChildren().size() > 0) {
+                    registrationErrorMsgVbox.getChildren().remove(0);
+                }
                 Label label = Main.createErrorLabel("Sikertelen regisztráció!", "- A megadott felhasználónév vagy jelszó nem megfelelő!");
                 registrationErrorMsgVbox.getChildren().add(label);
-                System.out.println("nem megfelelő jelszo vagy felhasznalónév");
+                TimeUntilDisappear();
             }
 
         }
 
+    }
+
+    private List<Timeline> Timers = new ArrayList<>();
+
+    private void TimeUntilDisappear() {
+        Timeline disappear = new Timeline(
+                new KeyFrame(Duration.seconds(5), new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        if (registrationErrorMsgVbox.getChildren().size() > 0) {
+                            registrationErrorMsgVbox.getChildren().remove(0);
+                        }
+                    }
+                })
+        );
+        disappear.setCycleCount(Timeline.INDEFINITE);
+        disappear.play();
+        Timers.add(disappear);
     }
 
 }

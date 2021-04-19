@@ -96,7 +96,7 @@ public class StorageProductController {
             }
             quantityTextField.setText(removeNonDigits.toString());
         }
-        if (quantityTextField.getText().length() > 2) {
+        if (quantityTextField.getText().length() > 3) {
             quantityTextField.setText("1000");
         } else if (quantityTextField.getText().equals("")) {
             quantityTextField.setText("0");

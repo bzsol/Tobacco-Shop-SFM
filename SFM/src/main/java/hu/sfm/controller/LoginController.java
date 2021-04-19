@@ -5,7 +5,10 @@ import hu.sfm.main.Main;
 import hu.sfm.utils.Encryption;
 import hu.sfm.utils.JPAUserDAO;
 import hu.sfm.utils.UserDAO;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.control.Button;
@@ -17,7 +20,11 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LoginController {
     @FXML
@@ -80,6 +87,9 @@ public class LoginController {
 
     @FXML
     void onLogIn(ActionEvent event) throws IOException {
+        for (var timer : Timers) {
+            timer.stop();
+        }
 
         String userName = logInputUname.getText();
         String passWord = logInputPassw.getText();
@@ -90,8 +100,9 @@ public class LoginController {
                 if (loginErrorMsgVbox.getChildren().size() > 0) {
                     loginErrorMsgVbox.getChildren().remove(0);
                 }
-                Label label = Main.createErrorLabel("Sikertelen bejelentkezés!", "- A felhasználónév, vagy a jelszó mezőt üresen hagyta");
+                Label label = Main.createErrorLabel("Sikertelen bejelentkezés!", "- Nem maradhat üresen mező!");
                 loginErrorMsgVbox.getChildren().add(label);
+                TimeUntilDisappear();
                 logInputPassw.setText("");
                 logInputUname.setText("");
             }else {
@@ -120,8 +131,9 @@ public class LoginController {
                     if (loginErrorMsgVbox.getChildren().size() > 0) {
                         loginErrorMsgVbox.getChildren().remove(0);
                     }
-                    Label label = Main.createErrorLabel("Sikertelen bejelentkezés!", "- Hibás felhasználónevet, vagy jelszót adott meg");
+                    Label label = Main.createErrorLabel("Sikertelen bejelentkezés!", "- Hibás felhasználónevet, vagy jelszót adott meg!");
                     loginErrorMsgVbox.getChildren().add(label);
+                    TimeUntilDisappear();
                     logInputPassw.setText("");
                     logInputUname.setText("");
                 }
@@ -133,4 +145,23 @@ public class LoginController {
             e.printStackTrace();
         }
     }
+
+    private List<Timeline> Timers = new ArrayList<>();
+
+    private void TimeUntilDisappear() {
+        Timeline disappear = new Timeline(
+                new KeyFrame(Duration.seconds(5), new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        if (loginErrorMsgVbox.getChildren().size() > 0) {
+                            loginErrorMsgVbox.getChildren().remove(0);
+                        }
+                    }
+                })
+        );
+        disappear.setCycleCount(Timeline.INDEFINITE);
+        disappear.play();
+        Timers.add(disappear);
+    }
+
 }

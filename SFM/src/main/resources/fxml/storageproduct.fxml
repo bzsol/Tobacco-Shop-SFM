@@ -29,7 +29,7 @@
             <Font name="Segoe UI Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="quantityTextField" layoutX="235.0" layoutY="85.0" onAction="#onKeyTypedValidate" prefHeight="26.0" prefWidth="150.0" style="-fx-padding: 0; -fx-background-color: transparent; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 2px 0px; -fx-alignment: baseline_right; -fx-opacity: 1; -fx-text-fill: white">
+      <TextField fx:id="quantityTextField" layoutX="235.0" layoutY="85.0" onKeyTyped="#onKeyTypedValidate" prefHeight="26.0" prefWidth="150.0" style="-fx-padding: 0; -fx-background-color: transparent; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 2px 0px; -fx-alignment: baseline_right; -fx-opacity: 1; -fx-text-fill: white">
          <font>
             <Font name="Segoe UI" size="20.0" />
          </font>
