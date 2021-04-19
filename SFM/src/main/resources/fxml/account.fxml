@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.PasswordField?>
 <AnchorPane prefHeight="695.0" prefWidth="1360.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.sfm.controller.AccountController">
    <children>
       <Label layoutX="15.0" layoutY="12.0" text="Fiók" textFill="#2199dd">
@@ -109,16 +110,16 @@
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="newPass" layoutX="1045.0" layoutY="413.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-alignment: BASELINE_RIGHT;">
+      <PasswordField fx:id="newPass" layoutX="1045.0" layoutY="413.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-alignment: BASELINE_RIGHT;">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
-      </TextField>
-      <TextField fx:id="newPassCheck" layoutX="1045.0" layoutY="493.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-alignment: BASELINE_RIGHT;">
+      </PasswordField>
+      <PasswordField fx:id="newPassCheck" layoutX="1045.0" layoutY="493.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-alignment: BASELINE_RIGHT;">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
-      </TextField>
+      </PasswordField>
       <Button layoutX="1045.0" layoutY="598.0" mnemonicParsing="false" onAction="#onActionDeleteAccount" prefHeight="28.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-border-width: 2px; -fx-border-color: rgb(220, 40, 40); -fx-border-radius: 50%; -fx-padding: 0;" text="Felhasználói fiók törlése" textFill="WHITE">
          <font>
             <Font name="Segoe UI" size="20.0" />

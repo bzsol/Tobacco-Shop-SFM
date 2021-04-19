@@ -3,13 +3,11 @@ package hu.sfm.controller;
 import hu.sfm.entity.Permission;
 import hu.sfm.entity.User;
 import hu.sfm.main.Main;
-import hu.sfm.utils.CurrencyManager;
-import hu.sfm.utils.JPAUserDAO;
-import hu.sfm.utils.UserDAO;
-import hu.sfm.utils.UserPassChecker;
+import hu.sfm.utils.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import java.time.LocalDate;
@@ -31,10 +29,10 @@ public class AccountController {
     private TextField email;
 
     @FXML
-    private TextField newPass;
+    private PasswordField  newPass;
 
     @FXML
-    private TextField newPassCheck;
+    private PasswordField newPassCheck;
 
     @FXML
     private ChoiceBox<Permission> permissionChoiceBox;
@@ -62,6 +60,12 @@ public class AccountController {
 
         loader(Main.actUser.getUsername());
 
+
+
+        newPass.setStyle("-fx-background-color: transparent;-fx-background-insets:0;-fx-border-width: 0px 0px 2px 0px;-fx-border-color: #2199dd;-fx-text-fill: white;-fx-padding:0;-fx-alignment: BASELINE_RIGHT;");
+        newPass.setStyle("-fx-background-color: transparent;-fx-background-insets:0;-fx-border-width: 0px 0px 2px 0px;-fx-border-color: #2199dd;-fx-text-fill: white;-fx-padding:0;-fx-alignment: BASELINE_RIGHT;");
+
+
         if (!Main.actUser.getPerm().equals(Permission.ADMIN))
         {
             accountChoiceBox.setVisible(false);
@@ -73,6 +77,25 @@ public class AccountController {
 
     @FXML
     private void onActionChangePass(ActionEvent event) {
+
+        if(!newPass.getText().isEmpty() || !newPassCheck.getText().isEmpty()){
+
+            if(newPass.getText().equals(newPassCheck.getText()) && UserPassChecker.passCheck(newPassCheck.getText())){
+                UserDAO userDAO = new JPAUserDAO();
+                for (User u : userDAO.getUser()){
+                    if(u.getUsername().equals(accountChoiceBox.getValue())){
+                        u.setPassword(Encryption.titkosit(newPass.getText()));
+                        userDAO.saveUser(u);
+                        newPass.setStyle("-fx-background-color: transparent;-fx-background-insets:0;-fx-border-width: 0px 0px 2px 0px;-fx-border-color: rgb(40, 220, 40);-fx-text-fill: white;-fx-padding:0;-fx-alignment: BASELINE_RIGHT;");
+                        newPassCheck.setStyle("-fx-background-color: transparent;-fx-background-insets:0;-fx-border-width: 0px 0px 2px 0px;-fx-border-color: rgb(40, 220, 40);-fx-text-fill: white;-fx-padding:0;-fx-alignment: BASELINE_RIGHT;");
+                    }
+                }
+            }else{
+                newPass.setStyle("-fx-background-color: transparent;-fx-background-insets:0;-fx-border-width: 0px 0px 2px 0px;-fx-border-color:rgb(220, 40, 40);-fx-text-fill: white;-fx-padding:0;-fx-alignment: BASELINE_RIGHT;");
+                newPassCheck.setStyle("-fx-background-color: transparent;-fx-background-insets:0;-fx-border-width: 0px 0px 2px 0px;-fx-border-color:rgb(220, 40, 40);-fx-text-fill: white;-fx-padding:0;-fx-alignment: BASELINE_RIGHT;");
+            }
+
+        }
 
     }
 
@@ -101,6 +124,7 @@ public class AccountController {
 
 
     }
+
 
     @FXML
     private void onActionSaveAccount (ActionEvent event) {
