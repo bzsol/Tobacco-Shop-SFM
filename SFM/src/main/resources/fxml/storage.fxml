@@ -44,7 +44,7 @@
       </HBox>
       <ScrollPane hbarPolicy="NEVER" layoutY="130.0" prefHeight="565.0" prefWidth="1360.0" style="-fx-region-background: none;">
          <content>
-            <VBox fx:id="StorageVbox" prefHeight="575.0" prefWidth="1345.0" style="-fx-background-color: #121212;" stylesheets="@../style/style.css" />
+            <VBox id="storagevbox" fx:id="StorageVbox" prefHeight="575.0" prefWidth="1345.0" style="-fx-background-color: #121212;" stylesheets="@../style/style.css" />
          </content>
       </ScrollPane>
       <Button layoutX="1245.0" layoutY="20.0" mnemonicParsing="false" style="-fx-border-color: #2199dd; -fx-background-color: transparent; -fx-border-width: 2px; -fx-border-radius: 50%; -fx-min-width: 100px;" text="Keres" textFill="WHITE">

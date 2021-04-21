@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #121212; -fx-border-color: #2199dd; -fx-border-width: 4px;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.sfm.controller.StorageProductController">
+<AnchorPane prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #121212; -fx-border-color: #2199dd; -fx-border-width: 4px;" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.sfm.controller.StorageProductController">
    <children>
       <Label fx:id="label" layoutX="50.0" layoutY="15.0" prefWidth="300.0" style="-fx-alignment: baseline_center;" text="Label" textFill="#2199dd">
          <font>
@@ -44,7 +44,7 @@
             <Font name="Segoe UI" size="20.0" />
          </font>
       </TextField>
-      <Button fx:id="saveBtn" layoutX="235.0" layoutY="265.0" mnemonicParsing="false" onAction="#onActionStorageSelectionSave" style="-fx-background-color: transparent; -fx-border-color: rgb(40, 220, 40); -fx-border-radius: 50%; -fx-border-width: 2px;" text="Mentés" textFill="WHITE">
+      <Button id="stpsave" fx:id="saveBtn" layoutX="235.0" layoutY="260.0" mnemonicParsing="false" onAction="#onActionStorageSelectionSave" text="Mentés" textFill="WHITE">
          <font>
             <Font name="Segoe UI" size="14.0" />
          </font>
@@ -52,7 +52,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="cancelBtn" layoutX="319.0" layoutY="265.0" mnemonicParsing="false" onAction="#onActionStorageSelectionCancel" style="-fx-background-color: transparent; -fx-border-color: rgb(220, 40, 40); -fx-border-radius: 50%; -fx-border-width: 2px;" text="Mégse" textFill="WHITE">
+      <Button id="stpdecline" fx:id="cancelBtn" layoutX="319.0" layoutY="260.0" mnemonicParsing="false" onAction="#onActionStorageSelectionCancel" text="Mégse" textFill="WHITE">
          <font>
             <Font name="Segoe UI" size="14.0" />
          </font>

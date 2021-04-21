@@ -19,7 +19,7 @@
       </Label>
       <ScrollPane hbarPolicy="NEVER" layoutX="3.0" layoutY="130.0" prefHeight="350.0" prefWidth="793.0" style="-fx-region-background: none;">
          <content>
-            <VBox fx:id="cartVbox" prefHeight="345.0" prefWidth="800.0" style="-fx-background-color: #121212;" />
+            <VBox id="cartvbox" fx:id="cartVbox" prefHeight="345.0" prefWidth="800.0" style="-fx-background-color: #121212;" />
          </content>
       </ScrollPane>
       <HBox layoutX="4.0" layoutY="65.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="792.0" style="-fx-background-color: #2199dd; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;">
@@ -46,7 +46,7 @@
             </Label>
          </children>
       </HBox>
-      <Button fx:id="completeBtn" layoutX="467.0" layoutY="560.0" mnemonicParsing="false" onAction="#onActionPurchaseComplete" prefHeight="32.0" prefWidth="155.0" style="-fx-background-color: transparent; -fx-border-color: rgb(40, 220, 40); -fx-border-radius: 50%; -fx-border-width: 2px;" text="Vásárlás befejezése" textFill="WHITE">
+      <Button id="cartdone" fx:id="completeBtn" layoutX="467.0" layoutY="560.0" mnemonicParsing="false" onAction="#onActionPurchaseComplete" prefHeight="32.0" prefWidth="155.0" text="Vásárlás befejezése" textFill="WHITE">
          <font>
             <Font name="Segoe UI" size="14.0" />
          </font>
@@ -54,7 +54,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="continueBtn" layoutX="630.0" layoutY="560.0" mnemonicParsing="false" onAction="#onActionPurchaseContinue" prefHeight="32.0" prefWidth="155.0" style="-fx-background-color: transparent; -fx-border-color: #2199dd; -fx-border-radius: 50%; -fx-border-width: 2px;" text="Vásárlás folytatása" textFill="WHITE">
+      <Button id="cartcontinue" fx:id="continueBtn" layoutX="630.0" layoutY="560.0" mnemonicParsing="false" onAction="#onActionPurchaseContinue" prefHeight="32.0" prefWidth="155.0" text="Vásárlás folytatása" textFill="WHITE">
          <font>
             <Font name="Segoe UI" size="14.0" />
          </font>
@@ -72,7 +72,7 @@
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <Button layoutX="15.0" layoutY="560.0" mnemonicParsing="false" onAction="#onActionPurchaseDecline" style="-fx-background-color: transparent; -fx-border-color: rgb(220, 40, 40); -fx-border-radius: 50%; -fx-border-width: 2px;" text="Kosár törlése" textFill="WHITE">
+      <Button id="cartdelete" layoutX="15.0" layoutY="560.0" mnemonicParsing="false" onAction="#onActionPurchaseDecline" text="Kosár törlése" textFill="WHITE">
          <font>
             <Font name="Segoe UI" size="14.0" />
          </font>

@@ -96,7 +96,6 @@ public class CartController {
             Label l3 = new Label(CurrencyManager.createPattern(String.valueOf(Integer.parseInt(itemprice) * product.getValue())));
             l3.setStyle("-fx-min-width: 310px; -fx-font-family: Segoe UI; -fx-text-fill: white; -fx-font-size: 16px; -fx-alignment: BASELINE_CENTER; -fx-label-padding: 14px");
             Button removeBtn = new Button("Eltávolítás");
-            removeBtn.setStyle("-fx-background-color: transparent; -fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 50%; -fx-text-fill: white; -fx-font-family: Segoe UI; -fx-font-size: 14px; -fx-cursor: HAND");
             removeBtn.setId(product.getKey());
             removeBtn.setOnAction(new EventHandler<ActionEvent>() {
                 @Override

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="purchaseAnchor" prefHeight="695.0" prefWidth="1360.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.sfm.controller.PurchasepanelController">
+<AnchorPane fx:id="purchaseAnchor" prefHeight="695.0" prefWidth="1360.0" style="-fx-background-color: #121212;" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.sfm.controller.PurchasepanelController">
    <children>
       <Label layoutX="15.0" layoutY="12.0" text="Árukiadás" textFill="#2199dd">
          <font>
@@ -96,7 +96,7 @@
                   </Button>
                </children>
             </GridPane>
-            <Button mnemonicParsing="false" onAction="#onActionOpenCart" prefHeight="50.0" prefWidth="1250.0" style="-fx-background-color: transparent; -fx-background-image: url('./images/shopbtnbg.png'); -fx-background-position: center; -fx-background-repeat: no-repeat; -fx-border-color: #2199dd; -fx-border-width: 2px; -fx-border-radius: 50%;" text=" Kosár" textFill="WHITE">
+            <Button id="purchasecart" mnemonicParsing="false" onAction="#onActionOpenCart" prefHeight="50.0" prefWidth="1250.0" text=" Kosár" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="20.0" />
                </font>

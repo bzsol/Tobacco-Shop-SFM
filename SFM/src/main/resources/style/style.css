@@ -144,3 +144,72 @@
 .date-picker-popup .month-year-pane .button:focused {
     -fx-background-color: #2199dd;
 }
+
+#dashvbox .button {
+    -fx-background-color: #2199dd;
+    -fx-alignment: baseline_left;
+    -fx-border-color: white;
+    -fx-border-width: 0px 0px 2px 0px;
+    -fx-background-radius: 0;
+}
+
+#dashvbox .button:hover {
+    -fx-background-color: rgba(12, 12, 12, 0.3);
+}
+
+#dashvbox .button:focused {
+    -fx-background-color: rgb(15, 10, 85);
+}
+
+#accpw, #accdelete, #accsave, #incomeopen, #incomeclose, #incomerequest, #cartdone, #psinc, #psdec,
+ #cartcontinue {
+    -fx-background-color: transparent;
+    -fx-border-width: 2px;
+    -fx-border-radius: 50%;
+    -fx-padding: 0;
+}
+
+#cartdelete, #stpsave, #stpdecline, #pssave, #psdecline {
+    -fx-background-color: transparent;
+    -fx-border-width: 2px;
+    -fx-border-radius: 50%;
+}
+
+#accpw, #incomeopen, #incomeclose, #incomerequest, #cartcontinue, #psinc, #psdec, #storagevbox .button {
+    -fx-border-color: #2199dd;
+}
+
+#accdelete, #cartdelete, #stpdecline, #psdecline, #cartvbox .button {
+    -fx-border-color: rgb(220, 40, 40);
+}
+
+#accsave, #cartdone, #stpsave, #pssave {
+    -fx-border-color: rgb(40, 220, 40);
+}
+
+#accpw:hover, #accdelete:hover, #accsave:hover, #purchasecart:hover, #incomeopen:hover, #incomeclose:hover,
+ #incomerequest:hover, #storagevbox .button:hover, #cartdelete:hover, #cartdone:hover, #cartcontinue:hover, #cartvbox .button:hover,
+  #stpsave:hover, #stpdecline:hover, #pssave:hover, #psdecline:hover, #psinc:hover, #psdec:hover {
+    -fx-border-color: white;
+}
+
+#purchasecart {
+    -fx-background-color: transparent;
+    -fx-border-color: #2199dd;
+    -fx-border-width: 2px;
+    -fx-border-radius: 50%;
+    -fx-background-image: url('../images/shopbtnbg.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-padding: 0;
+}
+
+#storagevbox .button, #cartvbox .button {
+    -fx-background-color: transparent;
+    -fx-border-width: 2px;
+    -fx-border-radius: 50%;
+    -fx-text-fill: white;
+    -fx-text-family: Segoe UI;
+    -fx-font-size: 14px;
+    -fx-cursor: HAND;
+}

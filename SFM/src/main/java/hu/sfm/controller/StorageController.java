@@ -99,7 +99,6 @@ public class StorageController {
             Label l2 = new Label(String.valueOf(p.getName()));
             l2.setStyle("-fx-min-width: 1070px; -fx-font-family: Segoe UI; -fx-text-fill: white; -fx-font-size: 16px; -fx-alignment: BASELINE_CENTER; -fx-label-padding: 14px");
             Button modifyBtn = new Button("Szerkesztés");
-            modifyBtn.setStyle("-fx-background-color: transparent; -fx-border-color: #2199dd; -fx-border-width: 2px; -fx-border-radius: 50%; -fx-text-fill: white; -fx-font-family: Segoe UI; -fx-font-size: 14px; -fx-cursor: HAND");
             modifyBtn.setId(p.getName());
             modifyBtn.setOnAction(new EventHandler<ActionEvent>() {
                 @Override

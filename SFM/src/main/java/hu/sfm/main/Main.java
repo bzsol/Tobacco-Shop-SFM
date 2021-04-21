@@ -4,6 +4,7 @@ import hu.sfm.entity.User;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -28,7 +29,6 @@ public class Main extends Application {
         return scene;
     }
 
-    public static int sorszam;
     public static Pane actualPane;
     public static Pane mainBuyMenuPane;
     public static String productId = null;
@@ -40,7 +40,6 @@ public class Main extends Application {
         public void start(Stage stage) throws Exception {
             new Server().runTool("-tcp", "-web", "-ifNotExists");
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/loginpanel.fxml"));
-
             stage.setOnCloseRequest(e->{
                 e.consume();
                 System.out.println("The application closed, the database is closed too!");
