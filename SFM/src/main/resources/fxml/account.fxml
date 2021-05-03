@@ -5,9 +5,9 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="695.0" prefWidth="1360.0" style="-fx-background-color: #121212;" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.sfm.controller.AccountController">
@@ -27,10 +27,6 @@
             <Font name="Segoe UI Bold" size="20.0" />
          </font>
       </Label>
-      <Separator layoutX="15.0" layoutY="62.0" prefHeight="7.0" prefWidth="535.0" style="-fx-background-color: white; -fx-background-radius: 40%;" />
-      <Separator layoutX="15.0" layoutY="355.0" prefHeight="7.0" prefWidth="535.0" style="-fx-background-color: white; -fx-background-radius: 40%;" />
-      <Separator layoutX="812.0" layoutY="62.0" prefHeight="7.0" prefWidth="535.0" style="-fx-background-color: white; -fx-background-radius: 40%;" />
-      <Separator layoutX="812.0" layoutY="355.0" prefHeight="7.0" prefWidth="535.0" style="-fx-background-color: white; -fx-background-radius: 40%;" />
       <Label layoutX="15.0" layoutY="90.0" text="Vezetéknév" textFill="#2199dd">
          <font>
             <Font name="Segoe UI" size="20.0" />
@@ -179,5 +175,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Region layoutX="15.0" layoutY="64.0" prefHeight="3.0" prefWidth="535.0" style="-fx-background-color: #2199dd; -fx-background-radius: 100%;" />
+      <Region layoutX="812.0" layoutY="356.0" prefHeight="3.0" prefWidth="535.0" style="-fx-background-color: #2199dd; -fx-background-radius: 100%;" />
+      <Region layoutX="15.0" layoutY="356.0" prefHeight="3.0" prefWidth="535.0" style="-fx-background-color: #2199dd; -fx-background-radius: 100%;" />
+      <Region layoutX="812.0" layoutY="64.0" prefHeight="3.0" prefWidth="535.0" style="-fx-background-color: #2199dd; -fx-background-radius: 100%;" />
    </children>
 </AnchorPane>

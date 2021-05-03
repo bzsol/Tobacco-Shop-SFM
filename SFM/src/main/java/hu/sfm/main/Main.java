@@ -1,20 +1,18 @@
 package hu.sfm.main;
 
 import hu.sfm.entity.User;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.application.Application;
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import org.h2.tools.Server;
 
@@ -35,6 +33,8 @@ public class Main extends Application {
     public static User actUser = null;
     public static int income = 0;
     public static Map<String, Integer> actualCart = new HashMap<>();
+    public static String alertMsg = null;
+    public static Button clickedMenuBtn = null;
 
         @Override
         public void start(Stage stage) throws Exception {
@@ -81,6 +81,30 @@ public class Main extends Application {
             tooltip.setShowDuration(Duration.seconds(30));
             label.setTooltip(tooltip);
             return label;
+        }
+
+        public static void showAlert() {
+            final double LOADER_PANE_WIDTH_DIFF = 240;
+            final double LOADER_PANE_HEIGHT_DIFF = 205;
+            final double ALERT_WIDTH_CENTER = 400;
+            final double ALERT_HEIGHT_CENTER = 100;
+
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/alert.fxml"));
+            Parent root = null;
+            try {
+                root = loader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setTitle("Figyelmeztetés");
+            stage.setScene(new Scene(root));
+            Stage primaryStage = (Stage) Main.getScene().getWindow();
+            stage.setX(primaryStage.getX() + LOADER_PANE_WIDTH_DIFF + (primaryStage.getWidth() - LOADER_PANE_WIDTH_DIFF) / 2 - ALERT_WIDTH_CENTER);
+            stage.setY(primaryStage.getY() + (primaryStage.getHeight() - LOADER_PANE_HEIGHT_DIFF) / 2 - ALERT_HEIGHT_CENTER);
+            stage.showAndWait();
         }
 
         public static void main(String[] args) {

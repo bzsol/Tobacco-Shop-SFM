@@ -59,6 +59,9 @@ public class IncomeController {
 
     @FXML
     void onClose(ActionEvent event) {
+        Main.alertMsg = "Biztos vagy benne, hogy le szeretnéd zárni a kasszát?";
+        Main.showAlert();
+
         BevetelDAO bevetelDAO = new JPABevetelDAO();
         for (Bevetel bev : bevetelDAO.getBevetelek()){
             if (bev.getKasszaZaras()==null){
@@ -82,7 +85,8 @@ public class IncomeController {
         boolean nyitva = false;
         for (Bevetel bev : bevetelDAO.getBevetelek()){
             if(bev.getKasszaZaras()==null){
-                System.out.println("Már van nyitva kassza te gyökér!");
+                Main.alertMsg = "A kassza jelenleg is nyitva van! Amíg a kassza nem kerül lezárásra, addig nem nyitható meg újra!";
+                Main.showAlert();
                 nyitva=true;
             }
         }

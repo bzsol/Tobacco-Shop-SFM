@@ -98,7 +98,7 @@ public class StorageController {
         productList.removeIf(p -> !p.getName().toLowerCase().contains(searchPattern.toLowerCase()));
         if (productList.size() == 0) {
             Label errorLabel = new Label("Nem található a keresésnek megfelelő elem!");
-            errorLabel.setStyle("-fx-text-fill: white; -fx-font-size: 24px; -fx-font-family: Segoe UI; -fx-min-width: 1345; -fx-alignment: center");
+            errorLabel.setStyle("-fx-text-fill: white; -fx-font-size: 24px; -fx-font-family: Segoe UI; -fx-font-weight: bold; -fx-min-width: 1345; -fx-alignment: center");
             if (StorageVbox.getChildren().size() > 0) {
                 StorageVbox.getChildren().remove(0);
             }

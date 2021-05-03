@@ -150,20 +150,13 @@
     -fx-background-color: #2199dd;
 }
 
-#dashvbox .toggle-button {
+#dashvbox .button {
     -fx-background-color: #2199dd;
     -fx-alignment: baseline_left;
     -fx-border-color: white;
     -fx-border-width: 0px 0px 2px 0px;
     -fx-background-radius: 0;
-}
-
-#dashvbox .toggle-button:hover {
-    -fx-background-color: rgba(12, 12, 12, 0.3);
-}
-
-#dashvbox .toggle-button:focused {
-    -fx-background-color: rgb(15, 10, 85);
+    -fx-cursor: HAND;
 }
 
 #accpw, #accdelete, #accsave, #incomeopen, #incomeclose, #incomerequest, #cartdone, #psinc, #psdec,
@@ -244,4 +237,10 @@
     -fx-opacity: 1;
     -fx-alignment: BASELINE_RIGHT;
     -fx-focus-traversable: false;
+}
+
+.separator:horizontal > .line {
+    -fx-background-color: #2199dd;
+    -fx-border-color: transparent transparent transparent -fx-shadow-highlight-color,
+            transparent transparent transparent -fx-text-box-border;
 }

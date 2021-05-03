@@ -5,9 +5,10 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-
 import java.io.IOException;
 
 public class DashboardController {
@@ -26,6 +27,11 @@ public class DashboardController {
 
     @FXML
     private void dashLoadMenu1(ActionEvent event) throws IOException {
+        if (Main.clickedMenuBtn != null) {
+            Main.clickedMenuBtn.setStyle("-fx-background-color: #2199dd; -fx-alignment: baseline_left; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px; -fx-background-radius: 0;");
+        }
+        Main.clickedMenuBtn = ((Button)event.getSource());
+        Main.clickedMenuBtn.setStyle("-fx-background-color: rgb(15, 10, 85);");
         if (Main.actualPane == null) {
             Main.actualPane = dashMenuLoaderPane;
         }
@@ -40,6 +46,11 @@ public class DashboardController {
 
     @FXML
     private void dashLoadMenu2(ActionEvent event) throws IOException {
+        if (Main.clickedMenuBtn != null) {
+            Main.clickedMenuBtn.setStyle("-fx-background-color: #2199dd; -fx-alignment: baseline_left; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px; -fx-background-radius: 0;");
+        }
+        Main.clickedMenuBtn = ((Button)event.getSource());
+        Main.clickedMenuBtn.setStyle("-fx-background-color: rgb(15, 10, 85);");
         if (Main.actualPane == null) {
             Main.actualPane = dashMenuLoaderPane;
         }
@@ -53,6 +64,11 @@ public class DashboardController {
 
     @FXML
     private void dashLoadMenu3(ActionEvent event) throws IOException {
+        if (Main.clickedMenuBtn != null) {
+            Main.clickedMenuBtn.setStyle("-fx-background-color: #2199dd; -fx-alignment: baseline_left; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px; -fx-background-radius: 0;");
+        }
+        Main.clickedMenuBtn = ((Button)event.getSource());
+        Main.clickedMenuBtn.setStyle("-fx-background-color: rgb(15, 10, 85);");
         if (Main.actualPane == null) {
             Main.actualPane = dashMenuLoaderPane;
         }
@@ -65,6 +81,11 @@ public class DashboardController {
 
     @FXML
     private void dashLoadMenu4(ActionEvent event) throws IOException {
+        if (Main.clickedMenuBtn != null) {
+            Main.clickedMenuBtn.setStyle("-fx-background-color: #2199dd; -fx-alignment: baseline_left; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px; -fx-background-radius: 0;");
+        }
+        Main.clickedMenuBtn = ((Button)event.getSource());
+        Main.clickedMenuBtn.setStyle("-fx-background-color: rgb(15, 10, 85);");
         if (Main.actualPane == null) {
             Main.actualPane = dashMenuLoaderPane;
         }
@@ -73,5 +94,19 @@ public class DashboardController {
         }
         Pane loadNewPane = FXMLLoader.load(getClass().getResource("/fxml/incomepanel.fxml"));
         dashMenuLoaderPane.getChildren().add(loadNewPane);
+    }
+
+    @FXML
+    private void onMouseEnteredDashMenuBtn(MouseEvent event) {
+        if (event.getSource() != Main.clickedMenuBtn) {
+            ((Button)event.getSource()).setStyle("-fx-background-color: rgba(12, 12, 12, 0.3);");
+        }
+    }
+
+    @FXML
+    private void onMouseExitedDashMenuBtn(MouseEvent event) {
+        if (event.getSource() != Main.clickedMenuBtn) {
+            ((Button) event.getSource()).setStyle("-fx-background-color: #2199dd;");
+        }
     }
 }
