@@ -91,31 +91,31 @@
             <Font name="Segoe UI" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="vezNev" layoutX="15.0" layoutY="120.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0;">
+      <TextField id="leftfield" fx:id="vezNev" focusTraversable="false" layoutX="15.0" layoutY="120.0" prefHeight="25.0" prefWidth="300.0">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font></TextField>
-      <TextField fx:id="kerNev" layoutX="15.0" layoutY="200.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0;">
+      <TextField id="leftfield" fx:id="kerNev" focusTraversable="false" layoutX="15.0" layoutY="200.0" prefHeight="25.0" prefWidth="300.0">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="userName" disable="true" layoutX="15.0" layoutY="280.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-padding: 0; -fx-text-fill: white; -fx-opacity: 1;">
+      <TextField id="leftfield" fx:id="userName" disable="true" focusTraversable="false" layoutX="15.0" layoutY="280.0" prefHeight="25.0" prefWidth="300.0">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="email" layoutX="1045.0" layoutY="120.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-alignment: BASELINE_RIGHT;">
+      <TextField id="rightfield" fx:id="email" focusTraversable="false" layoutX="1045.0" layoutY="120.0" prefHeight="25.0" prefWidth="300.0">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="newPass" layoutX="1045.0" layoutY="413.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-alignment: BASELINE_RIGHT;">
+      <PasswordField id="rightfield" fx:id="newPass" focusTraversable="false" layoutX="1045.0" layoutY="413.0" prefHeight="25.0" prefWidth="300.0">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </PasswordField>
-      <PasswordField fx:id="newPassCheck" layoutX="1045.0" layoutY="493.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-alignment: BASELINE_RIGHT;">
+      <PasswordField id="rightfield" fx:id="newPassCheck" focusTraversable="false" layoutX="1045.0" layoutY="493.0" prefHeight="25.0" prefWidth="300.0">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
@@ -136,27 +136,27 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField disable="true" layoutX="15.0" layoutY="419.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-opacity: 1;">
+      <TextField id="leftfield" disable="true" focusTraversable="false" layoutX="15.0" layoutY="419.0" prefHeight="25.0" prefWidth="300.0">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="addDate" disable="true" layoutX="15.0" layoutY="493.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-opacity: 1;">
+      <TextField id="leftfield" fx:id="addDate" disable="true" focusTraversable="false" layoutX="15.0" layoutY="493.0" prefHeight="25.0" prefWidth="300.0">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="salary" layoutX="15.0" layoutY="653.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-opacity: 1;">
+      <TextField id="leftfield" fx:id="salary" focusTraversable="false" layoutX="15.0" layoutY="653.0" prefHeight="25.0" prefWidth="300.0">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="regDate" disable="true" layoutX="1045.0" layoutY="280.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-opacity: 1; -fx-alignment: BASELINE_RIGHT;">
+      <TextField id="rightfield" fx:id="regDate" disable="true" focusTraversable="false" layoutX="1045.0" layoutY="280.0" prefHeight="25.0" prefWidth="300.0">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="birthDate" layoutX="1045.0" layoutY="200.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-opacity: 1; -fx-alignment: BASELINE_RIGHT;">
+      <TextField id="rightfield" fx:id="birthDate" focusTraversable="false" layoutX="1045.0" layoutY="200.0" prefHeight="25.0" prefWidth="300.0">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>

@@ -1,3 +1,7 @@
+.root {
+    -fx-focus-traversable: false;
+}
+
 .scroll-bar:vertical {
 	-fx-background-color: transparent;
 	-fx-border-width: 0;
@@ -64,6 +68,7 @@
     -fx-font-family: Segoe UI;
     -fx-font-size: 16px;
     -fx-padding: 0;
+    -fx-focus-traversable: false;
 }
 
 .date-picker .arrow-button {
@@ -145,7 +150,7 @@
     -fx-background-color: #2199dd;
 }
 
-#dashvbox .button {
+#dashvbox .toggle-button {
     -fx-background-color: #2199dd;
     -fx-alignment: baseline_left;
     -fx-border-color: white;
@@ -153,11 +158,11 @@
     -fx-background-radius: 0;
 }
 
-#dashvbox .button:hover {
+#dashvbox .toggle-button:hover {
     -fx-background-color: rgba(12, 12, 12, 0.3);
 }
 
-#dashvbox .button:focused {
+#dashvbox .toggle-button:focused {
     -fx-background-color: rgb(15, 10, 85);
 }
 
@@ -167,12 +172,14 @@
     -fx-border-width: 2px;
     -fx-border-radius: 50%;
     -fx-padding: 0;
+    -fx-focus-traversable: false;
 }
 
 #cartdelete, #stpsave, #stpdecline, #pssave, #psdecline {
     -fx-background-color: transparent;
     -fx-border-width: 2px;
     -fx-border-radius: 50%;
+    -fx-focus-traversable: false;
 }
 
 #accpw, #incomeopen, #incomeclose, #incomerequest, #cartcontinue, #psinc, #psdec, #storagevbox .button {
@@ -202,6 +209,7 @@
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-padding: 0;
+    -fx-focus-traversable: false;
 }
 
 #storagevbox .button, #cartvbox .button {
@@ -212,4 +220,28 @@
     -fx-text-family: Segoe UI;
     -fx-font-size: 14px;
     -fx-cursor: HAND;
+    -fx-focus-traversable: false;
+}
+
+#leftfield {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-border-width: 0px 0px 2px 0px;
+    -fx-border-color: #2199dd;
+    -fx-text-fill: white;
+    -fx-padding: 0;
+    -fx-opacity: 1;
+    -fx-focus-traversable: false;
+}
+
+#rightfield {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-border-width: 0px 0px 2px 0px;
+    -fx-border-color: #2199dd;
+    -fx-text-fill: white;
+    -fx-padding: 0;
+    -fx-opacity: 1;
+    -fx-alignment: BASELINE_RIGHT;
+    -fx-focus-traversable: false;
 }

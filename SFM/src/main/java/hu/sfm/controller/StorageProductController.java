@@ -15,7 +15,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
-import javax.persistence.criteria.CriteriaBuilder;
+import java.io.IOException;
 
 public class StorageProductController {
     @FXML
@@ -36,8 +36,6 @@ public class StorageProductController {
     @FXML
     private Button cancelBtn;
 
-
-
     @FXML
     private void initialize() throws Exception {
 
@@ -54,14 +52,11 @@ public class StorageProductController {
                 newPriceTextField.setText(CurrencyManager.createPattern(String.valueOf(p.getPrice())));
             }
         }
-
         quantityTextField.setText("0");
-
     }
 
     @FXML
-    private void onActionStorageSelectionSave(ActionEvent event) throws Exception {
-
+    private void onActionStorageSelectionSave(ActionEvent event) throws IOException {
         ProductDAO pDAO = new JPAProductDAO();
 
         for(Product p : pDAO.getProducts()){

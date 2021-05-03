@@ -63,32 +63,32 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField fx:id="bruttoDaily" disable="true" layoutX="15.0" layoutY="120.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-opacity: 1;">
+      <TextField id="leftfield" fx:id="bruttoDaily" disable="true" layoutX="15.0" layoutY="120.0" prefHeight="25.0" prefWidth="300.0">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="nettoDaily" disable="true" layoutX="15.0" layoutY="200.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-opacity: 1;">
+      <TextField id="leftfield" fx:id="nettoDaily" disable="true" layoutX="15.0" layoutY="200.0" prefHeight="25.0" prefWidth="300.0">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="bruttoRange" disable="true" layoutX="15.0" layoutY="333.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-opacity: 1;">
+      <TextField id="leftfield" fx:id="bruttoRange" disable="true" layoutX="15.0" layoutY="333.0" prefHeight="25.0" prefWidth="300.0">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="nettoRange" disable="true" layoutX="15.0" layoutY="413.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-opacity: 1;">
+      <TextField id="leftfield" fx:id="nettoRange" disable="true" layoutX="15.0" layoutY="413.0" prefHeight="25.0" prefWidth="300.0">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="nettoAll" disable="true" layoutX="15.0" layoutY="621.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-opacity: 1;">
+      <TextField id="leftfield" fx:id="nettoAll" disable="true" layoutX="15.0" layoutY="621.0" prefHeight="25.0" prefWidth="300.0">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="bruttoAll" disable="true" layoutX="15.0" layoutY="541.0" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #2199dd; -fx-text-fill: white; -fx-padding: 0; -fx-opacity: 1;">
+      <TextField id="leftfield" fx:id="bruttoAll" disable="true" layoutX="15.0" layoutY="541.0" prefHeight="25.0" prefWidth="300.0">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
@@ -47,12 +46,7 @@
             <VBox id="storagevbox" fx:id="StorageVbox" prefHeight="575.0" prefWidth="1345.0" style="-fx-background-color: #121212;" stylesheets="@../style/style.css" />
          </content>
       </ScrollPane>
-      <Button layoutX="1245.0" layoutY="20.0" mnemonicParsing="false" style="-fx-border-color: #2199dd; -fx-background-color: transparent; -fx-border-width: 2px; -fx-border-radius: 50%; -fx-min-width: 100px;" text="Keres" textFill="WHITE">
-         <font>
-            <Font name="Segoe UI" size="14.0" />
-         </font>
-      </Button>
-      <TextField layoutX="1020.0" layoutY="20.0" promptText="Keresés..." style="-fx-background-color: transparent; -fx-border-color: #2199dd; -fx-border-width: 0px 0px 2px 0px;">
+      <TextField id="leftfield" fx:id="searchField" layoutX="1145.0" layoutY="30.0" onKeyTyped="#onKeyTypedSearch" prefHeight="21.0" prefWidth="200.0" promptText="Keresés...">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>

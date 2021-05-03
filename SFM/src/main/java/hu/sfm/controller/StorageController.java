@@ -3,7 +3,6 @@ package hu.sfm.controller;
 import hu.sfm.entity.Product;
 import hu.sfm.entity.StorageSortType;
 import hu.sfm.main.Main;
-import hu.sfm.utils.CurrencyManager;
 import hu.sfm.utils.JPAProductDAO;
 import hu.sfm.utils.ProductDAO;
 import javafx.event.ActionEvent;
@@ -15,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
@@ -22,7 +22,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.Comparator;
+import java.util.List;
 
 public class StorageController {
     @FXML
@@ -34,7 +35,12 @@ public class StorageController {
     @FXML
     private Label nameLabel;
 
+    @FXML
+    private TextField searchField;
+
     private StorageSortType type;
+
+    private String searchPattern = "";
 
     @FXML
     private void initialize(){
@@ -72,7 +78,13 @@ public class StorageController {
         setupStorage();
     }
 
-    private void setupStorage(){
+    @FXML
+    private void onKeyTypedSearch() {
+        searchPattern = searchField.getText().trim();
+        setupStorage();
+    }
+
+    public void setupStorage() {
         StorageVbox.getChildren().clear();
 
         ProductDAO productDAO = new JPAProductDAO();
@@ -81,6 +93,16 @@ public class StorageController {
             productList = sortStorage(productDAO.getProducts());
         } else {
             productList = productDAO.getProducts();
+        }
+
+        productList.removeIf(p -> !p.getName().toLowerCase().contains(searchPattern.toLowerCase()));
+        if (productList.size() == 0) {
+            Label errorLabel = new Label("Nem található a keresésnek megfelelő elem!");
+            errorLabel.setStyle("-fx-text-fill: white; -fx-font-size: 24px; -fx-font-family: Segoe UI; -fx-min-width: 1345; -fx-alignment: center");
+            if (StorageVbox.getChildren().size() > 0) {
+                StorageVbox.getChildren().remove(0);
+            }
+            StorageVbox.getChildren().add(errorLabel);
         }
 
         int sorszam = 0;
@@ -123,6 +145,7 @@ public class StorageController {
                     Stage primaryStage = (Stage) Main.getScene().getWindow();
                     stage.setX(primaryStage.getX() + LOADER_PANE_WIDTH_DIFF + (primaryStage.getWidth() - LOADER_PANE_WIDTH_DIFF) / 2 - PRODUCTSELECTION_WIDTH_CENTER);
                     stage.setY(primaryStage.getY() + (primaryStage.getHeight() - LOADER_PANE_HEIGHT_DIFF) / 2 - PRODUCTSELECTION_HEIGHT_CENTER);
+                    stage.setOnHiding(event1 -> setupStorage());
                     stage.showAndWait();
                 }
             });
