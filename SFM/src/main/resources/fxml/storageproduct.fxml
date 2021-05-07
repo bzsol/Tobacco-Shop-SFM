@@ -60,5 +60,10 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Button id="storageproductmodificationtype" fx:id="productModificationType" layoutX="285.0" layoutY="51.0" mnemonicParsing="false" onAction="#onActionProductModification" prefWidth="100.0" text="Hozzáadás" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

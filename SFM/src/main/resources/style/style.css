@@ -168,14 +168,15 @@
     -fx-focus-traversable: false;
 }
 
-#cartdelete, #stpsave, #stpdecline, #pssave, #psdecline, #notificationok, #alertok, #alertcancel {
+#cartdelete, #stpsave, #stpdecline, #pssave, #psdecline, #notificationok, #alertok, #alertcancel, #storageproductmodificationtype {
     -fx-background-color: transparent;
     -fx-border-width: 2px;
     -fx-border-radius: 50%;
     -fx-focus-traversable: false;
 }
 
-#accpw, #incomeopen, #incomeclose, #incomerequest, #cartcontinue, #psinc, #psdec, #storagevbox .button, #notificationok {
+#accpw, #incomeopen, #incomeclose, #incomerequest, #cartcontinue, #psinc, #psdec, #storagevbox .button, #notificationok,
+ #storageproductmodificationtype {
     -fx-border-color: #2199dd;
 }
 
@@ -190,7 +191,7 @@
 #accpw:hover, #accdelete:hover, #accsave:hover, #purchasecart:hover, #incomeopen:hover, #incomeclose:hover,
  #incomerequest:hover, #storagevbox .button:hover, #cartdelete:hover, #cartdone:hover, #cartcontinue:hover, #cartvbox .button:hover,
   #stpsave:hover, #stpdecline:hover, #pssave:hover, #psdecline:hover, #psinc:hover, #psdec:hover, #notificationok:hover,
-   #alertok:hover, #alertcancel:hover {
+   #alertok:hover, #alertcancel:hover, #storageproductmodificationtype:hover {
     -fx-border-color: white;
 }
 

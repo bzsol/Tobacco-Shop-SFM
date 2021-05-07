@@ -37,6 +37,9 @@ public class StorageProductController {
     private Button cancelBtn;
 
     @FXML
+    private Button productModificationType;
+
+    @FXML
     private void initialize() throws Exception {
 
         if(!Main.actUser.getPerm().equals(Permission.ADMIN))
@@ -57,6 +60,8 @@ public class StorageProductController {
 
     @FXML
     private void onActionStorageSelectionSave(ActionEvent event) throws IOException {
+        final int quantity = Integer.parseInt(quantityTextField.getText());
+
         ProductDAO pDAO = new JPAProductDAO();
 
         for(Product p : pDAO.getProducts()){
@@ -65,7 +70,12 @@ public class StorageProductController {
 
                 p.setName(label.getText());
                 p.setPrice(Integer.parseInt(CurrencyManager.removeTextFieldPattern(newPriceTextField.getText())));
-                p.setQuantity(p.getQuantity()+Integer.parseInt(quantityTextField.getText()));
+                if (productModificationType.getText().equals("Elvétel") && p.getQuantity() < quantity) {
+                    Main.alertMsg = "A mennyiségi módosítás nem hajtható végre! Az adott termékből kevesebb mennyiség áll rendelkezésre, mint amennyit el szeretnél távolítani.";
+                    Main.showAlert("Notification");
+                } else {
+                    p.setQuantity(productModificationType.getText().equals("Hozzáadás") ? p.getQuantity() + quantity: p.getQuantity() - quantity);
+                }
                 pDAO.updateProduct(p);
             }
 
@@ -96,6 +106,14 @@ public class StorageProductController {
         } else if (quantityTextField.getText().equals("")) {
             quantityTextField.setText("0");
         }
+    }
 
+    @FXML
+    private void onActionProductModification (ActionEvent event) {
+        if (productModificationType.getText().equals("Hozzáadás")) {
+            productModificationType.setText("Elvétel");
+        } else {
+            productModificationType.setText("Hozzáadás");
+        }
     }
 }
