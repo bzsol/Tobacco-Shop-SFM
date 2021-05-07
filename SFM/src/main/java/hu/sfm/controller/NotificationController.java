@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class AlertController {
+public class NotificationController {
     @FXML
     private Text alertMsg;
 
@@ -16,13 +16,7 @@ public class AlertController {
     }
 
     @FXML
-    private void onActionAlertOk(ActionEvent event) {
-        Stage stage = (Stage) alertMsg.getScene().getWindow();
-        stage.close();
-    }
-
-    @FXML
-    private void onActionAlertCancel(ActionEvent event) {
+    private void onActionNotificationOk(ActionEvent event) {
         Stage stage = (Stage) alertMsg.getScene().getWindow();
         stage.close();
     }

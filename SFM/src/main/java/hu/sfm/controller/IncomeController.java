@@ -60,7 +60,7 @@ public class IncomeController {
     @FXML
     void onClose(ActionEvent event) {
         Main.alertMsg = "Biztos vagy benne, hogy le szeretnéd zárni a kasszát?";
-        Main.showAlert();
+        Main.showAlert("Alert");
 
         BevetelDAO bevetelDAO = new JPABevetelDAO();
         for (Bevetel bev : bevetelDAO.getBevetelek()){
@@ -86,7 +86,7 @@ public class IncomeController {
         for (Bevetel bev : bevetelDAO.getBevetelek()){
             if(bev.getKasszaZaras()==null){
                 Main.alertMsg = "A kassza jelenleg is nyitva van! Amíg a kassza nem kerül lezárásra, addig nem nyitható meg újra!";
-                Main.showAlert();
+                Main.showAlert("Notification");
                 nyitva=true;
             }
         }

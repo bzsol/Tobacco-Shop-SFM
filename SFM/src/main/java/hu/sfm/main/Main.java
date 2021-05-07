@@ -8,14 +8,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import org.h2.tools.Server;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -34,6 +35,7 @@ public class Main extends Application {
     public static int income = 0;
     public static Map<String, Integer> actualCart = new HashMap<>();
     public static String alertMsg = null;
+    public static String alertType = null;
     public static Button clickedMenuBtn = null;
 
         @Override
@@ -50,6 +52,7 @@ public class Main extends Application {
 
 
             scene = new Scene(root);
+            stage.getIcons().add(new Image(new File("../resources/images/appicon.png").toURI().toString()));
             stage.setTitle("Vezérlőpult");
             stage.setScene(scene);
             stage.show();
@@ -83,13 +86,15 @@ public class Main extends Application {
             return label;
         }
 
-        public static void showAlert() {
+        public static void showAlert(String type) {
             final double LOADER_PANE_WIDTH_DIFF = 240;
             final double LOADER_PANE_HEIGHT_DIFF = 205;
             final double ALERT_WIDTH_CENTER = 400;
             final double ALERT_HEIGHT_CENTER = 100;
 
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/alert.fxml"));
+
+            FXMLLoader loader = type.equals("Notification") ? new FXMLLoader(Main.class.getResource("/fxml/notification.fxml")) :
+                    new FXMLLoader(Main.class.getResource("/fxml/alert.fxml"));
             Parent root = null;
             try {
                 root = loader.load();
@@ -99,7 +104,7 @@ public class Main extends Application {
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.initStyle(StageStyle.UNDECORATED);
-            stage.setTitle("Figyelmeztetés");
+            stage.setTitle(type.equals("Notification") ? "Értesítés" : "Figyelmeztetés");
             stage.setScene(new Scene(root));
             Stage primaryStage = (Stage) Main.getScene().getWindow();
             stage.setX(primaryStage.getX() + LOADER_PANE_WIDTH_DIFF + (primaryStage.getWidth() - LOADER_PANE_WIDTH_DIFF) / 2 - ALERT_WIDTH_CENTER);

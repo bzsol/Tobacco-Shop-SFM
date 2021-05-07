@@ -168,28 +168,29 @@
     -fx-focus-traversable: false;
 }
 
-#cartdelete, #stpsave, #stpdecline, #pssave, #psdecline {
+#cartdelete, #stpsave, #stpdecline, #pssave, #psdecline, #notificationok, #alertok, #alertcancel {
     -fx-background-color: transparent;
     -fx-border-width: 2px;
     -fx-border-radius: 50%;
     -fx-focus-traversable: false;
 }
 
-#accpw, #incomeopen, #incomeclose, #incomerequest, #cartcontinue, #psinc, #psdec, #storagevbox .button {
+#accpw, #incomeopen, #incomeclose, #incomerequest, #cartcontinue, #psinc, #psdec, #storagevbox .button, #notificationok {
     -fx-border-color: #2199dd;
 }
 
-#accdelete, #cartdelete, #stpdecline, #psdecline, #cartvbox .button {
+#accdelete, #cartdelete, #stpdecline, #psdecline, #cartvbox .button, #alertcancel {
     -fx-border-color: rgb(220, 40, 40);
 }
 
-#accsave, #cartdone, #stpsave, #pssave {
+#accsave, #cartdone, #stpsave, #pssave, #alertok {
     -fx-border-color: rgb(40, 220, 40);
 }
 
 #accpw:hover, #accdelete:hover, #accsave:hover, #purchasecart:hover, #incomeopen:hover, #incomeclose:hover,
  #incomerequest:hover, #storagevbox .button:hover, #cartdelete:hover, #cartdone:hover, #cartcontinue:hover, #cartvbox .button:hover,
-  #stpsave:hover, #stpdecline:hover, #pssave:hover, #psdecline:hover, #psinc:hover, #psdec:hover {
+  #stpsave:hover, #stpdecline:hover, #pssave:hover, #psdecline:hover, #psinc:hover, #psdec:hover, #notificationok:hover,
+   #alertok:hover, #alertcancel:hover {
     -fx-border-color: white;
 }
 
