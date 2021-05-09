@@ -41,10 +41,14 @@ public class IncomeController {
     @FXML
     private TextField bruttoAll;
 
+    @FXML
+    private TextField cassaState;
+
     private boolean cassaOpened = false;
 
     @FXML
     private void initialize(){
+
         toDatePicker.getEditor().setDisable(true);
         fromDatePicker.getEditor().setDisable(true);
         BevetelDAO bevetelDAO = new JPABevetelDAO();
@@ -54,6 +58,17 @@ public class IncomeController {
         nettoAll.setText(CurrencyManager.createPattern(String.valueOf(Math.round((bevetelDAO.getBevetelek().stream().mapToInt(Bevetel::getOsszeg).sum())*0.73))));
         bruttoRange.setText("0");
         nettoRange.setText("0");
+        for (Bevetel bev : bevetelDAO.getBevetelek()){
+            if (bev.getKasszaZaras() == null) {
+                cassaOpened = true;
+                break;
+            }
+        }
+        if(cassaOpened){
+            cassaState.setText("Nyitva");
+        }else {
+            cassaState.setText("Zárva");
+        }
     }
 
     @FXML
@@ -73,6 +88,8 @@ public class IncomeController {
         bruttoDaily.setText("0 Ft");
         nettoDaily.setText("0 Ft");
         Main.income=0;
+        cassaOpened=false;
+        cassaState.setText("Zárva");
 
     }
 
@@ -81,18 +98,19 @@ public class IncomeController {
 
         BevetelDAO bevetelDAO = new JPABevetelDAO();
         Bevetel b = new Bevetel();
-        boolean nyitva = false;
+
         for (Bevetel bev : bevetelDAO.getBevetelek()){
             if(bev.getKasszaZaras()==null){
                 Main.alertMsg = "A kassza jelenleg is nyitva van! Amíg a kassza nem kerül lezárásra, addig nem nyitható meg újra!";
                 Main.showAlert("Notification");
-                nyitva=true;
+                cassaOpened=true;
             }
         }
 
-        if(!nyitva){
+        if(!cassaOpened){
             b.setKasszaNyitas(LocalDate.now());
             bevetelDAO.saveBevetel(b);
+            cassaState.setText("Nyitva");
         }
 
     }

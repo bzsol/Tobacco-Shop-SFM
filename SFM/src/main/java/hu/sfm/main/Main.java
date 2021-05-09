@@ -38,6 +38,7 @@ public class Main extends Application {
     public static String alertType = null;
     public static Button clickedMenuBtn = null;
 
+
         @Override
         public void start(Stage stage) throws Exception {
             new Server().runTool("-tcp", "-web", "-ifNotExists");
