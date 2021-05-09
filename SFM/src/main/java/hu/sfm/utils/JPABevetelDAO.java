@@ -1,7 +1,7 @@
 package hu.sfm.utils;
 
 import hu.sfm.entity.Bevetel;
-import hu.sfm.entity.Product;
+
 
 import javax.persistence.TypedQuery;
 import java.util.List;

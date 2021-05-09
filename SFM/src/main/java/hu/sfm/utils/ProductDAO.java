@@ -1,7 +1,7 @@
 package hu.sfm.utils;
 
 import hu.sfm.entity.Product;
-import hu.sfm.entity.User;
+
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

@@ -35,7 +35,6 @@ public class Main extends Application {
     public static int income = 0;
     public static Map<String, Integer> actualCart = new HashMap<>();
     public static String alertMsg = null;
-    public static String alertType = null;
     public static Button clickedMenuBtn = null;
 
 
