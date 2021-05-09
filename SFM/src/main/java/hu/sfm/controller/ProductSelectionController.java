@@ -79,12 +79,14 @@ public class ProductSelectionController {
                         if (Main.actualCart.get(label.getText()) + Integer.parseInt(quantityTextField.getText()) <= p.getQuantity()) {
                             Main.actualCart.replace(label.getText(), Main.actualCart.get(label.getText()) + Integer.parseInt(quantityTextField.getText()));
                         } else {
-                            System.out.println("Nincs elég!");
+                            Main.alertMsg = "A kiválasztott mennyiség nem áll rendelkezésre!\nKívánt mennyiség összesen: " + (Main.actualCart.get(label.getText()) + Integer.parseInt(quantityTextField.getText())) + ".\nA rendelkezésre álló mennyiség: " + p.getQuantity() + ".";
+                            Main.showAlert("Notification");
                         }
                     }else if (Integer.parseInt(quantityTextField.getText()) <= p.getQuantity()) {
                         Main.actualCart.put(label.getText(), Integer.parseInt(quantityTextField.getText()));
                     }else {
-                        System.out.println("Nincs elég!");
+                        Main.alertMsg = "A kiválasztott mennyiség nem áll rendelkezésre!\nKívánt mennyiség: " + quantityTextField.getText() + ".\nA rendelkezésre álló mennyiség: " + p.getQuantity() + ".";
+                        Main.showAlert("Notification");
                     }
                 }
         }

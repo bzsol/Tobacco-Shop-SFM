@@ -40,7 +40,7 @@ public class StorageProductController {
     private Button productModificationType;
 
     @FXML
-    private void initialize() throws Exception {
+    private void initialize() {
 
         if(!Main.actUser.getPerm().equals(Permission.ADMIN))
         {

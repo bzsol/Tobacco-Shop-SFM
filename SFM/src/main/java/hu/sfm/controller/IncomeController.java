@@ -10,7 +10,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
@@ -42,10 +41,12 @@ public class IncomeController {
     @FXML
     private TextField bruttoAll;
 
-
+    private boolean cassaOpened = false;
 
     @FXML
     private void initialize(){
+        toDatePicker.getEditor().setDisable(true);
+        fromDatePicker.getEditor().setDisable(true);
         BevetelDAO bevetelDAO = new JPABevetelDAO();
         bruttoDaily.setText(CurrencyManager.createPattern(String.valueOf(Main.income)));
         nettoDaily.setText(CurrencyManager.createPattern(String.valueOf(Math.round(Main.income*0.73))));
@@ -53,8 +54,6 @@ public class IncomeController {
         nettoAll.setText(CurrencyManager.createPattern(String.valueOf(Math.round((bevetelDAO.getBevetelek().stream().mapToInt(Bevetel::getOsszeg).sum())*0.73))));
         bruttoRange.setText("0");
         nettoRange.setText("0");
-        ;
-
     }
 
     @FXML
@@ -105,6 +104,10 @@ public class IncomeController {
         try {
            long from = Date.from(fromDatePicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime();
            long to = Date.from(toDatePicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime();
+           if (from > to) {
+               Main.alertMsg = "Lekérdezés sikertelen! Hibás intervallumot választott ki.";
+               Main.showAlert("Notification");
+           }
             int bevetel =0;
 
             for (Bevetel b : bDAO.getBevetelek()){
@@ -117,7 +120,8 @@ public class IncomeController {
             bruttoRange.setText(CurrencyManager.createPattern(String.valueOf(bevetel)));
             nettoRange.setText(CurrencyManager.createPattern(String.valueOf(Math.round(bevetel*0.73))));
        }catch (Exception e){
-           System.out.println("Hibás dátum formátum");
+           Main.alertMsg = "Lekérdezés sikertelen! Nem választott ki időintervallumot.";
+           Main.showAlert("Notification");
        }
 
 

@@ -41,7 +41,7 @@
             <Font name="Segoe UI Bold" size="20.0" />
          </font>
       </Label>
-      <Button id="incomeclose" layoutX="1045.0" layoutY="170.0" mnemonicParsing="false" onAction="#onClose" prefHeight="28.0" prefWidth="300.0" text="Kassza zárása" textFill="WHITE">
+      <Button id="incomeclose" layoutX="1045.0" layoutY="225.0" mnemonicParsing="false" onAction="#onClose" prefHeight="28.0" prefWidth="300.0" text="Kassza zárása" textFill="WHITE">
          <font>
             <Font name="Segoe UI" size="20.0" />
          </font>
@@ -49,7 +49,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button id="incomeopen" layoutX="1045.0" layoutY="90.0" mnemonicParsing="false" onAction="#onOpen" prefHeight="28.0" prefWidth="300.0" text="Kassza nyitása" textFill="WHITE">
+      <Button id="incomeopen" layoutX="1045.0" layoutY="170.0" mnemonicParsing="false" onAction="#onOpen" prefHeight="28.0" prefWidth="300.0" text="Kassza nyitása" textFill="WHITE">
          <font>
             <Font name="Segoe UI" size="20.0" />
          </font>
@@ -107,8 +107,8 @@
             <Font name="Segoe UI" size="20.0" />
          </font>
       </Label>
-      <DatePicker fx:id="fromDatePicker" layoutX="1145.0" layoutY="333.0" prefHeight="25.0" prefWidth="200.0" promptText="YYYY. MM. DD." stylesheets="@../style/style.css" />
-      <DatePicker fx:id="toDatePicker" layoutX="1145.0" layoutY="413.0" prefHeight="25.0" prefWidth="200.0" promptText="YYYY. MM. DD." stylesheets="@../style/style.css" />
+      <DatePicker fx:id="fromDatePicker" layoutX="1145.0" layoutY="333.0" prefHeight="25.0" prefWidth="200.0" promptText="Dátum" stylesheets="@../style/style.css" />
+      <DatePicker fx:id="toDatePicker" layoutX="1145.0" layoutY="413.0" prefHeight="25.0" prefWidth="200.0" promptText="Dátum" stylesheets="@../style/style.css" />
       <Button id="incomerequest" layoutX="1045.0" layoutY="450.0" mnemonicParsing="false" onAction="#leker" prefHeight="28.0" prefWidth="300.0" text="Lekérés" textFill="WHITE">
          <font>
             <Font name="Segoe UI" size="20.0" />
@@ -133,5 +133,15 @@
       <Region layoutX="15.0" layoutY="277.0" prefHeight="3.0" prefWidth="535.0" style="-fx-background-color: #2199dd; -fx-background-radius: 100%;" />
       <Region layoutX="812.0" layoutY="64.0" prefHeight="3.0" prefWidth="535.0" style="-fx-background-color: #2199dd; -fx-background-radius: 100%;" />
       <Region layoutX="15.0" layoutY="64.0" prefHeight="3.0" prefWidth="535.0" style="-fx-background-color: #2199dd; -fx-background-radius: 100%;" />
+      <Label layoutX="1211.0" layoutY="90.0" text="Kassza állapota" textFill="#2199dd">
+         <font>
+            <Font name="Segoe UI" size="20.0" />
+         </font>
+      </Label>
+      <TextField id="rightfield" fx:id="cassaState" disable="true" layoutX="1045.0" layoutY="120.0" prefHeight="25.0" prefWidth="300.0">
+         <font>
+            <Font name="Segoe UI" size="16.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>

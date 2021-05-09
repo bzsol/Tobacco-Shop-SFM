@@ -61,7 +61,7 @@
     -fx-focus-color: transparent;
 }
 
-.date-picker .text-field{
+.date-picker .text-field {
     -fx-background-color: #121212;
     -fx-border-color: transparent;
     -fx-text-fill: white;
@@ -69,6 +69,7 @@
     -fx-font-size: 16px;
     -fx-padding: 0;
     -fx-focus-traversable: false;
+    -fx-opacity: 1;
 }
 
 .date-picker .arrow-button {
