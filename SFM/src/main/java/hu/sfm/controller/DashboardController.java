@@ -3,8 +3,6 @@ package hu.sfm.controller;
 import hu.sfm.main.Main;
 import hu.sfm.utils.BevetelDAO;
 import hu.sfm.utils.JPABevetelDAO;
-import hu.sfm.utils.JPAProductDAO;
-import hu.sfm.utils.ProductDAO;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,7 +12,6 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
-import java.beans.beancontext.BeanContext;
 import java.io.IOException;
 
 public class DashboardController {

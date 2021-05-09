@@ -9,15 +9,15 @@ import javax.persistence.Persistence;
 import java.util.List;
 
 public interface BevetelDAO extends AutoCloseable{
-    final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("br.com.fredericci.pu");
-    final EntityManager entityManager = entityManagerFactory.createEntityManager();
+    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("br.com.fredericci.pu");
+    EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-    public void saveBevetel( Bevetel b);
+    void saveBevetel( Bevetel b);
 
-    public void deleteBevetel(Bevetel b);
+    void deleteBevetel(Bevetel b);
 
-    public void updateBevetel(Bevetel b);
+    void updateBevetel(Bevetel b);
 
 
-    public List<Bevetel> getBevetelek();
+    List<Bevetel> getBevetelek();
 }

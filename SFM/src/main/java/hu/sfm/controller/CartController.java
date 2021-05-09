@@ -5,7 +5,6 @@ import hu.sfm.main.Main;
 import hu.sfm.utils.JPAProductDAO;
 import hu.sfm.utils.ProductDAO;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -107,13 +106,11 @@ public class CartController {
             l3.setStyle("-fx-min-width: 310px; -fx-font-family: Segoe UI; -fx-text-fill: white; -fx-font-size: 16px; -fx-alignment: BASELINE_CENTER; -fx-label-padding: 14px");
             Button removeBtn = new Button("Eltávolítás");
             removeBtn.setId(product.getKey());
-            removeBtn.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
-                    Main.actualCart.remove(((Button)event.getSource()).getId());
-                    cartVbox.getChildren().clear();
-                    setupCart();
-                }
+            removeBtn.setOnAction(event ->
+            {
+                Main.actualCart.remove(((Button)event.getSource()).getId());
+                cartVbox.getChildren().clear();
+                setupCart();
             });
             productLine.getChildren().addAll(l1, l2, l3, removeBtn);
             productLine.setMargin(removeBtn, new Insets(10, 0, 0, 95));
