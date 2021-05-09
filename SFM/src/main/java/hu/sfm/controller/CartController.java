@@ -44,7 +44,17 @@ public class CartController {
 
     @FXML
     private void onActionPurchaseComplete(ActionEvent event) {
+        ProductDAO productDAO = new JPAProductDAO();
         Main.income+=Integer.parseInt(CurrencyManager.removeTextFieldPattern(totalPrice.getText()));
+        for(var ac : Main.actualCart.entrySet()){
+            for(Product p : productDAO.getProducts() ){
+                if(p.getName().equals(ac.getKey())){
+                    p.setQuantity(p.getQuantity()-ac.getValue());
+                    productDAO.updateProduct(p);
+                }
+            }
+        }
+
         onActionPurchaseDecline(event);
         Stage stage = (Stage) completeBtn.getScene().getWindow();
         stage.close();

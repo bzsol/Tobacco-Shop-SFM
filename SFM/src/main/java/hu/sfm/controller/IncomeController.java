@@ -101,19 +101,26 @@ public class IncomeController {
     @FXML
     void leker(ActionEvent event){
         BevetelDAO bDAO = new JPABevetelDAO();
-        long from = Date.from(fromDatePicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime();
-        long to = Date.from(toDatePicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime();
-        int bevetel =0;
 
-        for (Bevetel b : bDAO.getBevetelek()){
-            if(((from<=Date.from(b.getKasszaZaras().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime())) &&
-                    ((to>=Date.from(b.getKasszaNyitas().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime()))){
-                bevetel+=b.getOsszeg();
+        try {
+           long from = Date.from(fromDatePicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime();
+           long to = Date.from(toDatePicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime();
+            int bevetel =0;
+
+            for (Bevetel b : bDAO.getBevetelek()){
+                if(((from<=Date.from(b.getKasszaZaras().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime())) &&
+                        ((to>=Date.from(b.getKasszaNyitas().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime()))){
+                    bevetel+=b.getOsszeg();
+                }
+
             }
+            bruttoRange.setText(CurrencyManager.createPattern(String.valueOf(bevetel)));
+            nettoRange.setText(CurrencyManager.createPattern(String.valueOf(Math.round(bevetel*0.73))));
+       }catch (Exception e){
+           System.out.println("Hibás dátum formátum");
+       }
 
-        }
-        bruttoRange.setText(CurrencyManager.createPattern(String.valueOf(bevetel)));
-        nettoRange.setText(CurrencyManager.createPattern(String.valueOf(Math.round(bevetel*0.73))));
+
 
 
     }

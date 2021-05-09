@@ -71,10 +71,22 @@ public class ProductSelectionController {
 
     @FXML
     private void onActionProductSelectionSave(ActionEvent event) {
-        if (Main.actualCart.containsKey(label.getText())) {
-            Main.actualCart.replace(label.getText(), Main.actualCart.get(label.getText()) + Integer.parseInt(quantityTextField.getText()));
-        } else {
-            Main.actualCart.put(label.getText(), Integer.parseInt(quantityTextField.getText()));
+        ProductDAO productDAO = new JPAProductDAO();
+        for(Product p : productDAO.getProducts()) {
+            if(label.getText().equals(p.getName())) {
+
+                    if (Main.actualCart.containsKey(label.getText())) {
+                        if (Main.actualCart.get(label.getText()) + Integer.parseInt(quantityTextField.getText()) <= p.getQuantity()) {
+                            Main.actualCart.replace(label.getText(), Main.actualCart.get(label.getText()) + Integer.parseInt(quantityTextField.getText()));
+                        } else {
+                            System.out.println("Nincs elég!");
+                        }
+                    }else if (Integer.parseInt(quantityTextField.getText()) <= p.getQuantity()) {
+                        Main.actualCart.put(label.getText(), Integer.parseInt(quantityTextField.getText()));
+                    }else {
+                        System.out.println("Nincs elég!");
+                    }
+                }
         }
         Stage stage = (Stage) saveBtn.getScene().getWindow();
         stage.close();

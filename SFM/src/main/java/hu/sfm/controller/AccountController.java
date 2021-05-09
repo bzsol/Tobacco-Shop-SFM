@@ -153,7 +153,7 @@ public class AccountController {
                     //System.out.println("nem jó az email te gyökér");
                 }
 
-                if(!UserPassChecker.dobCheck(birthDate.getText())){
+                if(!UserPassChecker.dateCheck(birthDate.getText())){
                     hozza_adjam=false;
                     birthDate.setStyle("-fx-opacity:1;-fx-alignment:  BASELINE_RIGHT;-fx-border-color:  rgb(220, 40, 40); -fx-border-width:  0px 0px 2px 0px;-fx-background-color:  transparent;-fx-text-fill: white;-fx-padding: 0");
                     //System.out.println("Ennyre balfasz vagy hogy nem tudod leírni a saját születési dátumod?");
