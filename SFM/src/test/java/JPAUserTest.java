@@ -16,21 +16,7 @@ import java.util.OptionalLong;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class DatabaseTest {
-    @Test
-    void IsProductsInDatabase(){
-
-        ProductDAO productDAO = new JPAProductDAO();
-        var products = productDAO.getProducts();
-        assertEquals(products.size(),61);
-    }
-    @Test
-    void IsProductQuantityIsAlways100(){
-        ProductDAO productDAO = new JPAProductDAO();
-        var products = productDAO.getProducts();
-        var maxquantity = products.stream().max(Comparator.comparing(Product::getQuantity)).orElseThrow(NoSuchElementException::new);
-        assertEquals(maxquantity.getQuantity(),100);
-    }
+public class JPAUserTest {
     @Test
     void isRegistered() {
         boolean contains = false;

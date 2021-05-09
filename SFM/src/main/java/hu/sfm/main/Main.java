@@ -76,7 +76,7 @@ public class Main extends Application {
         public static Label createErrorLabel(String title, String tooltipMessage) {
             Label label = new Label(title);
             label.setStyle("-fx-border-width: 2px; -fx-border-color: red; -fx-border-radius: 50%; -fx-font-family: Segoe UI;" +
-                    " -fx-font-size: 14px; -fx-text-fill: white; -fx-alignment: center; -fx-padding: 0; -fx-font-family: Segoe UI;");
+                    " -fx-font-size: 14px; -fx-text-fill: white; -fx-alignment: center; -fx-padding: 0; ");
             label.setMinWidth(287);
             Tooltip tooltip = new Tooltip(tooltipMessage);
             tooltip.setStyle("-fx-text-fill: red; -fx-background-color: white; -fx-font-size: 12px");
@@ -105,6 +105,7 @@ public class Main extends Application {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.initStyle(StageStyle.UNDECORATED);
             stage.setTitle(type.equals("Notification") ? "Értesítés" : "Figyelmeztetés");
+            assert root != null;
             stage.setScene(new Scene(root));
             Stage primaryStage = (Stage) Main.getScene().getWindow();
             stage.setX(primaryStage.getX() + LOADER_PANE_WIDTH_DIFF + (primaryStage.getWidth() - LOADER_PANE_WIDTH_DIFF) / 2 - ALERT_WIDTH_CENTER);

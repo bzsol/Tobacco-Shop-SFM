@@ -12,30 +12,11 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-public class PasswordTest {
-    @Test
-    void isEncryptedNotEqual(){
-        String testPassword = "Árvíztűrőtükörfúrógép";
-        Encryption.titkosit(testPassword);
-
-        assertNotEquals(Encryption.titkosit(testPassword), Encryption.titkosit(testPassword));
-    }
-    @ParameterizedTest
-    @MethodSource("PasswordList")
-    void isDecoded(String alap,String vart){
-        assertEquals(Encryption.visszafejt(Encryption.titkosit(alap)),vart);
-    }
-    public static List<Arguments> PasswordList(){
-        return Arrays.asList(
-                Arguments.of("Kenyer911asd", "Kenyer911asd"),
-                Arguments.of("dU&AEk-S?hmVc57T", "dU&AEk-S?hmVc57T"),
-                Arguments.of("DAUDrXgPvMrUhFgHzrfyn","DAUDrXgPvMrUhFgHzrfyn")
-        );
-    }
+public class UserPassCheckerTest {
     @ParameterizedTest
     @CsvSource({
             "AmINGLaterIDe,TRUE",
-            "CureCtiCYclUsIdELuLA,TRUE",
+            "CureCtiCYclUsIdELuLA,FALSE",
             "MinaTontam,TRUE",
             "a9He7aE$qc,FALSE"
 
