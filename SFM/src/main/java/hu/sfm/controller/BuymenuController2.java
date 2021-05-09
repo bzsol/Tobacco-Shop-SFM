@@ -13,7 +13,6 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
-import java.io.IOException;
 
 public class BuymenuController2 {
     @FXML
