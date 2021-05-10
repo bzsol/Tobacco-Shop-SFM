@@ -167,14 +167,22 @@ public class RegistrationController {
                         break;
                     }
                 }
-                if (!volte) {
+                if (!volte && uDAO.getUser().size()!=0) {
                     u.setUsername(userName);
                     u.setPassword(Encryption.titkosit(passwd));
                     u.setPerm(Permission.DEFAULT);
                     u.setregDate(LocalDate.now());
                     uDAO.saveUser(u);
                     Main.setRoot("/fxml/loginpanel");
-                } else {
+                }else if(!volte){
+                    u.setUsername(userName);
+                    u.setPassword(Encryption.titkosit(passwd));
+                    u.setPerm(Permission.ADMIN);
+                    u.setregDate(LocalDate.now());
+                    uDAO.saveUser(u);
+                    Main.setRoot("/fxml/loginpanel");
+                }
+                else {
                     regUserInput.setText("");
                     regPassInput.setText("");
                     regPwAgainField.setText("");

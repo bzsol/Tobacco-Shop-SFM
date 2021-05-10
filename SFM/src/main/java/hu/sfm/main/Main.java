@@ -32,7 +32,6 @@ public class Main extends Application {
     public static Pane mainBuyMenuPane;
     public static String productId = null;
     public static User actUser = null;
-    public static int income = 0;
     public static Map<String, Integer> actualCart = new HashMap<>();
     public static String alertMsg = null;
     public static Button clickedMenuBtn = null;
@@ -76,7 +75,6 @@ public class Main extends Application {
             mainBuyMenuPane = null;
             productId = null;
             actUser = null;
-            income = 0;
             actualCart = new HashMap<>();
             alertMsg = null;
             clickedMenuBtn = null;

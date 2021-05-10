@@ -1,9 +1,9 @@
 package hu.sfm.controller;
 
+import hu.sfm.entity.Bevetel;
 import hu.sfm.entity.Product;
 import hu.sfm.main.Main;
-import hu.sfm.utils.JPAProductDAO;
-import hu.sfm.utils.ProductDAO;
+import hu.sfm.utils.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
@@ -13,7 +13,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import hu.sfm.utils.CurrencyManager;
 
 import java.util.Map;
 
@@ -44,7 +43,14 @@ public class CartController {
     @FXML
     private void onActionPurchaseComplete(ActionEvent event) {
         ProductDAO productDAO = new JPAProductDAO();
-        Main.income+=Integer.parseInt(CurrencyManager.removeTextFieldPattern(totalPrice.getText()));
+        BevetelDAO bevetelDAO=new JPABevetelDAO();
+
+        for(Bevetel b : bevetelDAO.getBevetelek()){
+            if(b.getKasszaZaras()==null){
+                b.setOsszeg(b.getOsszeg()+Integer.parseInt(CurrencyManager.removeTextFieldPattern(totalPrice.getText())));
+                bevetelDAO.updateBevetel(b);
+            }
+        }
         for(var ac : Main.actualCart.entrySet()){
             for(Product p : productDAO.getProducts() ){
                 if(p.getName().equals(ac.getKey())){

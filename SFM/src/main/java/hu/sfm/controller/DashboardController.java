@@ -117,6 +117,8 @@ public class DashboardController {
 
     @FXML
     private void onActionLogout (ActionEvent event) throws IOException {
+       /* Main.alertMsg="Biztos benne hogy ki akar jelentkezni?";
+        Main.showAlert("Alert");*/
         Stage stage = (Stage)dashMenuLoaderPane.getScene().getWindow();
         stage.setHeight(400);
         stage.setWidth(640);
