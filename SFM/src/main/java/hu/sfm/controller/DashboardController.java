@@ -111,8 +111,20 @@ public class DashboardController {
     }
 
     @FXML
-    private void onActionHelp (ActionEvent event)
-    {
+    private void onActionHelp (ActionEvent event) throws Exception {
+        if (Main.clickedMenuBtn != null) {
+            Main.clickedMenuBtn.setStyle("-fx-background-color: #2199dd; -fx-alignment: baseline_left; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px; -fx-background-radius: 0;");
+        }
+        Main.clickedMenuBtn = ((Button)event.getSource());
+        Main.clickedMenuBtn.setStyle("-fx-background-color: rgb(15, 10, 85);");
+        if (Main.actualPane == null) {
+            Main.actualPane = dashMenuLoaderPane;
+        }
+        else{
+            Main.actualPane.getChildren().remove(0);
+        }
+        Pane loadNewPane = FXMLLoader.load(getClass().getResource("/fxml/helper.fxml"));
+        dashMenuLoaderPane.getChildren().add(loadNewPane);
 
     }
 

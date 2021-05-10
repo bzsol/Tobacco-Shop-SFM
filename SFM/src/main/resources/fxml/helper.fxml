@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane prefHeight="695.0" prefWidth="1360.0" style="-fx-background-color: #121212;" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.sfm.controller.HelperController">
+   <children>
+      <ScrollPane hbarPolicy="NEVER" prefHeight="400.0" prefWidth="1360.0" style="-fx-background-color: transparent;">
+         <content>
+            <TextFlow prefHeight="400.0" prefWidth="1360.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fiók" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Árukiadás" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bevételek" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Raktárkészlet" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Személyes adatok" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Felhasználói adatok" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kosár" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Termék választás" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Raktár termék kezelés" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Napi bevétel" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bevétel szűrése" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Teljes bevétel" />
+               </children>
+            </TextFlow>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
