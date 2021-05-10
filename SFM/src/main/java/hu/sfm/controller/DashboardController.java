@@ -3,6 +3,7 @@ package hu.sfm.controller;
 import hu.sfm.main.Main;
 import hu.sfm.utils.BevetelDAO;
 import hu.sfm.utils.JPABevetelDAO;
+import hu.sfm.utils.PopupHandler;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -69,8 +70,8 @@ public class DashboardController {
             Main.mainBuyMenuPane = loadNewPane;
             dashMenuLoaderPane.getChildren().add(loadNewPane);
         }else {
-            Main.alertMsg="Kassza zárva! Az eladáshoz nyisd meg!";
-            Main.showAlert("Notification");
+            PopupHandler.alertMsg="Kassza zárva! Az eladáshoz nyisd meg!";
+            PopupHandler.showAlert(PopupHandler.Type.NOTIFICATION);
         }
 
     }
@@ -117,16 +118,18 @@ public class DashboardController {
 
     @FXML
     private void onActionLogout (ActionEvent event) throws IOException {
-       /* Main.alertMsg="Biztos benne hogy ki akar jelentkezni?";
-        Main.showAlert("Alert");*/
-        Stage stage = (Stage)dashMenuLoaderPane.getScene().getWindow();
-        stage.setHeight(400);
-        stage.setWidth(640);
-        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-        stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
-        stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);
-        Main.setUpApplication();
-        Main.setRoot("/fxml/loginpanel");
+        PopupHandler.alertMsg="Biztos benne hogy ki akar jelentkezni?";
+        PopupHandler.showAlert(PopupHandler.Type.ALERT);
+        if(PopupHandler.resultType == PopupHandler.Result.ACCEPTED) {
+            Stage stage = (Stage) dashMenuLoaderPane.getScene().getWindow();
+            stage.setHeight(400);
+            stage.setWidth(640);
+            Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+            stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
+            stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);
+            Main.setUpApplication();
+            Main.setRoot("/fxml/loginpanel");
+        }
     }
 
     @FXML

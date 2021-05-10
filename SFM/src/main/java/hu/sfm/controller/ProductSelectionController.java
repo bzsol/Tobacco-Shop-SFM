@@ -3,6 +3,7 @@ package hu.sfm.controller;
 import hu.sfm.entity.Product;
 import hu.sfm.main.Main;
 import hu.sfm.utils.JPAProductDAO;
+import hu.sfm.utils.PopupHandler;
 import hu.sfm.utils.ProductDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -79,14 +80,14 @@ public class ProductSelectionController {
                         if (Main.actualCart.get(label.getText()) + Integer.parseInt(quantityTextField.getText()) <= p.getQuantity()) {
                             Main.actualCart.replace(label.getText(), Main.actualCart.get(label.getText()) + Integer.parseInt(quantityTextField.getText()));
                         } else {
-                            Main.alertMsg = "A kiválasztott mennyiség nem áll rendelkezésre!\nKívánt mennyiség összesen: " + (Main.actualCart.get(label.getText()) + Integer.parseInt(quantityTextField.getText())) + ".\nA rendelkezésre álló mennyiség: " + p.getQuantity() + ".";
-                            Main.showAlert("Notification");
+                            PopupHandler.alertMsg = "A kiválasztott mennyiség nem áll rendelkezésre!\nKívánt mennyiség összesen: " + (Main.actualCart.get(label.getText()) + Integer.parseInt(quantityTextField.getText())) + ".\nA rendelkezésre álló mennyiség: " + p.getQuantity() + ".";
+                            PopupHandler.showAlert(PopupHandler.Type.NOTIFICATION);
                         }
                     }else if (Integer.parseInt(quantityTextField.getText()) <= p.getQuantity()) {
                         Main.actualCart.put(label.getText(), Integer.parseInt(quantityTextField.getText()));
                     }else {
-                        Main.alertMsg = "A kiválasztott mennyiség nem áll rendelkezésre!\nKívánt mennyiség: " + quantityTextField.getText() + ".\nA rendelkezésre álló mennyiség: " + p.getQuantity() + ".";
-                        Main.showAlert("Notification");
+                        PopupHandler.alertMsg = "A kiválasztott mennyiség nem áll rendelkezésre!\nKívánt mennyiség: " + quantityTextField.getText() + ".\nA rendelkezésre álló mennyiség: " + p.getQuantity() + ".";
+                        PopupHandler.showAlert(PopupHandler.Type.NOTIFICATION);
                     }
                 }
         }

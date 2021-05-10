@@ -1,6 +1,7 @@
 package hu.sfm.controller;
 
 import hu.sfm.main.Main;
+import hu.sfm.utils.PopupHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
@@ -12,7 +13,7 @@ public class NotificationController {
 
     @FXML
     private void initialize() {
-        alertMsg.setText(Main.alertMsg);
+        alertMsg.setText(PopupHandler.alertMsg);
     }
 
     @FXML

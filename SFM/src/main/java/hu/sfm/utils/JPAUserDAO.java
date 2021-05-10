@@ -10,7 +10,7 @@ import java.util.List;
 
 public class JPAUserDAO implements UserDAO {
 
-    final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("br.com.fredericci.pu");
+    final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hu.sfm.pu");
     final EntityManager entityManager = entityManagerFactory.createEntityManager();
 
 

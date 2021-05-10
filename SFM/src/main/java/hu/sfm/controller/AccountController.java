@@ -104,8 +104,8 @@ public class AccountController {
 
         if(!Main.actUser.getPerm().equals(Permission.ADMIN))
         {
-            Main.alertMsg = "Nincs jogosultságod a felhasználói fiók törlésére!";
-            Main.showAlert("Notification");
+            PopupHandler.alertMsg= "Nincs jogosultságod a felhasználói fiók törlésére!";
+            PopupHandler.showAlert(PopupHandler.Type.NOTIFICATION);
         }
         else
         {
@@ -173,8 +173,8 @@ public class AccountController {
                     u.setPerm(permissionChoiceBox.getValue());
                     userDAO.updateUser(u);
                 } else {
-                    Main.alertMsg = "A megadott adatok nem felelnek meg a szükséges kritériumoknak!";
-                    Main.showAlert("Notification");
+                    PopupHandler.alertMsg = "A megadott adatok nem felelnek meg a szükséges kritériumoknak!";
+                    PopupHandler.showAlert(PopupHandler.Type.NOTIFICATION);
                 }
 
 

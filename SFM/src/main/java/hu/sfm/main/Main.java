@@ -1,6 +1,7 @@
 package hu.sfm.main;
 
 import hu.sfm.entity.User;
+import hu.sfm.utils.PopupHandler;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -33,7 +34,6 @@ public class Main extends Application {
     public static String productId = null;
     public static User actUser = null;
     public static Map<String, Integer> actualCart = new HashMap<>();
-    public static String alertMsg = null;
     public static Button clickedMenuBtn = null;
 
         @Override
@@ -48,7 +48,7 @@ public class Main extends Application {
             });
 
 
-
+            stage.setResizable(false);
             scene = new Scene(root);
             stage.setTitle("Vezérlőpult");
             stage.setScene(scene);
@@ -76,7 +76,7 @@ public class Main extends Application {
             productId = null;
             actUser = null;
             actualCart = new HashMap<>();
-            alertMsg = null;
+            PopupHandler.alertMsg = null;
             clickedMenuBtn = null;
         }
 
@@ -93,32 +93,7 @@ public class Main extends Application {
             return label;
         }
 
-        public static void showAlert(String type) {
-            final double LOADER_PANE_WIDTH_DIFF = 240;
-            final double LOADER_PANE_HEIGHT_DIFF = 205;
-            final double ALERT_WIDTH_CENTER = 400;
-            final double ALERT_HEIGHT_CENTER = 100;
 
-
-            FXMLLoader loader = type.equals("Notification") ? new FXMLLoader(Main.class.getResource("/fxml/notification.fxml")) :
-                    new FXMLLoader(Main.class.getResource("/fxml/alert.fxml"));
-            Parent root = null;
-            try {
-                root = loader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.initStyle(StageStyle.UNDECORATED);
-            stage.setTitle(type.equals("Notification") ? "Értesítés" : "Figyelmeztetés");
-            assert root != null;
-            stage.setScene(new Scene(root));
-            Stage primaryStage = (Stage) Main.getScene().getWindow();
-            stage.setX(primaryStage.getX() + LOADER_PANE_WIDTH_DIFF + (primaryStage.getWidth() - LOADER_PANE_WIDTH_DIFF) / 2 - ALERT_WIDTH_CENTER);
-            stage.setY(primaryStage.getY() + (primaryStage.getHeight() - LOADER_PANE_HEIGHT_DIFF) / 2 - ALERT_HEIGHT_CENTER);
-            stage.showAndWait();
-        }
 
         public static void main(String[] args) {
             launch();

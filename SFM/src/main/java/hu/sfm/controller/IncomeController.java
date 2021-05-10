@@ -5,6 +5,7 @@ import hu.sfm.main.Main;
 import hu.sfm.utils.BevetelDAO;
 import hu.sfm.utils.CurrencyManager;
 import hu.sfm.utils.JPABevetelDAO;
+import hu.sfm.utils.PopupHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
@@ -74,20 +75,21 @@ public class IncomeController {
 
     @FXML
     void onClose(ActionEvent event) {
-        Main.alertMsg = "Biztos vagy benne, hogy le szeretnéd zárni a kasszát?";
-        Main.showAlert("Alert");
-
-        BevetelDAO bevetelDAO = new JPABevetelDAO();
-        for (Bevetel bev : bevetelDAO.getBevetelek()){
-            if (bev.getKasszaZaras()==null){
-                bev.setKasszaZaras(LocalDate.now());
-                bevetelDAO.updateBevetel(bev);
+        PopupHandler.alertMsg = "Biztos vagy benne, hogy le szeretnéd zárni a kasszát?";
+        PopupHandler.showAlert(PopupHandler.Type.ALERT);
+        if(PopupHandler.resultType == PopupHandler.Result.ACCEPTED) {
+            BevetelDAO bevetelDAO = new JPABevetelDAO();
+            for (Bevetel bev : bevetelDAO.getBevetelek()) {
+                if (bev.getKasszaZaras() == null) {
+                    bev.setKasszaZaras(LocalDate.now());
+                    bevetelDAO.updateBevetel(bev);
+                }
             }
+            bruttoDaily.setText("0 Ft");
+            nettoDaily.setText("0 Ft");
+            cassaOpened = false;
+            cassaState.setText("Zárva");
         }
-        bruttoDaily.setText("0 Ft");
-        nettoDaily.setText("0 Ft");
-        cassaOpened=false;
-        cassaState.setText("Zárva");
 
     }
 
@@ -99,8 +101,8 @@ public class IncomeController {
 
         for (Bevetel bev : bevetelDAO.getBevetelek()){
             if(bev.getKasszaZaras()==null){
-                Main.alertMsg = "A kassza jelenleg is nyitva van! Amíg a kassza nem kerül lezárásra, addig nem nyitható meg újra!";
-                Main.showAlert("Notification");
+                PopupHandler.alertMsg = "A kassza jelenleg is nyitva van! Amíg a kassza nem kerül lezárásra, addig nem nyitható meg újra!";
+                PopupHandler.showAlert(PopupHandler.Type.NOTIFICATION);
                 cassaOpened=true;
             }
         }
@@ -122,8 +124,8 @@ public class IncomeController {
            long from = Date.from(fromDatePicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime();
            long to = Date.from(toDatePicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime();
            if (from > to) {
-               Main.alertMsg = "Lekérdezés sikertelen! Hibás intervallumot választott ki.";
-               Main.showAlert("Notification");
+               PopupHandler.alertMsg = "Lekérdezés sikertelen! Hibás intervallumot választott ki.";
+               PopupHandler.showAlert(PopupHandler.Type.NOTIFICATION);
            }
             int bevetel =0;
 
@@ -137,8 +139,8 @@ public class IncomeController {
             bruttoRange.setText(CurrencyManager.createPattern(String.valueOf(bevetel)));
             nettoRange.setText(CurrencyManager.createPattern(String.valueOf(Math.round(bevetel*0.73))));
        }catch (Exception e){
-           Main.alertMsg = "Lekérdezés sikertelen! Nem választott ki időintervallumot.";
-           Main.showAlert("Notification");
+           PopupHandler.alertMsg = "Lekérdezés sikertelen! Nem választott ki időintervallumot.";
+           PopupHandler.showAlert(PopupHandler.Type.NOTIFICATION);
        }
 
 

@@ -5,6 +5,7 @@ import hu.sfm.entity.Product;
 import hu.sfm.main.Main;
 import hu.sfm.utils.CurrencyManager;
 import hu.sfm.utils.JPAProductDAO;
+import hu.sfm.utils.PopupHandler;
 import hu.sfm.utils.ProductDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -71,8 +72,8 @@ public class StorageProductController {
                 p.setName(label.getText());
                 p.setPrice(Integer.parseInt(CurrencyManager.removeTextFieldPattern(newPriceTextField.getText())));
                 if (productModificationType.getText().equals("Elvétel") && p.getQuantity() < quantity) {
-                    Main.alertMsg = "A mennyiségi módosítás nem hajtható végre! Az adott termékből kevesebb mennyiség áll rendelkezésre, mint amennyit el szeretnél távolítani.";
-                    Main.showAlert("Notification");
+                    PopupHandler.alertMsg = "A mennyiségi módosítás nem hajtható végre! Az adott termékből kevesebb mennyiség áll rendelkezésre, mint amennyit el szeretnél távolítani.";
+                    PopupHandler.showAlert(PopupHandler.Type.NOTIFICATION);
                 } else {
                     p.setQuantity(productModificationType.getText().equals("Hozzáadás") ? p.getQuantity() + quantity: p.getQuantity() - quantity);
                 }

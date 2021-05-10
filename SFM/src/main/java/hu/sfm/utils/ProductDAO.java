@@ -9,7 +9,7 @@ import javax.persistence.Persistence;
 import java.util.List;
 
 public interface ProductDAO extends AutoCloseable {
-    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("br.com.fredericci.pu");
+    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hu.sfm.pu");
     EntityManager entityManager = entityManagerFactory.createEntityManager();
 
     void saveProduct( Product p);
