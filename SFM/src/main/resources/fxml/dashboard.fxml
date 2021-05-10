@@ -12,32 +12,32 @@
          <children>
             <VBox id="dashvbox" prefHeight="900.0" style="-fx-max-width: 240;" stylesheets="@../style/style.css">
                <children>
-                  <Button mnemonicParsing="false" onAction="#dashLoadMenu1" onMouseEntered="#onMouseEnteredDashMenuBtn" onMouseExited="#onMouseExitedDashMenuBtn" prefHeight="40.0" prefWidth="240.0" text="Fiók" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#onActionAccount" onMouseEntered="#onMouseEnteredDashMenuBtn" onMouseExited="#onMouseExitedDashMenuBtn" prefHeight="40.0" prefWidth="240.0" text="Fiók" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="asd" mnemonicParsing="false" onAction="#dashLoadMenu2" onMouseEntered="#onMouseEnteredDashMenuBtn" onMouseExited="#onMouseExitedDashMenuBtn" prefHeight="40.0" prefWidth="240.0" text="Árukiadás" textFill="WHITE">
+                  <Button fx:id="asd" mnemonicParsing="false" onAction="#onActionSelling" onMouseEntered="#onMouseEnteredDashMenuBtn" onMouseExited="#onMouseExitedDashMenuBtn" prefHeight="40.0" prefWidth="240.0" text="Árukiadás" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#dashLoadMenu3" onMouseEntered="#onMouseEnteredDashMenuBtn" onMouseExited="#onMouseExitedDashMenuBtn" prefHeight="40.0" prefWidth="240.0" text="Raktárkészlet" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#onActionStorage" onMouseEntered="#onMouseEnteredDashMenuBtn" onMouseExited="#onMouseExitedDashMenuBtn" prefHeight="40.0" prefWidth="240.0" text="Raktárkészlet" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#dashLoadMenu4" onMouseEntered="#onMouseEnteredDashMenuBtn" onMouseExited="#onMouseExitedDashMenuBtn" prefHeight="40.0" prefWidth="240.0" text="Bevételek" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#onActionIncome" onMouseEntered="#onMouseEnteredDashMenuBtn" onMouseExited="#onMouseExitedDashMenuBtn" prefHeight="40.0" prefWidth="240.0" text="Bevételek" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="240.0" text="Menu 7" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#onActionHelp" onMouseEntered="#onMouseEnteredDashMenuBtn" onMouseExited="#onMouseExitedDashMenuBtn" prefHeight="40.0" prefWidth="240.0" text="Súgó" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="240.0" text="Menu 8" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#onActionLogout" onMouseEntered="#onMouseEnteredDashMenuBtn" onMouseExited="#onMouseExitedDashMenuBtn" prefHeight="40.0" prefWidth="240.0" text="Kijelentkezés" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Bold" size="16.0" />
                      </font>

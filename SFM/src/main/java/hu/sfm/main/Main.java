@@ -37,7 +37,6 @@ public class Main extends Application {
     public static String alertMsg = null;
     public static Button clickedMenuBtn = null;
 
-
         @Override
         public void start(Stage stage) throws Exception {
             new Server().runTool("-tcp", "-web", "-ifNotExists");
@@ -52,7 +51,6 @@ public class Main extends Application {
 
 
             scene = new Scene(root);
-            stage.getIcons().add(new Image(new File("../resources/images/appicon.png").toURI().toString()));
             stage.setTitle("Vezérlőpult");
             stage.setScene(scene);
             stage.show();
@@ -71,6 +69,17 @@ public class Main extends Application {
         private static Parent loadFXML(String fxml) throws IOException {
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));
             return fxmlLoader.load();
+        }
+
+        public static void setUpApplication(){
+            actualPane = null;
+            mainBuyMenuPane = null;
+            productId = null;
+            actUser = null;
+            income = 0;
+            actualCart = new HashMap<>();
+            alertMsg = null;
+            clickedMenuBtn = null;
         }
 
         public static Label createErrorLabel(String title, String tooltipMessage) {

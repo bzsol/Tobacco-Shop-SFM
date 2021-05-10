@@ -7,10 +7,13 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -29,7 +32,7 @@ public class DashboardController {
     }
 
     @FXML
-    private void dashLoadMenu1(ActionEvent event) throws IOException {
+    private void onActionAccount(ActionEvent event) throws IOException {
         if (Main.clickedMenuBtn != null) {
             Main.clickedMenuBtn.setStyle("-fx-background-color: #2199dd; -fx-alignment: baseline_left; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px; -fx-background-radius: 0;");
         }
@@ -48,7 +51,7 @@ public class DashboardController {
     }
 
     @FXML
-    private void dashLoadMenu2(ActionEvent event) throws IOException {
+    private void onActionSelling(ActionEvent event) throws IOException {
         BevetelDAO bevetelDAO = new JPABevetelDAO();
         if(bevetelDAO.getBevetelek().stream().anyMatch(e -> e.getKasszaZaras() == null)){
             if (Main.clickedMenuBtn != null) {
@@ -73,7 +76,7 @@ public class DashboardController {
     }
 
     @FXML
-    private void dashLoadMenu3(ActionEvent event) throws IOException {
+    private void onActionStorage(ActionEvent event) throws IOException {
         if (Main.clickedMenuBtn != null) {
             Main.clickedMenuBtn.setStyle("-fx-background-color: #2199dd; -fx-alignment: baseline_left; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px; -fx-background-radius: 0;");
         }
@@ -90,7 +93,7 @@ public class DashboardController {
     }
 
     @FXML
-    private void dashLoadMenu4(ActionEvent event) throws IOException {
+    private void onActionIncome(ActionEvent event) throws IOException {
         if (Main.clickedMenuBtn != null) {
             Main.clickedMenuBtn.setStyle("-fx-background-color: #2199dd; -fx-alignment: baseline_left; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px; -fx-background-radius: 0;");
         }
@@ -104,6 +107,24 @@ public class DashboardController {
         }
         Pane loadNewPane = FXMLLoader.load(getClass().getResource("/fxml/incomepanel.fxml"));
         dashMenuLoaderPane.getChildren().add(loadNewPane);
+    }
+
+    @FXML
+    private void onActionHelp (ActionEvent event)
+    {
+
+    }
+
+    @FXML
+    private void onActionLogout (ActionEvent event) throws IOException {
+        Stage stage = (Stage)dashMenuLoaderPane.getScene().getWindow();
+        stage.setHeight(400);
+        stage.setWidth(640);
+        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+        stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
+        stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);
+        Main.setUpApplication();
+        Main.setRoot("/fxml/loginpanel");
     }
 
     @FXML
