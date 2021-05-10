@@ -123,6 +123,9 @@ public class AccountController {
                 {
                     userDAO.deleteUser(u);
                     accountChoiceBox.getItems().remove(u.getUsername());
+                } else if (u.getUsername().equals(userName.getText())) {
+                    PopupHandler.alertMsg = "Adminisztrátori jogosultsággal rendelkező felhasználó nem törölhető!";
+                    PopupHandler.showAlert(PopupHandler.Type.NOTIFICATION);
                 }
             }
             loader(Main.actUser.getUsername());
@@ -188,8 +191,13 @@ public class AccountController {
                     u.setPerm(permissionChoiceBox.getValue());
                 }
 
-                if (UserPassChecker.currencyCheck(salary.getText()) && Integer.parseInt(CurrencyManager.removeTextFieldPattern(salary.getText())) != u.getSallary()) {
-                    u.setSallary(Integer.parseInt(CurrencyManager.removeTextFieldPattern(salary.getText())));
+                if (UserPassChecker.currencyCheck(salary.getText())) {
+                    if (Integer.parseInt(CurrencyManager.removeTextFieldPattern(salary.getText())) != u.getSallary()) {
+                        u.setSallary(Integer.parseInt(CurrencyManager.removeTextFieldPattern(salary.getText())));
+                    }
+                } else {
+                    hozza_adjam = false;
+                    salary.setStyle("-fx-border-color:  rgb(220, 40, 40); -fx-border-width:  0px 0px 2px 0px;-fx-background-color:  transparent;-fx-text-fill: white;-fx-padding: 0");
                 }
 
                 userDAO.updateUser(u);
@@ -243,7 +251,7 @@ public class AccountController {
                     birthDate.clear();
                     birthDate.setPromptText("YYYY-MM-DD");
                 } else {
-                    vezNev.setText(String.valueOf(u.getBirthDate()));
+                    birthDate.setText(String.valueOf(u.getBirthDate()));
                 }
 
                 initVeznev = vezNev.getText();
