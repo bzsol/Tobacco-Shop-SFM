@@ -33,11 +33,7 @@ public class CartController {
     private void initialize() {
         totalPrice.setText("0 Ft");
 
-        if (Main.actualCart.entrySet().size() == 0) {
-            emptyCartSetup();
-        } else {
-            setupCart();
-        }
+        setupCart();
     }
 
     @FXML
@@ -73,57 +69,70 @@ public class CartController {
 
     @FXML
     private void onActionPurchaseDecline(ActionEvent event) {
-        Main.actualCart.clear();
-        cartVbox.getChildren().clear();
-        emptyCartSetup();
+        if (Main.actualCart.size() > 0) {
+            PopupHandler.alertMsg = "Biztos vagy benne, hogy az összes elemet el szeretnéd távolítani a kosárból?";
+            PopupHandler.showAlert(PopupHandler.Type.ALERT);
+            if (PopupHandler.resultType == PopupHandler.Result.ACCEPTED) {
+                Main.actualCart.clear();
+                cartVbox.getChildren().clear();
+                emptyCartSetup();
+            }
+        } else {
+            PopupHandler.alertMsg = "Egyetlen termék sincs a kosárban, amit el lehetne távolítani!";
+            PopupHandler.showAlert(PopupHandler.Type.NOTIFICATION);
+        }
     }
 
     private void setupCart() {
-        int sorszam = 0;
-        String itemprice = "0";
-        ProductDAO productDAO = new JPAProductDAO();
-        int vegosszeg=0;
+        if (Main.actualCart.size() == 0) {
+            emptyCartSetup();
+        } else {
 
-        for (Map.Entry<String, Integer> product : Main.actualCart.entrySet()) {
+            int sorszam = 0;
+            String itemprice = "0";
+            ProductDAO productDAO = new JPAProductDAO();
+            int vegosszeg = 0;
 
-            for(Product p : productDAO.getProducts()){
-                if(p.getName().equals(product.getKey()))
-                {
-                    itemprice = String.valueOf(p.getPrice());
+            for (Map.Entry<String, Integer> product : Main.actualCart.entrySet()) {
 
+                for (Product p : productDAO.getProducts()) {
+                    if (p.getName().equals(product.getKey())) {
+                        itemprice = String.valueOf(p.getPrice());
+
+                    }
                 }
-            }
-            vegosszeg+=Integer.parseInt(itemprice)*product.getValue();
+                vegosszeg += Integer.parseInt(itemprice) * product.getValue();
 
-            HBox productLine = new HBox();
-            productLine.setId(product.getKey());
-            productLine.setMinHeight(50);
-            productLine.setPrefWidth(800);
-            if (sorszam % 2 == 0) {
-                productLine.setStyle("-fx-background-color: rgba(86, 86, 86, .8)");
-            } else {
-                productLine.setStyle("-fx-background-color: rgba(132, 132, 132, .8)");
+                HBox productLine = new HBox();
+                productLine.setId(product.getKey());
+                productLine.setMinHeight(50);
+                productLine.setPrefWidth(800);
+                if (sorszam % 2 == 0) {
+                    productLine.setStyle("-fx-background-color: rgba(86, 86, 86, .8)");
+                } else {
+                    productLine.setStyle("-fx-background-color: rgba(132, 132, 132, .8)");
+                }
+                Label l1 = new Label(product.getValue() + "x");
+                l1.setStyle("-fx-min-width: 100px; -fx-font-family: Segoe UI; -fx-text-fill: white; -fx-font-size: 16px; -fx-alignment: BASELINE_CENTER; -fx-label-padding: 14px");
+                Label l2 = new Label(product.getKey());
+                l2.setStyle("-fx-min-width: 155px; -fx-font-family: Segoe UI; -fx-text-fill: white; -fx-font-size: 16px; -fx-alignment: BASELINE_CENTER; -fx-label-padding: 14px");
+                Label l3 = new Label(CurrencyManager.createPattern(String.valueOf(Integer.parseInt(itemprice) * product.getValue())));
+                l3.setStyle("-fx-min-width: 310px; -fx-font-family: Segoe UI; -fx-text-fill: white; -fx-font-size: 16px; -fx-alignment: BASELINE_CENTER; -fx-label-padding: 14px");
+                Button removeBtn = new Button("Eltávolítás");
+                removeBtn.setId(product.getKey());
+                removeBtn.setOnAction(event ->
+                {
+                    Main.actualCart.remove(((Button) event.getSource()).getId());
+                    cartVbox.getChildren().clear();
+                    setupCart();
+                });
+                productLine.getChildren().addAll(l1, l2, l3, removeBtn);
+                productLine.setMargin(removeBtn, new Insets(10, 0, 0, 95));
+                cartVbox.getChildren().add(productLine);
+                sorszam++;
             }
-            Label l1 = new Label(product.getValue() + "x");
-            l1.setStyle("-fx-min-width: 100px; -fx-font-family: Segoe UI; -fx-text-fill: white; -fx-font-size: 16px; -fx-alignment: BASELINE_CENTER; -fx-label-padding: 14px");
-            Label l2 = new Label(product.getKey());
-            l2.setStyle("-fx-min-width: 155px; -fx-font-family: Segoe UI; -fx-text-fill: white; -fx-font-size: 16px; -fx-alignment: BASELINE_CENTER; -fx-label-padding: 14px");
-            Label l3 = new Label(CurrencyManager.createPattern(String.valueOf(Integer.parseInt(itemprice) * product.getValue())));
-            l3.setStyle("-fx-min-width: 310px; -fx-font-family: Segoe UI; -fx-text-fill: white; -fx-font-size: 16px; -fx-alignment: BASELINE_CENTER; -fx-label-padding: 14px");
-            Button removeBtn = new Button("Eltávolítás");
-            removeBtn.setId(product.getKey());
-            removeBtn.setOnAction(event ->
-            {
-                Main.actualCart.remove(((Button)event.getSource()).getId());
-                cartVbox.getChildren().clear();
-                setupCart();
-            });
-            productLine.getChildren().addAll(l1, l2, l3, removeBtn);
-            productLine.setMargin(removeBtn, new Insets(10, 0, 0, 95));
-            cartVbox.getChildren().add(productLine);
-            sorszam++;
+            totalPrice.setText(CurrencyManager.createPattern(String.valueOf(vegosszeg)));
         }
-        totalPrice.setText(CurrencyManager.createPattern(String.valueOf(vegosszeg)));
     }
 
     private void emptyCartSetup() {

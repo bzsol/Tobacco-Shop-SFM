@@ -26,7 +26,7 @@
             <Font name="Segoe UI" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="15.0" layoutY="591.0" text="Nettó bevétel" textFill="#2199dd">
+      <Label layoutX="1224.0" layoutY="511.0" text="Nettó bevétel" textFill="#2199dd">
          <font>
             <Font name="Segoe UI" size="20.0" />
          </font>
@@ -77,7 +77,7 @@
             <Font name="Segoe UI" size="16.0" />
          </font>
       </TextField>
-      <TextField id="leftfield" fx:id="nettoAll" disable="true" layoutX="15.0" layoutY="621.0" prefHeight="25.0" prefWidth="300.0">
+      <TextField id="rightfield" fx:id="nettoAll" disable="true" layoutX="1045.0" layoutY="541.0" prefHeight="25.0" prefWidth="300.0">
          <font>
             <Font name="Segoe UI" size="16.0" />
          </font>

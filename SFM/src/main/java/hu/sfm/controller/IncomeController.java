@@ -58,8 +58,8 @@ public class IncomeController {
         nettoDaily.setText(CurrencyManager.createPattern(String.valueOf(Math.round(income*0.73))));
         bruttoAll.setText(CurrencyManager.createPattern(String.valueOf(bevetelDAO.getBevetelek().stream().mapToInt(Bevetel::getOsszeg).sum())));
         nettoAll.setText(CurrencyManager.createPattern(String.valueOf(Math.round((bevetelDAO.getBevetelek().stream().mapToInt(Bevetel::getOsszeg).sum())*0.73))));
-        bruttoRange.setText("0");
-        nettoRange.setText("0");
+        bruttoRange.setText("0 Ft");
+        nettoRange.setText("0 Ft");
         for (Bevetel bev : bevetelDAO.getBevetelek()){
             if (bev.getKasszaZaras() == null) {
                 cassaOpened = true;

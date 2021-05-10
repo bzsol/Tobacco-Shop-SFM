@@ -3,10 +3,7 @@ package hu.sfm.controller;
 import hu.sfm.entity.Permission;
 import hu.sfm.entity.Product;
 import hu.sfm.main.Main;
-import hu.sfm.utils.CurrencyManager;
-import hu.sfm.utils.JPAProductDAO;
-import hu.sfm.utils.PopupHandler;
-import hu.sfm.utils.ProductDAO;
+import hu.sfm.utils.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -40,6 +37,8 @@ public class StorageProductController {
     @FXML
     private Button productModificationType;
 
+    private String initPrice;
+
     @FXML
     private void initialize() {
 
@@ -54,6 +53,7 @@ public class StorageProductController {
                 label.setText(p.getName());
                 actualPriceTextField.setText(CurrencyManager.createPattern(String.valueOf(p.getPrice())));
                 newPriceTextField.setText(CurrencyManager.createPattern(String.valueOf(p.getPrice())));
+                initPrice = newPriceTextField.getText();
             }
         }
         quantityTextField.setText("0");
@@ -62,27 +62,42 @@ public class StorageProductController {
     @FXML
     private void onActionStorageSelectionSave(ActionEvent event) throws IOException {
         final int quantity = Integer.parseInt(quantityTextField.getText());
+        int closeable = 0;
 
         ProductDAO pDAO = new JPAProductDAO();
 
         for(Product p : pDAO.getProducts()){
 
             if(p.getName().equals(label.getText())){
+                if (UserPassChecker.currencyCheck(newPriceTextField.getText()) && !initPrice.equals(newPriceTextField.getText())) {
+                    p.setPrice(Integer.parseInt(CurrencyManager.removeTextFieldPattern(newPriceTextField.getText())));
+                    closeable += 1;
+                } else if (initPrice.equals(newPriceTextField.getText())) {
+                    closeable += 1;
+                } else {
+                    PopupHandler.alertMsg = "A beírt ár nem felel meg a kritériumoknak!\nPélda: '1 000 Ft'.";
+                    PopupHandler.showAlert(PopupHandler.Type.NOTIFICATION);
+                    newPriceTextField.setText(actualPriceTextField.getText());
+                }
 
-                p.setName(label.getText());
-                p.setPrice(Integer.parseInt(CurrencyManager.removeTextFieldPattern(newPriceTextField.getText())));
                 if (productModificationType.getText().equals("Elvétel") && p.getQuantity() < quantity) {
                     PopupHandler.alertMsg = "A mennyiségi módosítás nem hajtható végre! Az adott termékből kevesebb mennyiség áll rendelkezésre, mint amennyit el szeretnél távolítani.";
                     PopupHandler.showAlert(PopupHandler.Type.NOTIFICATION);
-                } else {
+                    actualPriceTextField.setText(CurrencyManager.createPattern(String.valueOf(p.getPrice())));
+                    newPriceTextField.setText(actualPriceTextField.getText());
+                    quantityTextField.setText("0");
+                } else if (closeable == 1) {
                     p.setQuantity(productModificationType.getText().equals("Hozzáadás") ? p.getQuantity() + quantity: p.getQuantity() - quantity);
+                    closeable += 1;
                 }
                 pDAO.updateProduct(p);
             }
 
         }
-        Stage stage = (Stage) saveBtn.getScene().getWindow();
-        stage.close();
+        if (closeable == 2) {
+            Stage stage = (Stage) saveBtn.getScene().getWindow();
+            stage.close();
+        }
     }
 
     @FXML

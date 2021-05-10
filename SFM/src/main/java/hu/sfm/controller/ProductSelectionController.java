@@ -20,12 +20,6 @@ public class ProductSelectionController {
     private TextField quantityTextField;
 
     @FXML
-    private Button saveBtn;
-
-    @FXML
-    private Button cancelBtn;
-
-    @FXML
     private TextField unitPrice;
 
     @FXML
@@ -45,7 +39,7 @@ public class ProductSelectionController {
 
     @FXML
     private void onActionDecrementQuantity (ActionEvent event) {
-        if (Integer.parseInt(quantityTextField.getText()) > 0) {
+        if (Integer.parseInt(quantityTextField.getText()) > 1) {
             quantityTextField.setText(String.valueOf(Integer.parseInt(quantityTextField.getText()) - 1));
             CurrencyManager.setTextFieldPattern(fullPrice, unitPrice, quantityTextField);
         }
@@ -79,26 +73,28 @@ public class ProductSelectionController {
                     if (Main.actualCart.containsKey(label.getText())) {
                         if (Main.actualCart.get(label.getText()) + Integer.parseInt(quantityTextField.getText()) <= p.getQuantity()) {
                             Main.actualCart.replace(label.getText(), Main.actualCart.get(label.getText()) + Integer.parseInt(quantityTextField.getText()));
+                            closeStage();
                         } else {
                             PopupHandler.alertMsg = "A kiválasztott mennyiség nem áll rendelkezésre!\nKívánt mennyiség összesen: " + (Main.actualCart.get(label.getText()) + Integer.parseInt(quantityTextField.getText())) + ".\nA rendelkezésre álló mennyiség: " + p.getQuantity() + ".";
                             PopupHandler.showAlert(PopupHandler.Type.NOTIFICATION);
                         }
-                    }else if (Integer.parseInt(quantityTextField.getText()) <= p.getQuantity()) {
+                    } else if (Integer.parseInt(quantityTextField.getText()) <= p.getQuantity() && Integer.parseInt(quantityTextField.getText()) != 0) {
                         Main.actualCart.put(label.getText(), Integer.parseInt(quantityTextField.getText()));
-                    }else {
+                        closeStage();
+                    } else if (Integer.parseInt(quantityTextField.getText()) == 0) {
+                        PopupHandler.alertMsg = "Kosárba helyezés sikertelen!\nAz adott termék mennyiségét legalább '1' értékre kell állítani!";
+                        PopupHandler.showAlert(PopupHandler.Type.NOTIFICATION);
+                    } else {
                         PopupHandler.alertMsg = "A kiválasztott mennyiség nem áll rendelkezésre!\nKívánt mennyiség: " + quantityTextField.getText() + ".\nA rendelkezésre álló mennyiség: " + p.getQuantity() + ".";
                         PopupHandler.showAlert(PopupHandler.Type.NOTIFICATION);
                     }
                 }
         }
-        Stage stage = (Stage) saveBtn.getScene().getWindow();
-        stage.close();
     }
 
     @FXML
     private void onActionProductSelectionCancel(ActionEvent event) {
-        Stage stage = (Stage) cancelBtn.getScene().getWindow();
-        stage.close();
+        closeStage();
     }
 
     @FXML
@@ -113,5 +109,10 @@ public class ProductSelectionController {
         }
         CurrencyManager.setTextFieldPattern(fullPrice, unitPrice, quantityTextField);
 
+    }
+
+    private void closeStage() {
+        Stage stage = (Stage) label.getScene().getWindow();
+        stage.close();
     }
 }

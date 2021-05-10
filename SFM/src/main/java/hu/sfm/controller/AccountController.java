@@ -91,16 +91,32 @@ public class AccountController {
                 for (User u : userDAO.getUser()){
                     if(u.getUsername().equals(accountChoiceBox.getValue())){
                         u.setPassword(Encryption.titkosit(newPass.getText()));
+                        u.setAddDate(LocalDate.now());
                         userDAO.saveUser(u);
-                        newPass.setStyle("-fx-background-color: transparent;-fx-background-insets:0;-fx-border-width: 0px 0px 2px 0px;-fx-border-color: rgb(40, 220, 40);-fx-text-fill: white;-fx-padding:0;-fx-alignment: BASELINE_RIGHT;");
-                        newPassCheck.setStyle("-fx-background-color: transparent;-fx-background-insets:0;-fx-border-width: 0px 0px 2px 0px;-fx-border-color: rgb(40, 220, 40);-fx-text-fill: white;-fx-padding:0;-fx-alignment: BASELINE_RIGHT;");
+                        PopupHandler.alertMsg = "Jelszó sikeresen megváltoztatva!";
+                        PopupHandler.showAlert(PopupHandler.Type.NOTIFICATION);
+                        newPass.setStyle("-fx-background-color: transparent;-fx-background-insets:0;-fx-border-width: 0px 0px 2px 0px;-fx-border-color:#2199dd;-fx-text-fill: white;-fx-padding:0;-fx-alignment: BASELINE_RIGHT;");
+                        newPassCheck.setStyle("-fx-background-color: transparent;-fx-background-insets:0;-fx-border-width: 0px 0px 2px 0px;-fx-border-color:#2199dd;-fx-text-fill: white;-fx-padding:0;-fx-alignment: BASELINE_RIGHT;");
+                        newPass.clear();
+                        newPassCheck.clear();
                     }
                 }
-            }else{
+            } else if (UserPassChecker.passCheck(newPassCheck.getText())) {
+                PopupHandler.alertMsg = "A jelszavak nem egyeznek!";
+                PopupHandler.showAlert(PopupHandler.Type.NOTIFICATION);
+                newPass.setStyle("-fx-background-color: transparent;-fx-background-insets:0;-fx-border-width: 0px 0px 2px 0px;-fx-border-color:rgb(220, 40, 40);-fx-text-fill: white;-fx-padding:0;-fx-alignment: BASELINE_RIGHT;");
+                newPassCheck.setStyle("-fx-background-color: transparent;-fx-background-insets:0;-fx-border-width: 0px 0px 2px 0px;-fx-border-color:rgb(220, 40, 40);-fx-text-fill: white;-fx-padding:0;-fx-alignment: BASELINE_RIGHT;");
+            } else {
+                PopupHandler.alertMsg = "A megadott jelszó nem felel meg a kritériumoknak!";
+                PopupHandler.showAlert(PopupHandler.Type.NOTIFICATION);
                 newPass.setStyle("-fx-background-color: transparent;-fx-background-insets:0;-fx-border-width: 0px 0px 2px 0px;-fx-border-color:rgb(220, 40, 40);-fx-text-fill: white;-fx-padding:0;-fx-alignment: BASELINE_RIGHT;");
                 newPassCheck.setStyle("-fx-background-color: transparent;-fx-background-insets:0;-fx-border-width: 0px 0px 2px 0px;-fx-border-color:rgb(220, 40, 40);-fx-text-fill: white;-fx-padding:0;-fx-alignment: BASELINE_RIGHT;");
             }
-
+        } else {
+            PopupHandler.alertMsg = "A jelszó mezők nem maradhatnak üresen!";
+            PopupHandler.showAlert(PopupHandler.Type.NOTIFICATION);
+            newPass.setStyle("-fx-background-color: transparent;-fx-background-insets:0;-fx-border-width: 0px 0px 2px 0px;-fx-border-color:rgb(220, 40, 40);-fx-text-fill: white;-fx-padding:0;-fx-alignment: BASELINE_RIGHT;");
+            newPassCheck.setStyle("-fx-background-color: transparent;-fx-background-insets:0;-fx-border-width: 0px 0px 2px 0px;-fx-border-color:rgb(220, 40, 40);-fx-text-fill: white;-fx-padding:0;-fx-alignment: BASELINE_RIGHT;");
         }
 
     }
@@ -121,7 +137,10 @@ public class AccountController {
             {
                 if (u.getUsername().equals(userName.getText()) && !u.getPerm().equals(Permission.ADMIN))
                 {
+                    String name = u.getUsername();
                     userDAO.deleteUser(u);
+                    PopupHandler.alertMsg = "A(z) " + name + " felhasználó sikeresen törölve a rendszerből!";
+                    PopupHandler.showAlert(PopupHandler.Type.NOTIFICATION);
                     accountChoiceBox.getItems().remove(u.getUsername());
                 } else if (u.getUsername().equals(userName.getText())) {
                     PopupHandler.alertMsg = "Adminisztrátori jogosultsággal rendelkező felhasználó nem törölhető!";
@@ -140,7 +159,7 @@ public class AccountController {
     private void onActionSaveAccount (ActionEvent event) {
         UserDAO userDAO = new JPAUserDAO();
         boolean hozza_adjam=true;
-
+        boolean is_admin = false;
 
         for (User u : userDAO.getUser())
         {
@@ -187,8 +206,10 @@ public class AccountController {
                     birthDate.setStyle("-fx-border-color:  rgb(220, 40, 40); -fx-border-width:  0px 0px 2px 0px;-fx-background-color:  transparent;-fx-text-fill: white;-fx-padding: 0");
                 }
 
-                if (u.getPerm() != permissionChoiceBox.getValue()) {
+                if (u.getPerm() != permissionChoiceBox.getValue() && u.getPerm() != Permission.ADMIN) {
                     u.setPerm(permissionChoiceBox.getValue());
+                } else if (u.getPerm() == Permission.ADMIN) {
+                    is_admin = true;
                 }
 
                 if (UserPassChecker.currencyCheck(salary.getText())) {
@@ -199,10 +220,13 @@ public class AccountController {
                     hozza_adjam = false;
                     salary.setStyle("-fx-border-color:  rgb(220, 40, 40); -fx-border-width:  0px 0px 2px 0px;-fx-background-color:  transparent;-fx-text-fill: white;-fx-padding: 0");
                 }
-
+                u.setAddDate(LocalDate.now());
                 userDAO.updateUser(u);
                 if (!hozza_adjam){
                     PopupHandler.alertMsg = "A megadott adat(ok) nem felel(nek) meg a szükséges kritériumoknak!";
+                    if (is_admin) {
+                        PopupHandler.alertMsg += "\nBiztonsági okokból adminisztrátor nem változtathatja a saját jogosultságát!";
+                    }
                     PopupHandler.showAlert(PopupHandler.Type.NOTIFICATION);
                 }
 
@@ -223,7 +247,12 @@ public class AccountController {
         accountChoiceBox.setValue(actuallyUser);
         for (User u : userDAO.getUser() ){
             if(u.getUsername().equals(actuallyUser)){
-                addDate.setText(String.valueOf(LocalDate.now()));
+                if (u.getAddDate() == null) {
+                    addDate.setText("<Empty>");
+                } else {
+                    addDate.setText(String.valueOf(u.getAddDate()));
+                }
+
                 if (u.getVezetekNev() == null) {
                     vezNev.clear();
                     vezNev.setPromptText("<Empty>");

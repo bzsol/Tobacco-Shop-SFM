@@ -41,10 +41,11 @@ public class Main extends Application {
             new Server().runTool("-tcp", "-web", "-ifNotExists");
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/loginpanel.fxml"));
             stage.setOnCloseRequest(e->{
-                e.consume();
-                System.out.println("The application closed, the database is closed too!");
-                System.exit(0);
-
+                PopupHandler.alertMsg = "Biztos vagy benne, hogy be szeretnéd zárni az alkalmazást?";
+                PopupHandler.showAlert(PopupHandler.Type.ALERT);
+                if (PopupHandler.resultType != PopupHandler.Result.ACCEPTED) {
+                    e.consume();
+                }
             });
 
 

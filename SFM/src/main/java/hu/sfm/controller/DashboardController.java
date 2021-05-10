@@ -104,7 +104,7 @@ public class DashboardController {
 
     @FXML
     private void onActionLogout (ActionEvent event) throws IOException {
-        PopupHandler.alertMsg="Biztos benne hogy ki akar jelentkezni?";
+        PopupHandler.alertMsg="Biztos vagy benne, hogy ki szeretnél jelentkezni?";
         PopupHandler.showAlert(PopupHandler.Type.ALERT);
         if(PopupHandler.resultType == PopupHandler.Result.ACCEPTED) {
             if (Main.actualPane != null) {

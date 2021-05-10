@@ -116,9 +116,6 @@ public class LoginController {
                     }
                 }
                 if (validate) {
-
-
-                    System.out.println("Login Succesfull!");
                     Stage stage = (Stage) loginBtn.getScene().getWindow();
                     stage.setHeight(936);
                     stage.setWidth(1616);

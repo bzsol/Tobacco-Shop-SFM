@@ -140,7 +140,7 @@ public class StorageController {
                     }
                     Stage stage = new Stage();
                     stage.initModality(Modality.APPLICATION_MODAL);
-                    stage.initStyle(StageStyle.UNDECORATED);
+                    stage.initStyle(StageStyle.TRANSPARENT);
                     stage.setTitle("Termék adatai");
                     stage.setScene(new Scene(root));
                     Stage primaryStage = (Stage) Main.getScene().getWindow();
