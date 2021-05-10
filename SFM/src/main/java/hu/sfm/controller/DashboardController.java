@@ -30,6 +30,7 @@ public class DashboardController {
         welcomeLabel.setLayoutX(420);
         welcomeLabel.setLayoutY(327.5);
         dashMenuLoaderPane.getChildren().add(welcomeLabel);
+        Main.actualPane = dashMenuLoaderPane;
     }
 
     @FXML
@@ -39,14 +40,7 @@ public class DashboardController {
         }
         Main.clickedMenuBtn = ((Button)event.getSource());
         Main.clickedMenuBtn.setStyle("-fx-background-color: rgb(15, 10, 85);");
-        if (Main.actualPane == null) {
-            Main.actualPane = dashMenuLoaderPane;
-        }
-        else
-        {
-            Main.actualPane.getChildren().remove(0);
-        }
-
+        Main.actualPane.getChildren().remove(0);
         Pane loadNewPane = FXMLLoader.load(getClass().getResource("/fxml/account.fxml"));
         Main.actualPane.getChildren().add(loadNewPane);
     }
@@ -60,12 +54,7 @@ public class DashboardController {
             }
             Main.clickedMenuBtn = ((Button)event.getSource());
             Main.clickedMenuBtn.setStyle("-fx-background-color: rgb(15, 10, 85);");
-            if (Main.actualPane == null) {
-                Main.actualPane = dashMenuLoaderPane;
-            }
-            else{
-                Main.actualPane.getChildren().remove(0);
-            }
+            Main.actualPane.getChildren().remove(0);
             Pane loadNewPane = FXMLLoader.load(getClass().getResource("/fxml/purchasepanel.fxml"));
             Main.mainBuyMenuPane = loadNewPane;
             dashMenuLoaderPane.getChildren().add(loadNewPane);
@@ -83,12 +72,7 @@ public class DashboardController {
         }
         Main.clickedMenuBtn = ((Button)event.getSource());
         Main.clickedMenuBtn.setStyle("-fx-background-color: rgb(15, 10, 85);");
-        if (Main.actualPane == null) {
-            Main.actualPane = dashMenuLoaderPane;
-        }
-        else{
-            Main.actualPane.getChildren().remove(0);
-        }
+        Main.actualPane.getChildren().remove(0);
         Pane loadNewPane = FXMLLoader.load(getClass().getResource("/fxml/storage.fxml"));
         dashMenuLoaderPane.getChildren().add(loadNewPane);
     }
@@ -100,12 +84,7 @@ public class DashboardController {
         }
         Main.clickedMenuBtn = ((Button)event.getSource());
         Main.clickedMenuBtn.setStyle("-fx-background-color: rgb(15, 10, 85);");
-        if (Main.actualPane == null) {
-            Main.actualPane = dashMenuLoaderPane;
-        }
-        else{
-            Main.actualPane.getChildren().remove(0);
-        }
+        Main.actualPane.getChildren().remove(0);
         Pane loadNewPane = FXMLLoader.load(getClass().getResource("/fxml/incomepanel.fxml"));
         dashMenuLoaderPane.getChildren().add(loadNewPane);
     }
@@ -117,12 +96,7 @@ public class DashboardController {
         }
         Main.clickedMenuBtn = ((Button)event.getSource());
         Main.clickedMenuBtn.setStyle("-fx-background-color: rgb(15, 10, 85);");
-        if (Main.actualPane == null) {
-            Main.actualPane = dashMenuLoaderPane;
-        }
-        else{
-            Main.actualPane.getChildren().remove(0);
-        }
+        Main.actualPane.getChildren().remove(0);
         Pane loadNewPane = FXMLLoader.load(getClass().getResource("/fxml/helper.fxml"));
         dashMenuLoaderPane.getChildren().add(loadNewPane);
 
@@ -133,6 +107,9 @@ public class DashboardController {
         PopupHandler.alertMsg="Biztos benne hogy ki akar jelentkezni?";
         PopupHandler.showAlert(PopupHandler.Type.ALERT);
         if(PopupHandler.resultType == PopupHandler.Result.ACCEPTED) {
+            if (Main.actualPane != null) {
+                dashMenuLoaderPane.getChildren().remove(0);
+            }
             Stage stage = (Stage) dashMenuLoaderPane.getScene().getWindow();
             stage.setHeight(400);
             stage.setWidth(640);

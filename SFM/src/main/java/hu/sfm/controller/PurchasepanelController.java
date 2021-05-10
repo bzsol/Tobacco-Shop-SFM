@@ -59,6 +59,7 @@ public class PurchasepanelController {
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.initStyle(StageStyle.TRANSPARENT);
+        stage.setTitle("Kosár");
         Stage primaryStage = (Stage) Main.getScene().getWindow();
         stage.setX(primaryStage.getX() + LOADER_PANE_WIDTH_DIFF + (primaryStage.getWidth() - LOADER_PANE_WIDTH_DIFF) / 2 - CART_WIDTH_CENTER);
         stage.setY(primaryStage.getY() + (primaryStage.getHeight() - LOADER_PANE_HEIGHT_DIFF) / 2 - CART_HEIGHT_CENTER);

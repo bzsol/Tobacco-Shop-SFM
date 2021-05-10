@@ -130,11 +130,12 @@ public class IncomeController {
             int bevetel =0;
 
             for (Bevetel b : bDAO.getBevetelek()){
-                if(((from<=Date.from(b.getKasszaZaras().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime())) &&
-                        ((to>=Date.from(b.getKasszaNyitas().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime()))){
-                    bevetel+=b.getOsszeg();
+                if (b.getKasszaZaras() != null) {
+                    if(((from<=Date.from(b.getKasszaZaras().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime())) &&
+                            ((to>=Date.from(b.getKasszaNyitas().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime()))){
+                        bevetel+=b.getOsszeg();
+                    }
                 }
-
             }
             bruttoRange.setText(CurrencyManager.createPattern(String.valueOf(bevetel)));
             nettoRange.setText(CurrencyManager.createPattern(String.valueOf(Math.round(bevetel*0.73))));

@@ -8,6 +8,7 @@ public class UserPassChecker {
     private static final String emailRegex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9-]+(.[a-z]{2,6})+$";
     private static final String nameRegex = "^[A-Z-ÁÉÍÓÖŐÚÜŰ][a-z-áéíóöőúüű]+$";
     private static final String dateRegex = "^((19|2[0-9])[0-9]{2})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$"; // yyyy-mm-dd 1900~3000
+    private static final String currencyRegex = "^[0-9]{1,3}( [0-9]{3})* Ft$";
 
     public static boolean passCheck(String password){
         Pattern pattern = Pattern.compile(passRegex);
@@ -32,6 +33,11 @@ public class UserPassChecker {
     public static boolean dateCheck(String Date){
         Pattern pattern = Pattern.compile(dateRegex);
         Matcher matcher = pattern.matcher(Date);
+        return matcher.matches();
+    }
+    public static boolean currencyCheck(String Currency){
+        Pattern pattern = Pattern.compile(currencyRegex);
+        Matcher matcher = pattern.matcher(Currency);
         return matcher.matches();
     }
 }

@@ -166,14 +166,12 @@
     -fx-border-width: 2px;
     -fx-border-radius: 50%;
     -fx-padding: 0;
-    -fx-focus-traversable: false;
 }
 
 #cartdelete, #stpsave, #stpdecline, #pssave, #psdecline, #notificationok, #alertok, #alertcancel, #storageproductmodificationtype {
     -fx-background-color: transparent;
     -fx-border-width: 2px;
     -fx-border-radius: 50%;
-    -fx-focus-traversable: false;
 }
 
 #accpw, #incomeopen, #incomeclose, #incomerequest, #cartcontinue, #psinc, #psdec, #storagevbox .button, #notificationok,
@@ -205,7 +203,6 @@
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-padding: 0;
-    -fx-focus-traversable: false;
 }
 
 #storagevbox .button, #cartvbox .button {
@@ -216,7 +213,6 @@
     -fx-text-family: Segoe UI;
     -fx-font-size: 14px;
     -fx-cursor: HAND;
-    -fx-focus-traversable: false;
 }
 
 #leftfield {
@@ -227,7 +223,6 @@
     -fx-text-fill: white;
     -fx-padding: 0;
     -fx-opacity: 1;
-    -fx-focus-traversable: false;
 }
 
 #rightfield {
@@ -239,11 +234,51 @@
     -fx-padding: 0;
     -fx-opacity: 1;
     -fx-alignment: BASELINE_RIGHT;
-    -fx-focus-traversable: false;
 }
 
-.separator:horizontal > .line {
-    -fx-background-color: #2199dd;
-    -fx-border-color: transparent transparent transparent -fx-shadow-highlight-color,
-            transparent transparent transparent -fx-text-box-border;
+#text-wrapper {
+    -fx-pref-width: 1350px;
+    -fx-pref-height: 20px;
+    -fx-padding: 0px 0px 0px 20px;
+}
+
+#sub-wrapper {
+    -fx-pref-width: 1350px;
+    -fx-pref-height: 20px;
+    -fx-padding: 0px 0px 0px 30px;
+}
+
+#description-wrapper {
+    -fx-pref-width: 1350px;
+    -fx-pref-height: 70px;
+    -fx-padding: 10px 0px 10px 30px;
+}
+
+#description-wrapper .text-area {
+    -fx-background-color: transparent;
+    -fx-font-family: Segoe UI;
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+    -fx-pref-height: 70px;
+    -fx-pref-width: 1350px;
+    -fx-padding: 0px 0px 0px 5px;
+    -fx-opacity: 1;
+}
+
+#description-wrapper .text-area .content{
+    -fx-background-color: transparent;
+}
+
+#paragraph, #creators {
+    -fx-font-family: Segoe UI;
+    -fx-font-size: 20px;
+    -fx-fill: #2199dd;
+    -fx-font-weight: bold;
+}
+
+#subtitle {
+    -fx-font-family: Segoe UI;
+    -fx-font-size: 16px;
+    -fx-fill: white;
+    -fx-underline: true;
 }

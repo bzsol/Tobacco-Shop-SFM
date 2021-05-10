@@ -141,6 +141,7 @@ public class StorageController {
                     Stage stage = new Stage();
                     stage.initModality(Modality.APPLICATION_MODAL);
                     stage.initStyle(StageStyle.UNDECORATED);
+                    stage.setTitle("Termék adatai");
                     stage.setScene(new Scene(root));
                     Stage primaryStage = (Stage) Main.getScene().getWindow();
                     stage.setX(primaryStage.getX() + LOADER_PANE_WIDTH_DIFF + (primaryStage.getWidth() - LOADER_PANE_WIDTH_DIFF) / 2 - PRODUCTSELECTION_WIDTH_CENTER);

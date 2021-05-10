@@ -59,9 +59,9 @@ public class Main extends Application {
             scene.setRoot(loadFXML(fxml));
             Stage stage = (Stage) scene.getWindow();
             if (fxml.equals("loginpanel")) {
-                stage.setTitle("Login");
+                stage.setTitle("Bejelentkezés");
             } else if (fxml.equals("registrationpanel")) {
-                stage.setTitle("Registration");
+                stage.setTitle("Regisztráció");
             }
         }
 

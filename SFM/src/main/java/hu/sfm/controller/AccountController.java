@@ -49,6 +49,14 @@ public class AccountController {
     @FXML
     private TextField birthDate;
 
+    private String initVeznev;
+
+    private String initKernev;
+
+    private String initEmail;
+
+    private String initBirthDate;
+
     @FXML
     private void initialize() {
         UserDAO userDAO = new JPAUserDAO();
@@ -59,8 +67,6 @@ public class AccountController {
         permissionChoiceBox.getItems().addAll(Permission.values());
 
         loader(Main.actUser.getUsername());
-
-
 
         newPass.setStyle("-fx-background-color: transparent;-fx-background-insets:0;-fx-border-width: 0px 0px 2px 0px;-fx-border-color: #2199dd;-fx-text-fill: white;-fx-padding:0;-fx-alignment: BASELINE_RIGHT;");
         newPass.setStyle("-fx-background-color: transparent;-fx-background-insets:0;-fx-border-width: 0px 0px 2px 0px;-fx-border-color: #2199dd;-fx-text-fill: white;-fx-padding:0;-fx-alignment: BASELINE_RIGHT;");
@@ -138,42 +144,57 @@ public class AccountController {
 
             if(u.getUsername().equals(accountChoiceBox.getValue()))
             {
-                if(!UserPassChecker.NameCheck(vezNev.getText())){
-                    hozza_adjam=false;
+                if (UserPassChecker.NameCheck(vezNev.getText())) {
+                    if(Main.actUser.getVezetekNev() == null || !u.getVezetekNev().equals(vezNev.getText())){
+                        vezNev.setStyle("-fx-border-color: #2199dd; -fx-border-width:  0px 0px 2px 0px;-fx-background-color:  transparent;-fx-text-fill: white;-fx-padding: 0");
+                        u.setVezetekNev(vezNev.getText());
+                    }
+                } else if (!initVeznev.equals(vezNev.getText())) {
+                    hozza_adjam = false;
                     vezNev.setStyle("-fx-border-color:  rgb(220, 40, 40); -fx-border-width:  0px 0px 2px 0px;-fx-background-color:  transparent;-fx-text-fill: white;-fx-padding: 0");
-                    //System.out.println("nem bírod leírni a neved rendesen te gyökér?");
                 }
-                if(!UserPassChecker.NameCheck((kerNev.getText()))){
-                    hozza_adjam=false;
+
+                if (UserPassChecker.NameCheck((kerNev.getText()))) {
+                    if(Main.actUser.getKeresztNev() == null || !u.getKeresztNev().equals(kerNev.getText())){
+                        kerNev.setStyle("-fx-border-color: #2199dd; -fx-border-width:  0px 0px 2px 0px;-fx-background-color:  transparent;-fx-text-fill: white;-fx-padding: 0");
+                        u.setKeresztNev(kerNev.getText());
+                    }
+                } else if (!initKernev.equals(kerNev.getText())) {
+                    hozza_adjam = false;
                     kerNev.setStyle("-fx-border-color:  rgb(220, 40, 40); -fx-border-width:  0px 0px 2px 0px;-fx-background-color:  transparent;-fx-text-fill: white;-fx-padding: 0");
                 }
-                if(!UserPassChecker.EmailChecker(email.getText())){
-                    hozza_adjam=false;
-                    email.setStyle("-fx-alignment:  BASELINE_RIGHT;-fx-border-color:  rgb(220, 40, 40); -fx-border-width:  0px 0px 2px 0px;-fx-background-color:  transparent;-fx-text-fill: white;-fx-padding: 0");
-                    //System.out.println("nem jó az email te gyökér");
+
+                if (UserPassChecker.EmailChecker(email.getText())) {
+                    if(Main.actUser.getEmail() == null || !u.getEmail().equals(email.getText())){
+                        email.setStyle("-fx-alignment:  BASELINE_RIGHT;-fx-border-color: #2199dd; -fx-border-width:  0px 0px 2px 0px;-fx-background-color:  transparent;-fx-text-fill: white;-fx-padding: 0");
+                        u.setEmail(email.getText());
+                    }
+                } else if (!initEmail.equals(email.getText())) {
+                    hozza_adjam = false;
+                    email.setStyle("-fx-border-color:  rgb(220, 40, 40); -fx-border-width:  0px 0px 2px 0px;-fx-background-color:  transparent;-fx-text-fill: white;-fx-padding: 0");
                 }
 
-                if(!UserPassChecker.dateCheck(birthDate.getText())){
-                    hozza_adjam=false;
-                    birthDate.setStyle("-fx-opacity:1;-fx-alignment:  BASELINE_RIGHT;-fx-border-color:  rgb(220, 40, 40); -fx-border-width:  0px 0px 2px 0px;-fx-background-color:  transparent;-fx-text-fill: white;-fx-padding: 0");
-                    //System.out.println("Ennyre balfasz vagy hogy nem tudod leírni a saját születési dátumod?");
+                if (UserPassChecker.dateCheck(birthDate.getText())) {
+                    if(Main.actUser.getBirthDate() == null || !String.valueOf(u.getBirthDate()).equals(birthDate.getText())){
+                        birthDate.setStyle("-fx-opacity:1;-fx-alignment:  BASELINE_RIGHT;-fx-border-color: #2199dd; -fx-border-width:  0px 0px 2px 0px;-fx-background-color:  transparent;-fx-text-fill: white;-fx-padding: 0");
+                        u.setBirthDate(LocalDate.parse(birthDate.getText()));
+                    }
+                } else if (!initBirthDate.equals(birthDate.getText())) {
+                    hozza_adjam = false;
+                    birthDate.setStyle("-fx-border-color:  rgb(220, 40, 40); -fx-border-width:  0px 0px 2px 0px;-fx-background-color:  transparent;-fx-text-fill: white;-fx-padding: 0");
                 }
 
-                if(hozza_adjam){
-                    u.setVezetekNev(vezNev.getText());
-                    vezNev.setStyle("-fx-border-color: #2199dd; -fx-border-width:  0px 0px 2px 0px;-fx-background-color:  transparent;-fx-text-fill: white;-fx-padding: 0");
-                    u.setKeresztNev(kerNev.getText());
-                    kerNev.setStyle("-fx-border-color: #2199dd; -fx-border-width:  0px 0px 2px 0px;-fx-background-color:  transparent;-fx-text-fill: white;-fx-padding: 0");
-                    u.setEmail(email.getText());
-                    email.setStyle("-fx-alignment:  BASELINE_RIGHT;-fx-border-color: #2199dd; -fx-border-width:  0px 0px 2px 0px;-fx-background-color:  transparent;-fx-text-fill: white;-fx-padding: 0");
-                    u.setBirthDate(LocalDate.parse(birthDate.getText()));
-                    birthDate.setStyle("-fx-opacity:1;-fx-alignment:  BASELINE_RIGHT;-fx-border-color: #2199dd; -fx-border-width:  0px 0px 2px 0px;-fx-background-color:  transparent;-fx-text-fill: white;-fx-padding: 0");
-                    u.setAddDate(LocalDate.parse(addDate.getText()));
-                    u.setSallary(Integer.parseInt(CurrencyManager.removeTextFieldPattern(salary.getText())));
+                if (u.getPerm() != permissionChoiceBox.getValue()) {
                     u.setPerm(permissionChoiceBox.getValue());
-                    userDAO.updateUser(u);
-                } else {
-                    PopupHandler.alertMsg = "A megadott adatok nem felelnek meg a szükséges kritériumoknak!";
+                }
+
+                if (UserPassChecker.currencyCheck(salary.getText()) && Integer.parseInt(CurrencyManager.removeTextFieldPattern(salary.getText())) != u.getSallary()) {
+                    u.setSallary(Integer.parseInt(CurrencyManager.removeTextFieldPattern(salary.getText())));
+                }
+
+                userDAO.updateUser(u);
+                if (!hozza_adjam){
+                    PopupHandler.alertMsg = "A megadott adat(ok) nem felel(nek) meg a szükséges kritériumoknak!";
                     PopupHandler.showAlert(PopupHandler.Type.NOTIFICATION);
                 }
 
@@ -191,16 +212,45 @@ public class AccountController {
 
         UserDAO userDAO = new JPAUserDAO();
 
-
         accountChoiceBox.setValue(actuallyUser);
         for (User u : userDAO.getUser() ){
             if(u.getUsername().equals(actuallyUser)){
                 addDate.setText(String.valueOf(LocalDate.now()));
-                vezNev.setText(u.getVezetekNev() == null?"<Empty>": u.getVezetekNev());
-                kerNev.setText(u.getKeresztNev() == null ?"<Empty>": u.getKeresztNev());
-                email.setText(u.getEmail() == null ?"<Empty>": u.getEmail());
+                if (u.getVezetekNev() == null) {
+                    vezNev.clear();
+                    vezNev.setPromptText("<Empty>");
+                } else {
+                    vezNev.setText(u.getVezetekNev());
+                }
+
+                if (u.getKeresztNev() == null) {
+                    kerNev.clear();
+                    kerNev.setPromptText("<Empty>");
+                } else {
+                    kerNev.setText(u.getKeresztNev());
+                }
+
+                if (u.getEmail() == null) {
+                    email.clear();
+                    email.setPromptText("<Empty>");
+                } else {
+                    email.setText(u.getEmail());
+                }
+
                 userName.setText(u.getUsername());
-                birthDate.setText(u.getBirthDate() == null ?"yyyy-mm-dd": String.valueOf(u.getBirthDate()));
+
+                if (u.getBirthDate() == null) {
+                    birthDate.clear();
+                    birthDate.setPromptText("YYYY-MM-DD");
+                } else {
+                    vezNev.setText(String.valueOf(u.getBirthDate()));
+                }
+
+                initVeznev = vezNev.getText();
+                initKernev = kerNev.getText();
+                initEmail = email.getText();
+                initBirthDate = birthDate.getText();
+
                 salary.setText(u.getSallary() == 0 ? "0 Ft":CurrencyManager.createPattern(String.valueOf(u.getSallary())));
                 regDate.setText(String.valueOf(u.getregDate()));
                 addDate.setText(u.getAddDate() == null ?String.valueOf(LocalDate.now()): String.valueOf(u.getAddDate()));

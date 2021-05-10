@@ -1,31 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
 <AnchorPane prefHeight="695.0" prefWidth="1360.0" style="-fx-background-color: #121212;" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.sfm.controller.HelperController">
    <children>
-      <ScrollPane hbarPolicy="NEVER" prefHeight="400.0" prefWidth="1360.0" style="-fx-background-color: transparent;">
+      <ScrollPane hbarPolicy="NEVER" layoutY="150.0" prefHeight="500.0" prefWidth="1360.0" style="-fx-background-color: transparent;">
          <content>
             <TextFlow prefHeight="400.0" prefWidth="1360.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fiók" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Árukiadás" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bevételek" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Raktárkészlet" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Személyes adatok" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Felhasználói adatok" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kosár" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Termék választás" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Raktár termék kezelés" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Napi bevétel" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bevétel szűrése" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Teljes bevétel" />
+                  <TextFlow id="text-wrapper" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Text id="paragraph" strokeType="INSIDE" strokeWidth="0.0" text="Fiók" />
+                     </children>
+                  </TextFlow>
+                  <TextFlow id="sub-wrapper" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Text id="subtitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Személyes adatok" />
+                     </children>
+                  </TextFlow>
+                  <TextFlow id="description-wrapper" prefHeight="99.0" prefWidth="200.0">
+                     <children>
+                        <TextArea disable="true" editable="false" prefHeight="200.0" prefWidth="200.0" text="Ezen menüpont alatt változtathatóak a felhasználó személyes adatai.&#10;Az adatok változtatásának sikeressége esetén a rendszer ezt egy külön értesítésben jelzi. &#10;Amennyiben a módósítás sikertelen, abban az esetben a rendszer jelzi azokat a mezőket, ahol a módosítás a kritériumoknak nem megfelelő.&#10;" />
+                     </children>
+                  </TextFlow>
+                  <TextFlow id="sub-wrapper" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Text id="subtitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Felhasználói adatok" />
+                     </children>
+                  </TextFlow>
+                  <TextFlow id="description-wrapper" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TextArea disable="true" editable="false" prefHeight="200.0" prefWidth="200.0" text="A felhasználói adatok menüpont alatt változtathatóak meg a fiókra vonatkozó adatok.&#10;A változtatásokat minden esetben el kell menteni! Vannak azonban olyan mezők, amelyeket csak adminisztrátori jogosultsággal lehet szerkeszteni.&#10;A fiók törlését csak és kizárólag admin hajthatja végre, illetve adminisztrátori jogosultsággal minden nyilvántartásba vett felhasználó adata megtekinthető és szerkeszthető.&#10;" />
+                     </children>
+                  </TextFlow>
+                  <TextFlow id="text-wrapper" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Text id="paragraph" strokeType="OUTSIDE" strokeWidth="0.0" text="Árukiadás" />
+                     </children>
+                  </TextFlow>
+                  <TextFlow id="sub-wrapper" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Text id="subtitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Kosár" />
+                     </children>
+                  </TextFlow>
+                  <TextFlow id="description-wrapper" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TextArea disable="true" editable="false" prefHeight="200.0" prefWidth="200.0" text="A kosárban megtekinthető minden olyan termék, amely az adott vásárlás részét képezi. A termékekről a megadott mennyiség, az adott termék ára a mennyiség függvényében, valamint a teljes fizetendő összeg.&#10;Ezek a termékek külön-külön, vagy akár egyszerre is teljesen eltávolíthatóak, ha arra szükség van.&#10;A vásárlás folytatható, illetve be is fejezhető. Befejezés esetén a vásárlás azonnal hozzáadódik a bevételekhez és a raktárból is kivételre kerülnek a megadott termékek." />
+                     </children>
+                  </TextFlow>
+                  <TextFlow id="sub-wrapper" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Text id="subtitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Termék választás" />
+                     </children>
+                  </TextFlow>
+                  <TextFlow id="description-wrapper" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TextArea disable="true" editable="false" prefHeight="200.0" prefWidth="200.0" text="A termékválasztás csak is akkor lehetséges, ha a kassza nyitott állapotban van, erre külön a rendszer is figyelmezteti a felhasználót.&#10;Termékválasztásnál a mennyiség megadható konkrétan, vagy növelhető, illetve csökkenthető a mennyiség mellett található gombokkal. Ezen gombok 1-el változtatják a mennyiséget.&#10;Biztonsági okokból egyszerre csak 100 a maximálisan megengedett mennyiség, de többszöri bevitellel hozzáadódik a termék a kosárhoz. Természetesen csak mentés esetén." />
+                     </children>
+                  </TextFlow>
+                  <TextFlow id="text-wrapper" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Text id="paragraph" strokeType="OUTSIDE" strokeWidth="0.0" text="Bevételek" />
+                     </children>
+                  </TextFlow>
+                  <TextFlow id="sub-wrapper" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Text id="subtitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Napi bevétel" />
+                     </children>
+                  </TextFlow>
+                  <TextFlow id="description-wrapper" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TextArea disable="true" editable="false" prefHeight="200.0" prefWidth="200.0" text="A napi bevétel a kasszanyitás és kasszazárás közötti időszakot jelzi, és az ezen időszakban lévő forgalmat tünteti fel bruttó, illetve nettó értékben.&#10;A kassza állapota is megtekinthető a menüpont alatt, valamint itt kezelhető a kassza is.&#10;A kassza zárása esetén a rendszer figyelmezteti a felhasználót, hogy biztosan le szeretné-e zárni a kasszát." />
+                     </children>
+                  </TextFlow>
+                  <TextFlow id="sub-wrapper" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Text id="subtitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Bevétel szűrése" />
+                     </children>
+                  </TextFlow>
+                  <TextFlow id="description-wrapper" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TextArea disable="true" editable="false" prefHeight="200.0" prefWidth="200.0" text="A bevétel szűrésénél egy adott időszak bevételeit tekinthetjük meg.&#10;Ennek lekérdezésére szolgál a lekérés gomb, illetve az időpont kiválasztható a gomb fölött található dátum mezőkkel.&#10;A rendszer természetesen csak valós időintervallumot képes kezelni, amennyiben az intervallum nem megfelelő, abban az esetben a rendszer figyelmeztet. Sikeres lekérdezés esetén az összeg megjelenik." />
+                     </children>
+                  </TextFlow>
+                  <TextFlow id="sub-wrapper" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Text id="subtitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Teljes bevétel" />
+                     </children>
+                  </TextFlow>
+                  <TextFlow id="description-wrapper" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TextArea disable="true" editable="false" prefHeight="200.0" prefWidth="200.0" text="A teljes bevétel a rendszer üzembeállításától számított teljes időszakot mutatja.&#10;Természetesen csak abban az esetben felel meg az adat a valóságnak, ha a rendszerbe minden vásárlást bevittünk.&#10;Az adatok automatikusan megjelennek bruttó, illetve nettó bontásban minden egyes alkalommal, amikor szeretnénk megtekinteni a bevételeinket.&#10;" />
+                     </children>
+                  </TextFlow>
+                  <TextFlow id="text-wrapper" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Text id="paragraph" strokeType="OUTSIDE" strokeWidth="0.0" text="Raktárkészlet" />
+                     </children>
+                  </TextFlow>
+                  <TextFlow id="sub-wrapper" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Text id="subtitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Raktár termék kezelés" />
+                     </children>
+                  </TextFlow>
+                  <TextFlow id="description-wrapper" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TextArea disable="true" editable="false" prefHeight="200.0" prefWidth="200.0" text="A raktárban minden termék elérhető, rendezhető név és mennyiség alapján, illetve szűrhető.&#10;A termékek külön-külön szerkeszthetőek, mennyiség és árváltoztatás lehetséges. Amikor a mennyiség fölött &quot;Hozzáadás&quot; felirat található, akkor növeljük a mennyiséget, ellenkező esetben csökkentjük.&#10;Az ár változtatását csak adminisztrátori jogosultsággal lehet végrehajtani. Ebben az esetben figyelni kell a nagyon pontos ármegadásra, ahogyan a rendszer is feltünteti." />
+                     </children>
+                  </TextFlow>
                </children>
             </TextFlow>
          </content>
       </ScrollPane>
+      <Text id="creators" layoutX="545.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Készítők: Filep Fanni Kiara, Berecz Zsolt, Göőz Richárd, Koszta Benjámin, Veres József" wrappingWidth="800.130859375" />
+      <Label layoutX="15.0" layoutY="12.0" text="Súgó" textFill="#2199dd">
+         <font>
+            <Font name="Segoe UI Bold" size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
