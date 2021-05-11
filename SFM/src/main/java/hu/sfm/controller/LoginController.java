@@ -108,7 +108,7 @@ public class LoginController {
             }else {
 
                 for (User u : uDAO.getUser()) {
-                    if (u.getUsername().contains(userName) && u.getPassword().contains(Encryption.visszafejt(passWord))) {
+                    if (u.getUsername().equals(userName) && Encryption.visszafejt(u.getPassword()).equals(passWord)) {
 
                         validate = true;
                         Main.actUser=u;
